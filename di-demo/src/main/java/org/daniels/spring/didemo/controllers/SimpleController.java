@@ -7,6 +7,6 @@ public class SimpleController {
 
     public String hello() {
         System.out.println("Hello");
-        return "Hello";
+        return "Hello - simple controller";
     }
 }
