@@ -4,9 +4,6 @@ import org.daniels.springframework.services.GreetingService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
-/**
- * Created by jt on 5/24/17.
- */
 @Controller
 public class ConstructorInjectedController {
 
