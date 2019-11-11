@@ -1,4 +1,4 @@
 package org.daniels.spring.dspetclinic.model;
 
-public class Vet {
+public class Vet extends Person {
 }

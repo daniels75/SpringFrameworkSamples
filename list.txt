@@ -4,3 +4,4 @@
 3. spring-petclinic - SpringBoot + Thymeleaf
 4. practise
 5. spring5-di-demo-bean-life-cycle
+6. ds-pet-clinic
