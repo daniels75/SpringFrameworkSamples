@@ -1,6 +1,4 @@
-package org.daniels.spring.dspetclinic;
-
-import org.daniels.spring.dspetclinic.model.Owner;
+package org.daniels.spring.dspetclinic.model;
 
 import java.time.LocalDate;
 

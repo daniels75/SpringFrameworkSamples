@@ -1,4 +1,4 @@
-package org.daniels.spring.dspetclinic;
+package org.daniels.spring.dspetclinic.model;
 
 public class PetType {
     private String name;
