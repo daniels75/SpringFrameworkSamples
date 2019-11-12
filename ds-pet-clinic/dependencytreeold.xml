@@ -122,3 +122,20 @@ Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-d
 [INFO] ------------------------------------------------------------------------
 
 c:\daniels\SpringFramework\ds-pet-clinic>
+
+---------
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+        <exclusions>
+            <exclusion>
+                <groupId>org.junit.vintage</groupId>
+                <artifactId>junit-vintage-engine</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+	
+	
+---------	
