@@ -11,16 +11,17 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <modules>
-        <module>pet-clinic-data</module>
-        <module>pet-clinic-web</module>
-    </modules>
-
     <groupId>org.daniels.spring</groupId>
     <artifactId>ds-pet-clinic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ds-pet-clinic</name>
     <description>Pet clinic applicaiton</description>
+
+    <modules>
+        <module>pet-clinic-data</module>
+        <module>pet-clinic-web</module>
+    </modules>
+
 
     <properties>
         <java.version>1.8</java.version>
