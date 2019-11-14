@@ -1,4 +1,4 @@
-package services;
+package org.daniels.spring.dspetclinic.services;
 
 import java.util.Set;
 

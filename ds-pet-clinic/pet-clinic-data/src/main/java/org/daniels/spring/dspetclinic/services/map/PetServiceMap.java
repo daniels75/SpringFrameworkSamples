@@ -1,7 +1,7 @@
-package services.map;
+package org.daniels.spring.dspetclinic.services.map;
 
 import org.daniels.spring.dspetclinic.model.Pet;
-import services.CrudService;
+import org.daniels.spring.dspetclinic.services.CrudService;
 
 import java.util.Set;
 

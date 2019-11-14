@@ -1,4 +1,4 @@
-package services.map;
+package org.daniels.spring.dspetclinic.services.map;
 
 import java.util.HashMap;
 import java.util.HashSet;
