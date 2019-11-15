@@ -7,8 +7,14 @@ import org.daniels.spring.didemo.controllers.SimpleController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan(basePackages =
+        {
+                "org.daniels.spring.didemo.services",
+                "org.daniels.spring.didemo.controllers"
+        })
 public class DiDemoApplication {
 
     public static void main(String[] args) {
