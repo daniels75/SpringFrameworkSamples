@@ -1,6 +1,7 @@
 package org.daniels.spring.demo.factory.controllers;
 
 import org.daniels.spring.demo.factory.services.GreetingService;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 /**
