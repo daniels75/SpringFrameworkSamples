@@ -4,6 +4,7 @@ import org.daniels.spring.demo.factory.controllers.ConstructorInjectedController
 import org.daniels.spring.demo.factory.controllers.GetterInjectedController;
 import org.daniels.spring.demo.factory.controllers.MyController;
 import org.daniels.spring.demo.factory.controllers.PropertyInjectedController;
+import org.daniels.spring.demo.factory.example.FakeDatasource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -20,5 +21,8 @@ public class DiDemoApplication {
 		System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(GetterInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+
+		FakeDatasource fakeDatasource = (FakeDatasource)ctx.getBean(FakeDatasource.class);
+		System.out.println(String.format("user: %s passwd: %s url: %s", fakeDatasource.getUsername(), fakeDatasource.getPassword(), fakeDatasource.getUrl()));
 	}
 }

@@ -1,6 +1,6 @@
 package org.daniels.spring.demo.factory.example;
 
-public class FakeDatabaseService {
+public class FakeDatasource {
     private String username;
     private String password;
     private String url;
