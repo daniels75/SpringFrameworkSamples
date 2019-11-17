@@ -1,11 +1,13 @@
 package org.daniels.spring.demo.factory.config;
 
 import org.daniels.spring.demo.factory.example.FakeDatasource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.env.Environment;
 
 @Configuration
 @PropertySource("classpath:datasource.properties")
@@ -18,12 +20,16 @@ public class PropertyConfig {
     @Value("${db.url}")
     private String url;
 
+    @Autowired
+    Environment env;
+
     @Bean
     public FakeDatasource fakeDatasource() {
         FakeDatasource fakeDbSource = new FakeDatasource();
         fakeDbSource.setUsername(username);
         fakeDbSource.setPassword(password);
         fakeDbSource.setUrl(url);
+        fakeDbSource.setUrlFromEnv(env.getProperty("urlEnv"));
         return fakeDbSource;
     }
 

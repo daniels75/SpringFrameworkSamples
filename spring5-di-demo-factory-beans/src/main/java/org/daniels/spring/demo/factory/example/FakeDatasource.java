@@ -4,6 +4,7 @@ public class FakeDatasource {
     private String username;
     private String password;
     private String url;
+    private String urlFromEnv;
 
     public String getUsername() {
         return username;
@@ -27,5 +28,13 @@ public class FakeDatasource {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getUrlFromEnv() {
+        return urlFromEnv;
+    }
+
+    public void setUrlFromEnv(String urlFromEnv) {
+        this.urlFromEnv = urlFromEnv;
     }
 }

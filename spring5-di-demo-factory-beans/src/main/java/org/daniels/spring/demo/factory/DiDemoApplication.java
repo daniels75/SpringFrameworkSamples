@@ -24,5 +24,8 @@ public class DiDemoApplication {
 
 		FakeDatasource fakeDatasource = (FakeDatasource)ctx.getBean(FakeDatasource.class);
 		System.out.println(String.format("user: %s passwd: %s url: %s", fakeDatasource.getUsername(), fakeDatasource.getPassword(), fakeDatasource.getUrl()));
+
+		System.out.println(String.format("url from env: %s", fakeDatasource.getUrlFromEnv()));
+
 	}
 }
