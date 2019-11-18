@@ -12,11 +12,16 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 
 @Configuration
+// 1st option from files
 //@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
-@PropertySources({
-        @PropertySource("classpath:datasource.properties"),
-        @PropertySource("classpath:jms.properties")
-})
+
+// 2nd option from files
+//@PropertySources({
+//        @PropertySource("classpath:datasource.properties"),
+//        @PropertySource("classpath:jms.properties")
+//})
+
+// 3rd option from application.properties
 public class PropertyConfig {
 
     @Value("${db.username}")
@@ -26,15 +31,15 @@ public class PropertyConfig {
     @Value("${db.url}")
     private String url;
 
-    @Value("${db.jms.username}")
+    @Value("${jms.username}")
     private String jmsUsername;
-    @Value("${db.jms.password}")
+    @Value("${jms.password}")
     private String jmsPassword;
-    @Value("${db.jms.url}")
+    @Value("${jms.url}")
     private String jmsUrl;
 
-    @Autowired
-    Environment env;
+//    @Autowired
+//    Environment env;
 
     @Bean
     public FakeDatasource fakeDatasource() {
@@ -42,7 +47,7 @@ public class PropertyConfig {
         fakeDbSource.setUsername(username);
         fakeDbSource.setPassword(password);
         fakeDbSource.setUrl(url);
-        fakeDbSource.setUrlFromEnv(env.getProperty("urlEnv"));
+        //fakeDbSource.setUrlFromEnv(env.getProperty("urlEnv"));
         return fakeDbSource;
     }
 
