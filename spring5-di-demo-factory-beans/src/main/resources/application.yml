@@ -1,0 +1,4 @@
+jms:
+  username:  jmsTestUserFromApp
+  password:  jmsPasswd123FromApp
+  url:  jms.path.to.queue.app
