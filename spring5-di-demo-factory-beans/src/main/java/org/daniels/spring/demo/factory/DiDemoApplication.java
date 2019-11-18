@@ -5,6 +5,7 @@ import org.daniels.spring.demo.factory.controllers.GetterInjectedController;
 import org.daniels.spring.demo.factory.controllers.MyController;
 import org.daniels.spring.demo.factory.controllers.PropertyInjectedController;
 import org.daniels.spring.demo.factory.example.FakeDatasource;
+import org.daniels.spring.demo.factory.example.FakeJmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -26,6 +27,12 @@ public class DiDemoApplication {
 		System.out.println(String.format("user: %s passwd: %s url: %s", fakeDatasource.getUsername(), fakeDatasource.getPassword(), fakeDatasource.getUrl()));
 
 		System.out.println(String.format("url from env: %s", fakeDatasource.getUrlFromEnv()));
+
+		System.out.println("==================================");
+		FakeJmsBroker fakeJmsBroker = ctx.getBean(FakeJmsBroker.class);
+		System.out.println(String.format("user: %s passwd: %s url: %s",
+				fakeJmsBroker.getUsername(), fakeJmsBroker.getPassword(), fakeJmsBroker.getUrl()));
+
 
 	}
 }
