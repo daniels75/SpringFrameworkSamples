@@ -7,6 +7,7 @@
 6. ds-pet-clinic
 7. jokeapp
 8. spring5-di-demo-factory-beans
+9. spring5-recipe-app-spring-mvc-i18n
 
 [Commands]
 	* mvn spring-boot:help -Ddetail=true
