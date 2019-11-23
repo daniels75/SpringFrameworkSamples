@@ -43,11 +43,15 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
         log.error("#######");
+        log.error("count before: " + unitOfMeasureReactiveRepository.count().block().toString());
 
         loadCategories();
         loadUom();
         recipeRepository.saveAll(getRecipes());
         log.debug("Loading Bootstrap Data");
+
+        log.error("#######");
+        log.error("count after load: " + unitOfMeasureReactiveRepository.count().block().toString());
     }
 
     private void loadCategories(){
