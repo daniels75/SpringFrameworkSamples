@@ -9,6 +9,7 @@
 8. spring5-di-demo-factory-beans
 9. spring5-recipe-app-spring-mvc-i18n
 10. reactive-examples
+11. spring5-reactive-mongo-recipe-app
 
 [Commands]
 	* mvn spring-boot:help -Ddetail=true

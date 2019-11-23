@@ -94,7 +94,7 @@ public class ReactiveExamplesTest {
         Flux<Person> people = Flux.just(michael, fiona, sam, jesse);
 
         people.delayElements(Duration.ofSeconds(1))
-                .doOnComplete(countDownLatch::countDown)
+               .doOnComplete(countDownLatch::countDown)
                 .subscribe(person -> log.info(person.sayMyName()));
 
         countDownLatch.await();
