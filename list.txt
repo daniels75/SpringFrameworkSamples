@@ -8,6 +8,7 @@
 7. jokeapp
 8. spring5-di-demo-factory-beans
 9. spring5-recipe-app-spring-mvc-i18n
+10. reactive-examples
 
 [Commands]
 	* mvn spring-boot:help -Ddetail=true
