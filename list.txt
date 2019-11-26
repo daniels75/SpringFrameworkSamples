@@ -10,6 +10,7 @@
 9. spring5-recipe-app-spring-mvc-i18n
 10. reactive-examples
 11. spring5-reactive-mongo-recipe-app
+12. spring5-mvc-rest-bootstrap
 
 [Commands]
 	* mvn spring-boot:help -Ddetail=true
