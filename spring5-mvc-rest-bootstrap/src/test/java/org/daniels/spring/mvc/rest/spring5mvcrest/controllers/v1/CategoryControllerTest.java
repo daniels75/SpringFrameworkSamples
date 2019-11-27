@@ -1,7 +1,8 @@
 package guru.springfamework.controllers.v1;
 
-import guru.springfamework.api.v1.model.CategoryDTO;
-import guru.springfamework.services.CategoryService;
+import org.daniels.spring.mvc.rest.api.v1.model.CategoryDTO;
+import org.daniels.spring.mvc.rest.controllers.v1.CategoryController;
+import org.daniels.spring.mvc.rest.services.CategoryService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -39,7 +40,6 @@ public class CategoryControllerTest {
         MockitoAnnotations.initMocks(this);
 
         mockMvc = MockMvcBuilders.standaloneSetup(categoryController).build();
-
     }
 
     @Test
