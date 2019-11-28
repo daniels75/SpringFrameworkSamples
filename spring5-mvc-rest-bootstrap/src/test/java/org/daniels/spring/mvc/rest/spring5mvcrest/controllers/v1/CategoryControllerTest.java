@@ -1,8 +1,10 @@
 package org.daniels.spring.mvc.rest.spring5mvcrest.controllers.v1;
 
 import org.daniels.spring.mvc.rest.api.v1.model.CategoryDTO;
+import org.daniels.spring.mvc.rest.controllers.RestResponseEntityExceptionHandler;
 import org.daniels.spring.mvc.rest.controllers.v1.CategoryController;
 import org.daniels.spring.mvc.rest.services.CategoryService;
+import org.daniels.spring.mvc.rest.services.ResourceNotFoundException;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -39,7 +41,9 @@ public class CategoryControllerTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        mockMvc = MockMvcBuilders.standaloneSetup(categoryController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(categoryController)
+                .setControllerAdvice(new RestResponseEntityExceptionHandler())
+                .build();
 
     }
 
@@ -76,4 +80,16 @@ public class CategoryControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name", equalTo(NAME)));
     }
+
+
+    @Test
+    public void testGetByNameNotFound() throws Exception {
+
+        when(categoryService.getCategoryByName(anyString())).thenThrow(ResourceNotFoundException.class);
+
+        mockMvc.perform(get(CategoryController.BASE_URL + "/Foo")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
 }
