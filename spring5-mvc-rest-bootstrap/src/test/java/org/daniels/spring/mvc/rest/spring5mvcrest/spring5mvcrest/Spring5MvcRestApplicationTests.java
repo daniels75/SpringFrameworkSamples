@@ -1,6 +1,5 @@
-package guru.springfamework.spring5mvcrest;
+package org.daniels.spring.mvc.rest.spring5mvcrest.spring5mvcrest;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
