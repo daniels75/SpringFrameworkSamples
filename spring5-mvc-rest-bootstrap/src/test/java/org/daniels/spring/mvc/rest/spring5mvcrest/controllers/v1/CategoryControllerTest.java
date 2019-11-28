@@ -1,4 +1,4 @@
-package guru.springfamework.controllers.v1;
+package org.daniels.spring.mvc.rest.spring5mvcrest.controllers.v1;
 
 import org.daniels.spring.mvc.rest.api.v1.model.CategoryDTO;
 import org.daniels.spring.mvc.rest.controllers.v1.CategoryController;
