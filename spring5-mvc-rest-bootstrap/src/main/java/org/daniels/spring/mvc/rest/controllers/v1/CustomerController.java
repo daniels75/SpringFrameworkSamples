@@ -6,7 +6,6 @@ import org.daniels.spring.mvc.rest.api.v1.model.CustomerDTO;
 import org.daniels.spring.mvc.rest.api.v1.model.CustomerListDTO;
 import org.daniels.spring.mvc.rest.services.CustomerService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

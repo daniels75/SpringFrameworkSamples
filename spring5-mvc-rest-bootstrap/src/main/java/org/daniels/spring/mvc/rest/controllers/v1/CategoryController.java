@@ -4,8 +4,6 @@ import org.daniels.spring.mvc.rest.api.v1.model.CategoryDTO;
 import org.daniels.spring.mvc.rest.api.v1.model.CatorgoryListDTO;
 import org.daniels.spring.mvc.rest.services.CategoryService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
