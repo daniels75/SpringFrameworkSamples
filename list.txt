@@ -11,8 +11,13 @@
 10. reactive-examples
 11. spring5-reactive-mongo-recipe-app
 12. spring5-mvc-rest-bootstrap
+13. spring5-jms
 
 [Commands]
 	* mvn spring-boot:help -Ddetail=true
 	* mvn spring-boot:run -Dspring-boot.run.arguments=--debug
+	
+Swagger
+	http://localhost:8080/v2/api-docs
+	http://localhost:8080/swagger-ui.html
 
