@@ -10,6 +10,7 @@ import org.springframework.jms.support.converter.MessageType;
 public class JmsConfig {
 
     public static final String MY_QUEUE = "single-message-from-queue";
+    public static final String MY_SEND_AND_REPL = "send-and-repl-queue";
 
     @Bean
     public MessageConverter messageConverter() {
