@@ -2,17 +2,15 @@ package org.daniels.springboot.samples.destroy;
 
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PreDestroy;
-
 @Component
-public class PreDestroyBean {
+public class ShutdownHookExample {
 
-    @PreDestroy
-    public void destroy(){
+    public void destroy() {
         System.out.println(getClass().getSimpleName() + " has been destroyed");
     }
 
     public String info() {
         return "Simple message from: " + getClass().getSimpleName();
     }
+
 }

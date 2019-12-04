@@ -1,14 +1,13 @@
 package org.daniels.springboot.samples.destroy;
 
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PreDestroy;
-
 @Component
-public class PreDestroyBean {
+public class DisposableBeanExample implements DisposableBean {
 
-    @PreDestroy
-    public void destroy(){
+    @Override
+    public void destroy() throws  Exception{
         System.out.println(getClass().getSimpleName() + " has been destroyed");
     }
 
