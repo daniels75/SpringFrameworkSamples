@@ -7,10 +7,15 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.validation.annotation.Validated;
 
 @Configuration
 @PropertySource("classpath:configprops.properties")
+@PropertySources({
+        @PropertySource(value = "classpath:datasource.properties", ignoreResourceNotFound = true),
+        @PropertySource(value = "classpath:jms.properties", ignoreResourceNotFound = true)
+})
 @ConfigurationProperties(prefix = "mail")
 @Validated
 public class ConfigProperties {
