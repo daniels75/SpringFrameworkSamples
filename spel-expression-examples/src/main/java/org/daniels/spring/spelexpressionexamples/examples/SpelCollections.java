@@ -2,6 +2,7 @@ package org.daniels.spring.spelexpressionexamples.examples;
 
 import org.daniels.spring.spelexpressionexamples.entity.Car;
 import org.daniels.spring.spelexpressionexamples.entity.Engine;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,9 @@ public class SpelCollections {
     private Integer numberOfCarsInPark;
     @Value("#{engine}")
     private Engine engine;
+
+    @Autowired
+    private Car defaultCar;
 
     public Car getDriver1Car() {
         return driver1Car;
@@ -56,7 +60,9 @@ public class SpelCollections {
                 "driver1Car=" + driver1Car +
                 "\ndriver2Car=" + driver2Car +
                 "\nfirstCarInPark=" + firstCarInPark +
-                "\nnumberOfCarsInPark=" + numberOfCarsInPark
+                "\nnumberOfCarsInPark=" + numberOfCarsInPark +
+                "\ndefaultCar=" + defaultCar
+
                 ;
     }
 }

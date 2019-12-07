@@ -13,15 +13,11 @@ public class CarPark {
     private List<Car> cars = new ArrayList<>();
     private Map<String, Car> carsByDriver = new HashMap<>();
 
-    @Value("#{engine}")
-    private Engine defaultEngine;
-
     public CarPark() {
         Car model1 = new Car();
         model1.setMake("First company");
         model1.setModel("VW");
         model1.setYearOfProduction(1975);
-        model1.setEngine(defaultEngine);
 
         Car model2 = new Car();
         model2.setMake("Second company");
