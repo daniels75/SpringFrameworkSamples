@@ -2,6 +2,8 @@ package org.daniels.spring.todo.rest.v1;
 
 import com.google.common.collect.Lists;
 import org.daniels.spring.todo.domain.Todo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,12 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping(TodoResource.BASE_URL)
 public class TodoResource {
+
+    private final Logger log = LoggerFactory.getLogger(TodoResource.class);
+    public static final String BASE_URL = "/api/v1";
 
     @GetMapping("/todos")
     @ResponseStatus(HttpStatus.OK)
     public List<Todo> retrieveAll() {
+        log.info("REST request to retrieve all Todos");
+
         final List<Todo> list = createFakeTodoList();
         return list;
     }
