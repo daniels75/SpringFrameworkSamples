@@ -7,13 +7,13 @@
 3. [v] Add Rest Todo /api/v1/todos
 4. [v] Add GET for all Todos REST
 5. [v] Add POST REST
-5. [v] Add Todo Repository
-6. [v] Add fake data for Todo - create a bean
-6. [-] Add PUT REST
-7. [-] Add DELETE REST
-8. [-]  
----
-[...] Integrate Spring and Angular into one application
+6. [v] Add Todo Repository
+7. [v] Add fake data for Todo - create a bean
+8. [-] Add service for Todo
+9. [-] Add service to the Repository
+101. [-] Add PUT REST
+102. [-] Add DELETE REST
+103. [-] Integrate Spring and Angular into one application
 
 
 
