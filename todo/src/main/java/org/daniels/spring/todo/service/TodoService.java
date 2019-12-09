@@ -25,4 +25,8 @@ public class TodoService {
         return todoList;
     }
 
+    public Todo update(Todo todo) {
+        Todo createdTodo =  todoRepository.save(todo);
+        return createdTodo;
+    }
 }

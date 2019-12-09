@@ -45,4 +45,17 @@ public class TodoResource {
         return  createTodo;
     }
 
+    @PutMapping("/todos")
+    @ResponseStatus(HttpStatus.OK)
+    public Todo updateTodo(@RequestBody final Todo todo) {
+        log.debug("REST request to update Todo : {}", todo);
+        if (todo.getId() == null) {
+            throw new RuntimeException("Invalid id");
+        }
+
+        Todo createTodo = todoService.update(todo);
+
+        return  createTodo;
+    }
+
 }

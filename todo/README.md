@@ -11,9 +11,9 @@
 7. [v] Add fake data for Todo - create a bean
 8. [v] Add service for Todo
 9. [v] Add service to the Repository
-10. [-] First try with external Gui application e.g. Angular
-11. [-] Disable CORS
-101. [-] Add PUT REST
+10. [v] First try with external Gui application e.g. Angular
+11. [v] Disable CORS
+12. [v] Add PUT REST
 102. [-] Add DELETE REST
 103. [-] Integrate Spring and Angular into one application
 
@@ -24,9 +24,21 @@
 - POST - use Postman with
   - url: http://localhost:8080/api/v1/todos
   - payload:
+    ```
     {
     	"title": "simple title",
     	"description": "simple description",
     	"completed": false
     }
-    
+    ```
+- PUT
+    - url: http://localhost:8080/api/v1/todos
+    - payload: 
+    ```
+    {
+    	"id": 2,
+    	"title": "Updated second todo",
+    	"description": "This todo has been updated",
+    	"completed": false
+    }    
+    ```
