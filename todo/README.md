@@ -2,7 +2,7 @@
  Final goal is craete a Spring Backend server + Angular in the frontend
  
  
-1. [v] Create a application
+1. [v] Create an application
 2. [v] Add Todo Entity
 3. [v] Add Rest Todo /api/v1/todos
 4. [v] Add GET for all Todos REST
@@ -17,7 +17,7 @@
 
 
 
-##Rest
+## Rest
 - GET all todos http://localhost:8080/api/v1/todos
 - POST - use Postman with
   - url: http://localhost:8080/api/v1/todos

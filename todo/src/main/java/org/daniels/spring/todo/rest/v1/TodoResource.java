@@ -14,6 +14,7 @@ import java.util.List;
 public class TodoResource {
 
     private final Logger log = LoggerFactory.getLogger(TodoResource.class);
+
     public static final String BASE_URL = "/api/v1";
 
     @GetMapping("/todos")

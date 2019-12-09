@@ -25,7 +25,7 @@ public class Todo implements Serializable {
     private String description;
 
     @Column(name = "complete")
-    private Boolean complete;
+    private boolean complete;
 
     public Long getId() {
         return id;
@@ -61,16 +61,16 @@ public class Todo implements Serializable {
         this.description = description;
     }
 
-    public Boolean isComplete() {
+    public boolean isComplete() {
         return complete;
     }
 
-    public Todo complete(Boolean complete) {
+    public Todo complete(boolean complete) {
         this.complete = complete;
         return this;
     }
 
-    public void setComplete(Boolean complete) {
+    public void setComplete(boolean complete) {
         this.complete = complete;
     }
 
@@ -96,7 +96,7 @@ public class Todo implements Serializable {
                 "id=" + getId() +
                 ", title='" + getTitle() + "'" +
                 ", description='" + getDescription() + "'" +
-                ", complete='" + isComplete() + "'" +
+                ", complete=" + isComplete() + "" +
                 "}";
     }
 }
