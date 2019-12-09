@@ -5,8 +5,10 @@
 1. [v] Create a application
 2. [v] Add Todo Entity
 3. [v] Add Rest Todo /api/v1/todos
-4. [-] Add GET REST
-5. [-] Add POST REST
+4. [v] Add GET for all Todos REST
+5. [v] Add POST REST
+5. [v] Add Todo Repository
+6. [v] Add fake data for Todo - create a bean
 6. [-] Add PUT REST
 7. [-] Add DELETE REST
 8. [-]  
