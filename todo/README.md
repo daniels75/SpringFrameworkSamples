@@ -9,8 +9,10 @@
 5. [v] Add POST REST
 6. [v] Add Todo Repository
 7. [v] Add fake data for Todo - create a bean
-8. [-] Add service for Todo
-9. [-] Add service to the Repository
+8. [v] Add service for Todo
+9. [v] Add service to the Repository
+10. [-] First try with external Gui application e.g. Angular
+11. [-] Disable CORS
 101. [-] Add PUT REST
 102. [-] Add DELETE REST
 103. [-] Integrate Spring and Angular into one application

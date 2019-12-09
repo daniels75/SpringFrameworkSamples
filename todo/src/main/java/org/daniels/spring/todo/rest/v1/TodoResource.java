@@ -1,6 +1,5 @@
 package org.daniels.spring.todo.rest.v1;
 
-import com.google.common.collect.Lists;
 import org.daniels.spring.todo.domain.Todo;
 import org.daniels.spring.todo.service.TodoService;
 import org.slf4j.Logger;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping(TodoResource.BASE_URL)
 public class TodoResource {
