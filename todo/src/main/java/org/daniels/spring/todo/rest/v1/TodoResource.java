@@ -5,10 +5,7 @@ import org.daniels.spring.todo.domain.Todo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +23,21 @@ public class TodoResource {
 
         final List<Todo> list = createFakeTodoList();
         return list;
+    }
+
+    @PostMapping("/todos")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Todo createTodo(@RequestBody final Todo todo) {
+        log.debug("REST request to save Todo : {}", todo);
+        if (todo.getId() != null) {
+            throw new RuntimeException("A new todo cannot have an ID");
+        }
+        Todo fakeTodo = new Todo();
+        fakeTodo.setId(4L);
+        fakeTodo.setTitle(todo.getTitle());
+        fakeTodo.setDescription(todo.getDescription());
+        fakeTodo.complete(false);
+        return fakeTodo;
     }
 
     private List<Todo> createFakeTodoList() {
