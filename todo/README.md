@@ -28,6 +28,29 @@
 - ##### GET 
     - retrieves all Todos
     - url: http://localhost:8080/api/v1/todos
+    - response:
+    ```
+        [
+            {
+                "id": 1,
+                "title": "First TODO",
+                "description": "Add real Todo REST",
+                "complete": false
+            },
+            {
+                "id": 2,
+                "title": "Second TODO",
+                "description": "Add service",
+                "complete": false
+            },
+            {
+                "id": 3,
+                "title": "Third TODO",
+                "description": "Add repository",
+                "complete": false
+            }
+        ]
+    ```    
 - ##### POST
     - url: http://localhost:8080/api/v1/todos
     - payload:
@@ -52,7 +75,7 @@
 - ##### GET
     - retrieves single Todo
     - url: http://localhost:8080/api/v1/todos/3
-    - payload:
+    - response:
     ```
         {
             "id": 3,
@@ -61,3 +84,6 @@
             "complete": false
         }
     ```
+- ##### DELETE
+    - deletes single Todo
+    - url: http://localhost:8080/api/v1/todos/3
