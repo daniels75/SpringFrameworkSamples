@@ -68,4 +68,12 @@ public class TodoResource {
         return  createTodo;
     }
 
+    @DeleteMapping("/todos/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteTodo(@PathVariable Long id) {
+        log.info("REST request to delete Todo by id: {} ", id);
+
+        todoService.delete(id);
+    }
+
 }

@@ -15,16 +15,22 @@
 11. [v] Disable CORS
 12. [v] Add PUT REST
 13. [v] Add GET REST for single TODO
-102. [-] Add DELETE REST
-103. [-] Integrate Spring and Angular into one application
+14. [v] Add DELETE REST
+103. [-] Add mapper from that maps Entity/DTO
+104. [-] Use mapper in the REST
+105. [-] Add error handling for non existent Todos etc.
+200. [-] Integrate Spring and Angular into one application
 
 
 
 ## Rest
-- GET all todos http://localhost:8080/api/v1/todos
-- POST - use Postman with
-  - url: http://localhost:8080/api/v1/todos
-  - payload:
+##### For test purpose you can use a Postman
+- ##### GET 
+    - retrieves all Todos
+    - url: http://localhost:8080/api/v1/todos
+- ##### POST
+    - url: http://localhost:8080/api/v1/todos
+    - payload:
     ```
         {
             "title": "simple title",
@@ -32,7 +38,7 @@
             "completed": false
         }
     ```
-- PUT
+- ##### PUT
     - url: http://localhost:8080/api/v1/todos
     - payload: 
     ```
@@ -43,7 +49,8 @@
             "completed": false
         }    
     ```
-- GET
+- ##### GET
+    - retrieves single Todo
     - url: http://localhost:8080/api/v1/todos/3
     - payload:
     ```
