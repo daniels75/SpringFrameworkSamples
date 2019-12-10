@@ -1,5 +1,5 @@
 # Todo application
- Final goal is craete a Spring Backend server + Angular in the frontend
+Final goal is creating a Spring Backend server + Angular in the frontend
  
  
 1. [v] Create an application

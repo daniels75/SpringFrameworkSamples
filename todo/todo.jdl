@@ -1,5 +1,5 @@
 entity Todo {
 	title String,
-    description String,
-    complete  Boolean
+	description String,
+	complete  Boolean
 }
