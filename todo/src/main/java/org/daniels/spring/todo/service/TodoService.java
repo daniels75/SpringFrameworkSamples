@@ -1,6 +1,7 @@
 package org.daniels.spring.todo.service;
 
 import org.daniels.spring.todo.domain.Todo;
+import org.daniels.spring.todo.mapper.TodoMapper;
 import org.daniels.spring.todo.repository.TodoRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,11 @@ import java.util.Optional;
 public class TodoService {
 
     private final TodoRepository todoRepository;
+    private final TodoMapper todoMapper;
 
-    public TodoService(TodoRepository todoRepository) {
+    public TodoService(TodoRepository todoRepository, TodoMapper todoMapper) {
         this.todoRepository = todoRepository;
+        this.todoMapper = todoMapper;
     }
 
     public Todo add(Todo todo) {

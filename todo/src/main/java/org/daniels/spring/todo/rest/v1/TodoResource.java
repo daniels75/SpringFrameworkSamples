@@ -1,6 +1,7 @@
 package org.daniels.spring.todo.rest.v1;
 
 import org.daniels.spring.todo.domain.Todo;
+import org.daniels.spring.todo.model.TodoDTO;
 import org.daniels.spring.todo.service.TodoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
