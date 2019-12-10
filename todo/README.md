@@ -17,8 +17,8 @@
 13. [v] Add GET REST for single TODO
 14. [v] Add DELETE REST
 15. [v] Add DTO for Todo
-103. [-] Add mapper from that maps Entity/DTO
-104. [-] Use mapper in the REST
+103. [v] Add mapper library from that maps Entity/DTO (keep in mind to run: mvn clean compile when library and plugin is added)
+104. [v] Use mapper in the service
 105. [-] Add error handling for non existent Todos etc.
 200. [-] Integrate Spring and Angular into one application
 

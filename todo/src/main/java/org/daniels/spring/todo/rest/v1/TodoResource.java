@@ -1,6 +1,5 @@
 package org.daniels.spring.todo.rest.v1;
 
-import org.daniels.spring.todo.domain.Todo;
 import org.daniels.spring.todo.model.TodoDTO;
 import org.daniels.spring.todo.service.TodoService;
 import org.slf4j.Logger;
@@ -26,47 +25,47 @@ public class TodoResource {
 
     @GetMapping("/todos")
     @ResponseStatus(HttpStatus.OK)
-    public List<Todo> retrieveAll() {
+    public List<TodoDTO> retrieveAll() {
         log.info("REST request to retrieve all Todos");
 
-        final List<Todo> list = todoService.retrieveAll();
+        final List<TodoDTO> list = todoService.retrieveAll();
         return list;
     }
 
     @GetMapping("/todos/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Todo retrieveTodo(@PathVariable Long id) {
+    public TodoDTO retrieveTodo(@PathVariable Long id) {
         log.info("REST request to retrieve Todo by id: {} ", id);
 
-        final Todo todo = todoService.findById(id);
+        final TodoDTO todoDTO = todoService.findById(id);
 
-        return todo;
+        return todoDTO;
     }
 
     @PostMapping("/todos")
     @ResponseStatus(HttpStatus.CREATED)
-    public Todo createTodo(@RequestBody final Todo todo) {
-        log.debug("REST request to save Todo : {}", todo);
-        if (todo.getId() != null) {
+    public TodoDTO createTodo(@RequestBody final TodoDTO todoDTO) {
+        log.debug("REST request to save Todo : {}", todoDTO);
+        if (todoDTO.getId() != null) {
             throw new RuntimeException("A new todo cannot have an ID");
         }
 
-        Todo createTodo = todoService.add(todo);
+        TodoDTO createdTodo = todoService.add(todoDTO);
 
-        return  createTodo;
+        return  createdTodo;
     }
 
     @PutMapping("/todos")
     @ResponseStatus(HttpStatus.OK)
-    public Todo updateTodo(@RequestBody final Todo todo) {
-        log.debug("REST request to update Todo : {}", todo);
-        if (todo.getId() == null) {
+    public TodoDTO updateTodo(@RequestBody final TodoDTO todoDTO) {
+        log.debug("REST request to update Todo : {}", todoDTO);
+        if (todoDTO.getId() == null) {
             throw new RuntimeException("Invalid id");
         }
 
-        Todo createTodo = todoService.update(todo);
+        TodoDTO updatedTodoDTO = todoService.update(todoDTO);
 
-        return  createTodo;
+        return updatedTodoDTO;
     }
 
     @DeleteMapping("/todos/{id}")
