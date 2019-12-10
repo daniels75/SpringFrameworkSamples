@@ -32,6 +32,16 @@ public class TodoResource {
         return list;
     }
 
+    @GetMapping("/todos/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Todo retrieveTodo(@PathVariable Long id) {
+        log.info("REST request to retrieve Todo by id: {} ", id);
+
+        final Todo todo = todoService.findById(id);
+
+        return todo;
+    }
+
     @PostMapping("/todos")
     @ResponseStatus(HttpStatus.CREATED)
     public Todo createTodo(@RequestBody final Todo todo) {

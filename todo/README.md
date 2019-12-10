@@ -14,6 +14,7 @@
 10. [v] First try with external Gui application e.g. Angular
 11. [v] Disable CORS
 12. [v] Add PUT REST
+13. [v] Add GET REST for single TODO
 102. [-] Add DELETE REST
 103. [-] Integrate Spring and Angular into one application
 
@@ -25,20 +26,31 @@
   - url: http://localhost:8080/api/v1/todos
   - payload:
     ```
-    {
-    	"title": "simple title",
-    	"description": "simple description",
-    	"completed": false
-    }
+        {
+            "title": "simple title",
+            "description": "simple description",
+            "completed": false
+        }
     ```
 - PUT
     - url: http://localhost:8080/api/v1/todos
     - payload: 
     ```
-    {
-    	"id": 2,
-    	"title": "Updated second todo",
-    	"description": "This todo has been updated",
-    	"completed": false
-    }    
+        {
+            "id": 2,
+            "title": "Updated second todo",
+            "description": "This todo has been updated",
+            "completed": false
+        }    
+    ```
+- GET
+    - url: http://localhost:8080/api/v1/todos/3
+    - payload:
+    ```
+        {
+            "id": 3,
+            "title": "Third TODO",
+            "description": "Add repository",
+            "complete": false
+        }
     ```
