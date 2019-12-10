@@ -16,6 +16,7 @@
 12. [v] Add PUT REST
 13. [v] Add GET REST for single TODO
 14. [v] Add DELETE REST
+15. [v] Add DTO for Todo
 103. [-] Add mapper from that maps Entity/DTO
 104. [-] Use mapper in the REST
 105. [-] Add error handling for non existent Todos etc.
