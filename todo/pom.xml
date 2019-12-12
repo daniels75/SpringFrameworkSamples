@@ -26,6 +26,8 @@
     <module>frontend</module>
   </modules>
  
+ 
+
   <build>
     <pluginManagement>
      
@@ -39,25 +41,7 @@
           <target>1.8</target>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>3.0.0</version>
-        <executions>
-          <execution>
-            <id>timestamp-property</id>
-            <goals>
-              <goal>timestamp-property</goal>
-            </goals>
-            <configuration>
-              <name>build.time</name>
-              <pattern>dd/MM/yyyy HH:mm</pattern>
-              <locale>it_IT</locale>
-              <timeZone>Europe/Rome</timeZone>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+
     </plugins>
   </build>
 
