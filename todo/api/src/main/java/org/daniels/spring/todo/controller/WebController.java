@@ -10,4 +10,9 @@ public class WebController {
     public String home() {
         return "index";
     }
+
+    @RequestMapping({"/ui"})
+    public String ui() {
+        return "index";
+    }
 }
