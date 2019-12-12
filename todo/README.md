@@ -17,10 +17,14 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 13. [v] Add GET REST for single TODO
 14. [v] Add DELETE REST
 15. [v] Add DTO for Todo
-103. [v] Add mapper library from that maps Entity/DTO (keep in mind to run: mvn clean compile when library and plugin is added)
-104. [v] Use mapper in the service
-105. [-] Add error handling for non existent Todos etc.
-200. [-] Integrate Spring and Angular into one application
+16. [v] Add mapper library from that maps Entity/DTO (keep in mind to run: mvn clean compile when library and plugin is added)
+17. [v] Use mapper in the service
+18. [v]  H2 DB should be stored in the user directory
+19. [v] Add simple controller, and redirect view
+20. [-] Remove @EnableWebMvc anc CORS and add another CORS
+101. [-]  Add Cache handling
+201. [-] Add error handling for non existent Todos etc.
+205. [-] Integrate Spring and Angular into one application
 
 
 
