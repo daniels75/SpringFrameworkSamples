@@ -21,7 +21,10 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 17. [v] Use mapper in the service
 18. [v]  H2 DB should be stored in the user directory
 19. [v] Add simple controller, and redirect view
-20. [-] Remove @EnableWebMvc anc CORS and add another CORS
+20. [v] Remove @EnableWebMvc anc CORS and add another CORS
+21. [v] Redefine project - add backend and frontend project
+22. [-] Add frontend project from the angular-cli
+23. [-] Add maven plugins for the frontend
 101. [-]  Add Cache handling
 201. [-] Add error handling for non existent Todos etc.
 205. [-] Integrate Spring and Angular into one application
