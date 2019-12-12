@@ -12,7 +12,7 @@
     <name>frontend</name>
     <description>frontend</description>
 
-  <packaging>pom</packaging>
+<packaging>pom</packaging>
   <build>
     <resources>
       <resource>
@@ -20,7 +20,72 @@
       </resource>
     </resources>
     <plugins>
-   
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.8.0</version>
+        <configuration>
+          <nodeVersion>v12.13.0</nodeVersion>
+          <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
+          <npmVersion>6.12.0</npmVersion>
+
+        </configuration>
+        <executions>
+          <execution>
+            <id>install node and npm</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+          </execution>
+          <!--
+          <execution>
+            <id>npm lint</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>lint</arguments>
+            </configuration>
+          </execution>
+          -->
+          <execution>
+            <id>npm install</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+
+              <arguments>install</arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>npm build</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+
+            <phase>generate-resources</phase>
+
+            <configuration>
+
+              <arguments>run build</arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+
+          <filesets>
+            <fileset>
+              <directory>dist/resources</directory>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
