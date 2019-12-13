@@ -34,6 +34,7 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 201. [-] Add error handling for non existent Todos etc.
 205. [-] Integrate Spring and Angular into one application
 206. [-] Check if we templates can be remove and application can deal only with a ui/static part
+207. [-] Disable again CORS
 
 
 
