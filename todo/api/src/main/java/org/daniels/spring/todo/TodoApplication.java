@@ -39,17 +39,17 @@ public class TodoApplication {
         Todo fakeTodo1 = new Todo();
         fakeTodo1.setTitle("First TODO");
         fakeTodo1.setDescription("Add real Todo REST");
-        todoRepository.save(fakeTodo1);
+        //todoRepository.save(fakeTodo1);
 
         Todo fakeTodo2 = new Todo();
         fakeTodo2.setTitle("Second TODO");
         fakeTodo2.setDescription("Add service");
-        todoRepository.save(fakeTodo2);
+        //todoRepository.save(fakeTodo2);
 
         Todo fakeTodo3 = new Todo();
         fakeTodo3.setTitle("Third TODO");
         fakeTodo3.setDescription("Add repository");
-        todoRepository.save(fakeTodo3);
+        //todoRepository.save(fakeTodo3);
 
         return todoRepository.findAll();
     }
