@@ -26,6 +26,7 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 22. [v] Add frontend project from the angular-cli
 23. [v] Add maven plugins for the frontend
 24. [v] Remove static folder from api project - to check
+25. [v] index.html is taken from the Angular not from the Spring template
 101. [-]  Add Cache handling
 201. [-] Add error handling for non existent Todos etc.
 205. [-] Integrate Spring and Angular into one application

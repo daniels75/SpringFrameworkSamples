@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href /ui/ --output-path dist/resources/static/ui",
+    "build": "ng build --base-href / --output-path dist/resources/static",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

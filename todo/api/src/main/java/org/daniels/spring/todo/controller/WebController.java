@@ -21,9 +21,15 @@ public class WebController {
     public RedirectView ui() {
         return new RedirectView("index.html");
     }*/
+//  please keep in mind to modify a frontend package.json
+//  "build": "ng build --base-href /ui/ --output-path dist/resources/static/ui"
+/*    @GetMapping({"/", "/ui"})
+    public ModelAndView forwardToUI(ModelMap model) {
+        return new ModelAndView("forward:/ui/index.html", model);
+    }*/
 
     @GetMapping({"/", "/ui"})
     public ModelAndView forwardToUI(ModelMap model) {
-        return new ModelAndView("forward:/ui/index.html", model);
+        return new ModelAndView("forward:/index.html", model);
     }
 }
