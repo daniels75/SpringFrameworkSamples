@@ -34,7 +34,8 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 -  [v] Add Todo class
 -  [v] Add TodoService
 -  [v] Add methods in the TodoService
--  [-] Fill app component
+-  [v] Add template for the app component
+-  [v] Add services for the app component
 
 101. [-]  Add Cache handling
 201. [-] Add error handling for non existent Todos etc.
