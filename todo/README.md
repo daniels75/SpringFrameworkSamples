@@ -31,7 +31,8 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 27. [v] Changed db config from create -> update
 28. [v] Enable again configuration for CORS
 29. [-] Create TODO ui/frontend
-29.1 [-] Add Todo class
+29.1 [v] Add Todo class
+29.2 [v] Add TodoService
 29.2 [-] Add Todo component
 29.3 [-] Add Todo list component
 29.4 [-] Add Todo item component
