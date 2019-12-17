@@ -42,6 +42,7 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 - [v] Create item component
 - [v] create footer component
 - [v] Move logic from app component to footer component
+- [v] fake json server npm install json-server --save + package.json script  then run: npm run json-server
 
 101. [-]  Add Cache handling
 201. [-] Add error handling for non existent Todos etc.
