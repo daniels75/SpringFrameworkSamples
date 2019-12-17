@@ -21,7 +21,7 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
   }
 
-  onToggleTodoComplete(todo: Todo) {
+    onToggleTodoComplete(todo: Todo) {
     this.toggleComplete.emit(todo);
   }
 
