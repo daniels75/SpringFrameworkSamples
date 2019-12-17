@@ -38,6 +38,8 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 -  [v] Add services for the app component
 - [v] Add  todo-list-header component
 - [v] Move header logic to the todo-list header component
+- [v] Move logic to todo-list component
+- [v] Create item component
 
 101. [-]  Add Cache handling
 201. [-] Add error handling for non existent Todos etc.
