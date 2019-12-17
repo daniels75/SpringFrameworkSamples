@@ -1,42 +1,69 @@
 import { Injectable } from '@angular/core';
 
 import { Todo } from './todo';
-import { Observable } from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
+
+import { catchError, map, tap } from 'rxjs/operators';
 
 const API_URL = environment.apiUrl;
 
 @Injectable()
 export class ApiService {
 
-  constructor(
-    private http: HttpClient
-  ) {
+  constructor(private http: HttpClient) {
   }
 
-  // API: GET /todos
-  public getAllTodos() {
-    // will use this.http.get()
+  getAllTodos (): Observable<Todo[]> {
+    return this.http.get<Todo[]>(API_URL + '/todos')
+      .pipe(
+        catchError(this.handleError<Todo[]>('getAllTodos', []))
+      );
   }
 
-  // API: POST /todos
-  public createTodo(todo: Todo) {
-    // will use this.http.post()
+  public createTodo(todo: Todo): Observable<Todo> {
+    return this.http
+      .post<Todo>(API_URL + '/todos', todo)
+      .pipe(
+        catchError(this.handleError<Todo>('createTodo'))
+      );
   }
 
-  // API: GET /todos/:id
-  public getTodoById(todoId: number) {
-    // will use this.http.get()
+  public getTodoById(todoId: number): Observable<Todo> {
+    return this.http
+      .get<Todo>(API_URL + '/todos/' + todoId)
+      .pipe(
+        catchError(this.handleError<Todo>('getTodoById'))
+      );
   }
 
-  // API: PUT /todos/:id
-  public updateTodo(todo: Todo) {
-    // will use this.http.put()
+  public updateTodo(todo: Todo): Observable<Todo> {
+    return this.http
+      .put<Todo>(API_URL + '/todos/' + todo.id, todo)
+      .pipe(
+        catchError(this.handleError<Todo>('updateTodo'))
+      );
   }
 
-  // DELETE /todos/:id
-  public deleteTodoById(todoId: number) {
-    // will use this.http.delete()
+   public deleteTodoById(todoId: number): Observable<Todo> {
+    return this.http
+      .delete<Todo>(API_URL + '/todos/' + todoId)
+      .pipe(
+        catchError(this.handleError<Todo>('deleteTodoById'))
+      );
   }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    }
+  };
+
+
 }
