@@ -43,6 +43,11 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 - [v] create footer component
 - [v] Move logic from app component to footer component
 - [v] fake json server npm install json-server --save + package.json script  then run: npm run json-server
+- [v] Added Api Service
+- [v] Add ApiService hadlers to the TodoDataService
+- [v] Added css files - these have to be imporved
+- [-] Do clean up
+
 
 101. [-]  Add Cache handling
 201. [-] Add error handling for non existent Todos etc.
