@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.component';
+import {TodoDataService} from "./todo-data.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.com
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [TodoDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
