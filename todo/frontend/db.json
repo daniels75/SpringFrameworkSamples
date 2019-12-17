@@ -3,21 +3,25 @@
     {
       "id": 3,
       "title": "Make restaurant reservation",
-      "complete": true
+      "complete": false
     },
     {
       "title": "simple title",
       "description": "simple description",
       "completed": false,
       "id": 4,
-      "complete": true
+      "complete": false
     },
     {
       "title": "simple title",
       "description": "simple description",
       "completed": false,
       "id": 5,
-      "complete": true
+      "complete": false
+    },
+    {
+      "title": "Clean your code",
+      "id": 6
     }
   ]
 }
