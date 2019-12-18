@@ -1,29 +1,6 @@
 {
   "todos": [
     {
-      "id": 3,
-      "title": "Make restaurant reservation",
-      "complete": false
-    },
-    {
-      "title": "simple title",
-      "description": "simple description",
-      "completed": false,
-      "id": 4,
-      "complete": false
-    },
-    {
-      "title": "simple title",
-      "description": "simple description",
-      "completed": false,
-      "id": 5,
-      "complete": false
-    },
-    {
-      "title": "Clean your code",
-      "id": 6
-    },
-    {
       "title": "aaa",
       "id": 7
     },
@@ -46,6 +23,14 @@
     {
       "title": "aaaaaa",
       "id": 12
+    },
+    {
+      "title": "Add more nicer frontent - modify css",
+      "id": 13
+    },
+    {
+      "title": "Add drag and drop component",
+      "id": 14
     }
   ]
 }
