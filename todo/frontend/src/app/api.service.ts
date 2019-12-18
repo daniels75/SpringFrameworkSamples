@@ -39,6 +39,10 @@ export class ApiService {
     return this.http
       .post<Todo>(API_URL + '/todos', todo)
       .pipe(
+        map((result: Todo) => {
+          console.log("Created todo: " + JSON.stringify(result));
+          return result;
+        }),
         catchError(this.handleError<Todo>('createTodo'))
       );
   }
