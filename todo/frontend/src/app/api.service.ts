@@ -4,8 +4,8 @@ import { Todo } from './todo';
 import {Observable, of} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
+import { catchError, map, tap } from 'rxjs/operators';
 
-import { catchError } from 'rxjs/operators';
 
 const API_URL = environment.apiUrl;
 
@@ -18,6 +18,12 @@ export class ApiService {
   getAllTodos (): Observable<Todo[]> {
     return this.http.get<Todo[]>(API_URL + '/todos')
       .pipe(
+        tap(_ => {
+          const titles = _.map(function(item) {
+            return item['title'];
+          });
+          console.log('Fetched todos: ' + titles)
+        }),
         catchError(this.handleError<Todo[]>('getAllTodos', []))
       );
   }
