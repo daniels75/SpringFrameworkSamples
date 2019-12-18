@@ -24,6 +24,13 @@ export class ApiService {
           });
           console.log('Fetched todos: ' + titles)
         }),
+        map((todoList: Todo[]) =>  {
+          const simpleTodo:Todo[] = [
+            new Todo({id: 1, title: "first  title"}),
+            new Todo({id: 2, title: "second title"})
+          ]
+          return todoList;
+        }),
         catchError(this.handleError<Todo[]>('getAllTodos', []))
       );
   }
