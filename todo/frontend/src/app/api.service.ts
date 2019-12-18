@@ -29,7 +29,16 @@ export class ApiService {
             new Todo({id: 1, title: "first  title"}),
             new Todo({id: 2, title: "second title"})
           ]
-          return todoList;
+
+          const todoListExt = todoList.map((item) => item);
+
+          const todoFiltered = todoList.filter((item:Todo) => !item.title.includes('aaa'));
+
+
+          return todoFiltered;
+
+          //return todoList;
+
         }),
         catchError(this.handleError<Todo[]>('getAllTodos', []))
       );
