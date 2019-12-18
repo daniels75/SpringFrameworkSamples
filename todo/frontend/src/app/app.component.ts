@@ -12,9 +12,7 @@ export class AppComponent implements OnInit {
 
   todos: Todo[] = [];
 
-  constructor(
-    private todoDataService: TodoDataService
-  ) {
+  constructor( private todoDataService: TodoDataService ) {
   }
 
   public ngOnInit() {

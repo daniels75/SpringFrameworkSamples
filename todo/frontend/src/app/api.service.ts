@@ -15,35 +15,6 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
-  getAllTodos (): Observable<Todo[]> {
-    return this.http.get<Todo[]>(API_URL + '/todos')
-      .pipe(
-        tap(_ => {
-          const titles = _.map(function(item) {
-            return item['title'];
-          });
-          console.log('Fetched todos: ' + titles)
-        }),
-        map((todoList: Todo[]) =>  {
-          const simpleTodo:Todo[] = [
-            new Todo({id: 1, title: "first  title"}),
-            new Todo({id: 2, title: "second title"})
-          ]
-
-          const todoListExt = todoList.map((item) => item);
-
-          const todoFiltered = todoList.filter((item:Todo) => !item.title.includes('aaa'));
-
-
-          return todoFiltered;
-
-          //return todoList;
-
-        }),
-        catchError(this.handleError<Todo[]>('getAllTodos', []))
-      );
-  }
-
   public createTodo(todo: Todo): Observable<Todo> {
     return this.http
       .post<Todo>(API_URL + '/todos', todo)
@@ -77,6 +48,35 @@ export class ApiService {
       .delete<Todo>(API_URL + '/todos/' + todoId)
       .pipe(
         catchError(this.handleError<Todo>('deleteTodoById'))
+      );
+  }
+
+  public  getAllTodos (): Observable<Todo[]> {
+    return this.http.get<Todo[]>(API_URL + '/todos')
+      .pipe(
+        tap(_ => {
+          const titles = _.map(function(item) {
+            return item['title'];
+          });
+          console.log('Fetched todos: ' + titles)
+        }),
+        map((todoList: Todo[]) =>  {
+          const simpleTodo:Todo[] = [
+            new Todo({id: 1, title: "first  title"}),
+            new Todo({id: 2, title: "second title"})
+          ]
+
+          const todoListExt = todoList.map((item) => item);
+
+          const todoFiltered = todoList.filter((item:Todo) => !item.title.includes('aaa'));
+
+
+          return todoFiltered;
+
+          //return todoList;
+
+        }),
+        catchError(this.handleError<Todo[]>('getAllTodos', []))
       );
   }
 

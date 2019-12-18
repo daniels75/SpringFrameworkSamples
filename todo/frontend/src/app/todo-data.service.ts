@@ -9,8 +9,7 @@ import {Observable} from "rxjs";
 @Injectable()
 export class TodoDataService {
 
-  constructor(
-    private api: ApiService) {
+  constructor( private api: ApiService ) {
   }
 
   // Simulate POST /todos
