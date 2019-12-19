@@ -1,6 +1,5 @@
 package org.daniels.spring.todo;
 
-import com.google.common.collect.Lists;
 import org.daniels.spring.todo.domain.Todo;
 import org.daniels.spring.todo.repository.TodoRepository;
 import org.slf4j.Logger;
@@ -9,7 +8,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 
 import java.util.List;
 
