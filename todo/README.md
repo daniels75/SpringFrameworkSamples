@@ -47,10 +47,8 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 - [v] Add ApiService hadlers to the TodoDataService
 - [v] Added css files - these have to be imporved
 - [v] Do clean up
-30. [-] Change a css in the frontend
-
-
-
+30. [-] Find an idea for new css for Todo frontend
+31. [-] Apply a new css for frontend
 101. [-]  Add Cache handling
 201. [-] Add error handling for non existent Todos etc.
 205. [-] Integrate Spring and Angular into one application
