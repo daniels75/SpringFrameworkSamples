@@ -4,9 +4,6 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 
-/**
- * A Todo.
- */
 @Entity
 @Table(name = "todo")
 public class Todo implements Serializable {
