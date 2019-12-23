@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.ui.list.listItem:first-child {
+  margin-top: 1em;
+}
+.ui.huge.header.bigHeader {
+  font-size: 4em;
+  margin-top: 0.3em;
+}
