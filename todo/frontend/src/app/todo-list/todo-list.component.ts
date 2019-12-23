@@ -5,6 +5,7 @@ import {Todo} from "../todo";
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
+  // host: {'class': 'ui middle aligned divided  big list'}
 })
 export class TodoListComponent implements OnInit {
 
