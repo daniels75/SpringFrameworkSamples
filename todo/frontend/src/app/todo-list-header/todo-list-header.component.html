@@ -1,6 +1,10 @@
-<header class="header">
-  <h1>Todos</h1>
-  <input class="new-todo" placeholder="What needs to be done?" autofocus=""
-         [(ngModel)]="newTodo.title"
-         (keyup.enter)="addTodo()">
+<header>
+  <div class="ui centered blue huge header">Todo</div>
+  <div class="ui fluid huge action green input">
+    <input type="text" placeholder="I'm gonna do ..."
+           autofocus=""
+           [(ngModel)]="newTodo.title"
+           (keyup.enter)="addTodo()">
+    <button class="ui icon button" (click)="addTodo()"><i class="large plus icon"></i></button>
+  </div>
 </header>
