@@ -25,14 +25,6 @@
       "id": 12
     },
     {
-      "title": "Add more nicer frontent - modify css",
-      "id": 13
-    },
-    {
-      "title": "Add drag and drop component",
-      "id": 14
-    },
-    {
       "title": "aaaa",
       "id": 15
     },
@@ -62,7 +54,27 @@
     },
     {
       "title": "this next to do",
-      "id": 22
+      "id": 22,
+      "complete": true
+    },
+    {
+      "title": "aaaaa",
+      "id": 23
+    },
+    {
+      "title": "dfsdfasdfa",
+      "id": 25,
+      "complete": true
+    },
+    {
+      "title": "",
+      "id": 26,
+      "complete": true
+    },
+    {
+      "title": "fadfsdfa",
+      "id": 27,
+      "complete": true
     }
   ]
 }

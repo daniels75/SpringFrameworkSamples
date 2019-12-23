@@ -14,6 +14,7 @@ export class TodoListItemComponent implements OnInit {
   @Output() remove: EventEmitter<Todo> = new EventEmitter();
 
   @Output() toggleComplete: EventEmitter<Todo> = new EventEmitter();
+  hover: boolean;
 
   constructor() {
   }

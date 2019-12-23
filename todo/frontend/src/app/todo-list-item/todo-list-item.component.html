@@ -1,8 +1,15 @@
 <i class="large circle outline middle aligned icon"
    (click)="toggleTodoComplete(todo)"
->
+   [ngClass]="{ 'check': todo.complete, '': !todo.complete  }"
+   >
+
 </i>
 <div class="content">
   <a class="header">{{todo.title}}</a>
 </div>
-<i class="trash alternate outline icon" (click)="removeTodo(todo)"></i>
+<i class="trash alternate icon"
+   (mouseover)="hover=true" (mouseleave)="hover=false"
+   [ngClass]="{ 'red': hover, 'outline': !hover  }"
+   (click)="removeTodo(todo)">
+
+</i>
