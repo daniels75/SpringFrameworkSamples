@@ -54,6 +54,16 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 205. [-] Integrate Spring and Angular into one application
 206. [-] Check if we templates can be remove and application can deal only with a ui/static part
 
+### problems
+clean dist in the frontend when you cannot see up-to-date ui
+### command line
+Spring: todo>java -jar api\target\spring-angular-todo-api-0.0.1-SNAPSHOT.jar
+	+ change in the frontend/src/environments/environment.ts
+	from     apiUrl: 'http://localhost:3000'
+	apiUrl: 'http://localhost:8080/api/v1'
+UI: npm run json-server + ng serve
++ change in the frontend/src/environments/environment.ts
+	     apiUrl: 'http://localhost:3000'
 
 
 ## Rest
