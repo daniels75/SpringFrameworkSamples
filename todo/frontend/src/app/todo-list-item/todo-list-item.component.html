@@ -5,11 +5,15 @@
 
 </i>
 <div class="content">
-  <a class="header">{{todo.title}}</a>
+  <a class="header"
+     [ngStyle]="todo.complete && {'text-decoration': 'line-through'}"
+    >
+    {{todo.title}}
+  </a>
 </div>
-<i class="trash alternate icon"
+<i class="trash alternate icon outline"
    (mouseover)="hover=true" (mouseleave)="hover=false"
-   [ngClass]="{ 'red': hover, 'outline ': !hover  }"
+   [ngClass]="{ 'red': hover, '': !hover  }"
    (click)="removeTodo(todo)">
 
 </i>
