@@ -6,7 +6,11 @@ export const environment = {
   production: false,
 
   // URL of development API
-  apiUrl: 'http://localhost:8080/api/v1'
+  // spring
+  // apiUrl: 'http://localhost:8080/api/v1'
+
+  // json server
+  apiUrl: 'http://localhost:3000'
 };
 
 /*
