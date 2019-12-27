@@ -45,6 +45,6 @@ export class TodoDataService {
   }
 
   updateTodos(updTodo: UpdTodo) {
-      
+
   }
 }
