@@ -1,5 +1,5 @@
 <section *ngIf="todos.length > 0">
-  <div class="ui middle aligned divided big list listItem">
+  <div class="ui middle aligned divided big list listItem" cdkDropList>
     <app-todo-list-item
       class="item"
       *ngFor="let todo of todos"

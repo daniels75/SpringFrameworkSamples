@@ -11,6 +11,8 @@ import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.com
 import {TodoDataService} from "./todo-data.service";
 import {HttpClientModule} from "@angular/common/http";
 import {ApiService} from "./api.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {ApiService} from "./api.service";
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    DragDropModule
   ],
   providers: [TodoDataService, ApiService],
   bootstrap: [AppComponent]
