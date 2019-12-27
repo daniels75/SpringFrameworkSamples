@@ -68,10 +68,14 @@ export class ApiService {
 
           const todoListExt = todoList.map((item) => item);
 
+          const orderedTodo:Todo[] = todoList.sort((item1, item2) => {
+            return item1.order - item2.order;
+          });
+
           const todoFiltered = todoList.filter((item:Todo) => !item.title.includes('aaa'));
 
 
-          return todoFiltered;
+          return orderedTodo;
 
           //return todoList;
 

@@ -53,6 +53,9 @@ export class TodoListComponent implements OnInit {
     const updTodo: UpdTodo = new UpdTodo();
     updTodo.previous = originalTodos;
     updTodo.current = Object.assign([], this.todos);
+    updTodo.currentIdx = event.currentIndex;
+    updTodo.previousIdx = event.previousIndex;
+    updTodo.todo = updTodo.current[event.currentIndex];
 
     this.updateTodos.emit(updTodo);
   }

@@ -1,81 +1,19 @@
 {
   "todos": [
     {
-      "title": "aaa",
-      "id": 7
+      "title": "test1",
+      "order": 0,
+      "id": 1
     },
     {
-      "title": "aaa",
-      "id": 8
+      "title": "test2",
+      "order": 2,
+      "id": 2
     },
     {
-      "title": "aaa",
-      "id": 9
-    },
-    {
-      "title": "aaa",
-      "id": 10
-    },
-    {
-      "title": "aaaa",
-      "id": 11
-    },
-    {
-      "title": "aaaaaa",
-      "id": 12
-    },
-    {
-      "title": "aaaa",
-      "id": 15
-    },
-    {
-      "title": "aaaa",
-      "id": 16
-    },
-    {
-      "title": "aaaa",
-      "id": 17
-    },
-    {
-      "title": "aaaa",
-      "id": 18
-    },
-    {
-      "title": "aaaaa",
-      "id": 19
-    },
-    {
-      "title": "aaaaa",
-      "id": 20
-    },
-    {
-      "title": "aaaaa",
-      "id": 21
-    },
-    {
-      "title": "aaaaa",
-      "id": 23
-    },
-    {
-      "title": "aaasasa23232",
-      "id": 29,
-      "complete": false
-    },
-    {
-      "title": "granie",
-      "id": 34
-    },
-    {
-      "title": "mycie zebow",
-      "id": 35
-    },
-    {
-      "title": "jedzenie",
-      "id": 37
-    },
-    {
-      "title": "nauka",
-      "id": 38
+      "title": "test3",
+      "order": 0,
+      "id": 3
     }
   ]
 }

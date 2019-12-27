@@ -26,7 +26,16 @@ export class AppComponent implements OnInit {
       );
   }
 
-  onAddTodo(todo) {
+  onAddTodo(todo: Todo) {
+
+    let maxOrder: number = 0;
+    this.todos.forEach((item: Todo) => {
+      if (item.order >= maxOrder) {
+        maxOrder = item.order + 1;
+      }
+    })
+    todo.order = maxOrder;
+
     this.todoDataService
       .addTodo(todo)
       .subscribe(
@@ -57,7 +66,11 @@ export class AppComponent implements OnInit {
   }
 
   onUpdateTodos(updTodo: UpdTodo) {
-    this.todoDataService.updateTodos(updTodo);
+    this.todoDataService.updateTodos(updTodo).subscribe(
+      (updatedTodo) => {
+        console.log("updated: " + updatedTodo.id);
+      }
+    );
   }
 }
 

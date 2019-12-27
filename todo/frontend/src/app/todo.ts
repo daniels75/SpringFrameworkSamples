@@ -8,5 +8,8 @@ export class Todo {
     Object.assign(this, values)
   }
 
+  public updateOrder(order: number){
+    this.order = order;
+  }
 
 }
