@@ -45,12 +45,6 @@ export class ApiService {
 
   public updateTodos(todos: Todo[]): Observable<any> {
 
-    /*
-    let todo1: Todo = todos[0];
-    let todo2: Todo = todos[1];
-    let todo3: Todo = todos[2];
-     */
-
     let multiUpd: Observable<any>[] = [];
 
     from(todos).subscribe((todo: Todo) => {
@@ -63,10 +57,12 @@ export class ApiService {
     todos.forEach((todo: Todo) => {
       //console.log(todo.id);
       // multi.push(this.http.put<Todo>(API_URL + '/todos/' + todo.id, todo))
-
     });
 
     /*
+    let todo1: Todo = todos[0];
+    let todo2: Todo = todos[1];
+    let todo3: Todo = todos[2];
     return forkJoin([
       this.http.put<Todo>(API_URL + '/todos/' + todo1.id, todo1),
       this.http.put<Todo>(API_URL + '/todos/' + todo2.id, todo2),
