@@ -5,6 +5,7 @@ public class TodoDTO {
     private Long id;
     private String title;
     private String description;
+    private int priority;
     private boolean complete;
 
     public Long getId() {
@@ -59,6 +60,19 @@ public class TodoDTO {
         this.complete = complete;
     }
 
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public TodoDTO priority(int priority) {
+        this.priority = priority;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -81,6 +95,7 @@ public class TodoDTO {
                 "id=" + getId() +
                 ", title='" + getTitle() + "'" +
                 ", description='" + getDescription() + "'" +
+                ", priority=" + getPriority() + "" +
                 ", complete=" + isComplete() + "" +
                 "}";
     }

@@ -24,6 +24,9 @@ public class Todo implements Serializable {
     @Column(name = "complete")
     private boolean complete;
 
+    @Column(name = "priority")
+    private int priority;
+
     public Long getId() {
         return id;
     }
@@ -71,6 +74,19 @@ public class Todo implements Serializable {
         this.complete = complete;
     }
 
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public Todo priority(int priority) {
+        this.priority = priority;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -93,6 +109,7 @@ public class Todo implements Serializable {
                 "id=" + getId() +
                 ", title='" + getTitle() + "'" +
                 ", description='" + getDescription() + "'" +
+                ", priority=" + getPriority() + "" +
                 ", complete=" + isComplete() + "" +
                 "}";
     }
