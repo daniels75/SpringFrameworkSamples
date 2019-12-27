@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Todo} from "./todo";
 import {ApiService} from "./api.service";
 import {Observable} from "rxjs";
+import {UpdTodo} from "./updtodo";
 
 @Injectable({
   providedIn: 'root'
@@ -43,4 +44,7 @@ export class TodoDataService {
     return this.api.updateTodo(todo);
   }
 
+  updateTodos(updTodo: UpdTodo) {
+      
+  }
 }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TodoDataService} from "./todo-data.service";
 import {Todo} from "./todo";
+import {UpdTodo} from "./updtodo";
 
 @Component({
   selector: 'app-root',
@@ -53,6 +54,10 @@ export class AppComponent implements OnInit {
           this.todos = this.todos.filter((t) => t.id !== todo.id);
         }
       );
+  }
+
+  onUpdateTodos(updTodo: UpdTodo) {
+    this.todoDataService.updateTodos(updTodo);
   }
 }
 
