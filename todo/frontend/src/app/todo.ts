@@ -2,14 +2,10 @@ export class Todo {
   id: number;
   title: string = '';
   complete: boolean;
-  order: number = 0;
+  priority: number = 0;
 
   constructor(values: Object = {}) {
     Object.assign(this, values)
-  }
-
-  public updateOrder(order: number){
-    this.order = order;
   }
 
 }

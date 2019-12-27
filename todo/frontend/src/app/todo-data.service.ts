@@ -49,12 +49,12 @@ export class TodoDataService {
 
      let currentIdx: number = 0;
      todoList.forEach((todo: Todo) => {
-      todo.order = currentIdx++;
+      todo.priority = currentIdx++;
        }
      )
 
     let todoToUpd: Todo = updTodo.todo;
-    todoToUpd.order = 0;
+    todoToUpd.priority = 0;
     let obs:Observable<any> = this.api.updateTodos(todoList);
 
 

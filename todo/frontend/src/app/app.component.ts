@@ -30,11 +30,11 @@ export class AppComponent implements OnInit {
 
     let maxOrder: number = 0;
     this.todos.forEach((item: Todo) => {
-      if (item.order >= maxOrder) {
-        maxOrder = item.order + 1;
+      if (item.priority >= maxOrder) {
+        maxOrder = item.priority + 1;
       }
     })
-    todo.order = maxOrder;
+    todo.priority = maxOrder;
 
     this.todoDataService
       .addTodo(todo)
