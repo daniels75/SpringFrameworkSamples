@@ -45,7 +45,7 @@ public class TodoResource {
     @PostMapping("/todos")
     @ResponseStatus(HttpStatus.CREATED)
     public TodoDTO createTodo(@RequestBody final TodoDTO todoDTO) {
-        log.debug("REST request to save Todo : {}", todoDTO);
+        log.info("REST request to save Todo : {}", todoDTO);
         if (todoDTO.getId() != null) {
             throw new RuntimeException("A new todo cannot have an ID");
         }
@@ -55,10 +55,10 @@ public class TodoResource {
         return  createdTodo;
     }
 
-    @PutMapping("/todos")
+    @PutMapping("/todos/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public TodoDTO updateTodo(@RequestBody final TodoDTO todoDTO) {
-        log.debug("REST request to update Todo : {}", todoDTO);
+    public TodoDTO updateTodo(@PathVariable Long id, @RequestBody final TodoDTO todoDTO) {
+        log.info("REST request to update Todo : {}", todoDTO);
         if (todoDTO.getId() == null) {
             throw new RuntimeException("Invalid id");
         }

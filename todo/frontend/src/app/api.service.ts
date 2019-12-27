@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Todo } from './todo';
-import {Observable, of} from 'rxjs';
+import {forkJoin, from, Observable, of} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import { catchError, map, tap } from 'rxjs/operators';
@@ -41,6 +41,40 @@ export class ApiService {
       .pipe(
         catchError(this.handleError<Todo>('updateTodo'))
       );
+  }
+
+  public updateTodos(todos: Todo[]): Observable<any> {
+
+    let todo1: Todo = todos[0];
+    let todo2: Todo = todos[1];
+    let todo3: Todo = todos[2];
+
+    let multi: Observable<any>[] = [];
+
+    from(todos).subscribe((todo: Todo) => {
+      console.log("From: " + todo.id);
+      /*
+      this.http.put<Todo>(API_URL + '/todos/' + todo.id, todo).subscribe(
+        (next:Todo) => {
+          console.log("updated: " + todo.id + " order: " + todo.order);
+        }
+      );
+      */
+    });
+
+    todos.forEach((todo: Todo) => {
+      //console.log(todo.id);
+      // multi.push(this.http.put<Todo>(API_URL + '/todos/' + todo.id, todo))
+
+    });
+
+    return forkJoin([
+      this.http.put<Todo>(API_URL + '/todos/' + todo1.id, todo1),
+      this.http.put<Todo>(API_URL + '/todos/' + todo2.id, todo2),
+      this.http.put<Todo>(API_URL + '/todos/' + todo3.id, todo3)
+    ]);
+
+   //return of([]);
   }
 
    public deleteTodoById(todoId: number): Observable<Todo> {

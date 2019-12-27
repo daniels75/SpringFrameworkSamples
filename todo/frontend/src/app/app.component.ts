@@ -68,7 +68,7 @@ export class AppComponent implements OnInit {
   onUpdateTodos(updTodo: UpdTodo) {
     this.todoDataService.updateTodos(updTodo).subscribe(
       (updatedTodo) => {
-        console.log("updated: " + updatedTodo.id);
+        console.log("updated: ");
       }
     );
   }

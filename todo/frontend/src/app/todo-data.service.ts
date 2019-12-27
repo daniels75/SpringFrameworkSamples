@@ -44,28 +44,18 @@ export class TodoDataService {
     return this.api.updateTodo(todo);
   }
 
-  updateTodos(updTodo: UpdTodo): Observable<Todo> {
+  updateTodos(updTodo: UpdTodo): Observable<any> {
      let todoList: Todo[] = Object.assign([], updTodo.current);
 
-     /*
      let currentIdx: number = 0;
-    todoList.forEach((todo: Todo) => {
+     todoList.forEach((todo: Todo) => {
       todo.order = currentIdx++;
        }
      )
 
-
-    todoList.forEach((todo: Todo) => {
-        this.api.updateTodo(todo).subscribe((next) => {
-          console.log("updated...");
-        });
-      }
-    )
-    */
-
     let todoToUpd: Todo = updTodo.todo;
     todoToUpd.order = 0;
-    let obs:Observable<Todo> = this.api.updateTodo(todoToUpd);
+    let obs:Observable<any> = this.api.updateTodos(todoList);
 
 
     return obs;
