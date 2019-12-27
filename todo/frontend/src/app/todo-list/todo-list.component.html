@@ -1,11 +1,13 @@
 <section *ngIf="todos.length > 0">
-  <div class="ui middle aligned divided big list listItem" cdkDropList>
+  <div class="ui middle aligned divided big list listItem"
+       cdkDropList (cdkDropListDropped)="itemDropped($event)">
     <app-todo-list-item
       class="item"
       *ngFor="let todo of todos"
       [todo]="todo"
       (toggleComplete)="onToggleTodoComplete($event)"
       (remove)="onRemoveTodo($event)"
+      cdkDrag
       >
     </app-todo-list-item>
   </div>

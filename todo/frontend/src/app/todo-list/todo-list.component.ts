@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Todo} from "../todo";
+import {CdkDragDrop, moveItemInArray} from "@angular/cdk/drag-drop";
 
 @Component({
   selector: 'app-todo-list',
@@ -29,4 +30,11 @@ export class TodoListComponent implements OnInit {
   onRemoveTodo(todo: Todo) {
     this.remove.emit(todo);
   }
+
+  itemDropped(event: CdkDragDrop<Todo[]>) {
+    moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
+  }
+
+
+
 }
