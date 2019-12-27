@@ -1,19 +1,10 @@
 {
   "todos": [
     {
-      "title": "test1",
-      "order": 1,
-      "id": 1
-    },
-    {
       "title": "test2",
       "order": 0,
-      "id": 2
-    },
-    {
-      "title": "test3",
-      "order": 0,
-      "id": 3
+      "id": 2,
+      "priority": 0
     }
   ]
 }

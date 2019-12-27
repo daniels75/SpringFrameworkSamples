@@ -51,7 +51,6 @@ export class ApiService {
     let todo3: Todo = todos[2];
      */
 
-
     let multiUpd: Observable<any>[] = [];
 
     from(todos).subscribe((todo: Todo) => {
