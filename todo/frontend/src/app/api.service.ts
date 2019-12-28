@@ -77,11 +77,10 @@ export class ApiService {
 
   public updateTodos2(todos: Todo[]): Observable<any> {
     return this.http
-      .put<Todo>(API_URL + '/todos/', todos)
+      .put<Todo[]>(API_URL + '/todos/', todos)
       .pipe(
         catchError(this.handleError<Todo>('updateTodo'))
       );
-    return of([]);
   }
 
    public deleteTodoById(todoId: number): Observable<Todo> {

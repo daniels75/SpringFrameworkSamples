@@ -67,9 +67,9 @@ export class AppComponent implements OnInit {
 
   onUpdateTodos1(updTodo: UpdTodo) {
     this.todoDataService.updateTodos(updTodo).subscribe(
-      (updatedTodo: Todo[]) => {
-        updatedTodo.map((obj) => {
-          console.log("onUpdateTodos - updated: " + obj.id + " priority: " + obj.priority);
+      (updatedTodos: Todo[]) => {
+        updatedTodos.map((obj) => {
+          console.log("onUpdateTodos - id: " + obj.id + " priority: " + obj.priority);
         })
       }
     );
@@ -77,9 +77,10 @@ export class AppComponent implements OnInit {
 
   onUpdateTodos(updTodo: UpdTodo) {
     this.todoDataService.updateTodos2(updTodo).subscribe(
-      (updatedTodo: Todo[]) => {
-        updatedTodo.map((obj) => {
-          console.log("onUpdateTodos - updated: " + obj.id + " priority: " + obj.priority);
+      (updatedTodos: Todo[]) => {
+        // this.todos = updatedTodos; // this not needed in fact since drag and drop will handle list
+        updatedTodos.map((obj) => {
+          console.log("onUpdateTodos2 - id: " + obj.id + " priority: " + obj.priority);
         })
       }
     );

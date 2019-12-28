@@ -1,5 +1,6 @@
 package org.daniels.spring.todo.rest.v1;
 
+import com.google.common.collect.Lists;
 import org.daniels.spring.todo.model.TodoDTO;
 import org.daniels.spring.todo.service.TodoService;
 import org.slf4j.Logger;
@@ -74,7 +75,11 @@ public class TodoResource {
     public List<TodoDTO> updateTodo2(@RequestBody final List<TodoDTO> todos) {
         log.info("REST request to update2 Todo : {}", todos);
 
-        return todoService.retrieveAll();
+        List<TodoDTO> updList = Lists.newLinkedList();
+        for (final TodoDTO todoDTO : todos) {
+            updList.add(todoService.update(todoDTO));
+        }
+        return updList;
     }
 
     @DeleteMapping("/todos/{id}")

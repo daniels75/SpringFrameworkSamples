@@ -50,8 +50,12 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 - [v] add drag and drop
 	ng add @angular/material
 - [v] added multi update	
-30. [-] Find an idea for new css for Todo frontend
-31. [-] Apply a new css for frontend
+30. [v] Find an idea for new css for Todo frontend
+31. [v] Apply a new css for frontend
+32. [v] Added single update for all todos - ui + REST
+32. [-] Clean up in the code
+33. [-] Add nicer css for displayed list of todo
+34. [-] Change css style for drag-and-drop
 101. [-]  Add Cache handling
 201. [-] Add error handling for non existent Todos etc.
 205. [-] Integrate Spring and Angular into one application
