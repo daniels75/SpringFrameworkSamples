@@ -75,6 +75,15 @@ export class ApiService {
     return forkJoin(multiUpd);
   }
 
+  public updateTodos2(todos: Todo[]): Observable<any> {
+    return this.http
+      .put<Todo>(API_URL + '/todos/', todos)
+      .pipe(
+        catchError(this.handleError<Todo>('updateTodo'))
+      );
+    return of([]);
+  }
+
    public deleteTodoById(todoId: number): Observable<Todo> {
     return this.http
       .delete<Todo>(API_URL + '/todos/' + todoId)
@@ -83,7 +92,7 @@ export class ApiService {
       );
   }
 
-  public  getAllTodos (): Observable<Todo[]> {
+  public getAllTodos (): Observable<Todo[]> {
     return this.http.get<Todo[]>(API_URL + '/todos')
       .pipe(
         tap(_ => {

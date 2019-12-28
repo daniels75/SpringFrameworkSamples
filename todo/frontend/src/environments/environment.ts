@@ -7,10 +7,10 @@ export const environment = {
 
   // URL of development API
   // spring
-  //apiUrl: 'http://localhost:8080/api/v1'
+  apiUrl: 'http://localhost:8080/api/v1'
 
   // json server
-  apiUrl: 'http://localhost:3000'
+  // apiUrl: 'http://localhost:3000'
 };
 
 /*

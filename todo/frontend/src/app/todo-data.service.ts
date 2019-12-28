@@ -60,4 +60,20 @@ export class TodoDataService {
 
     return obs;
   }
+
+  updateTodos2(updTodo: UpdTodo): Observable<any> {
+    let todoList: Todo[] = Object.assign([], updTodo.current);
+
+    let currentIdx: number = 0;
+    todoList.forEach((todo: Todo) => {
+        todo.priority = currentIdx++;
+      }
+    )
+
+    let obs:Observable<any> = this.api.updateTodos2(todoList);
+
+
+    return obs;
+  }
+
 }

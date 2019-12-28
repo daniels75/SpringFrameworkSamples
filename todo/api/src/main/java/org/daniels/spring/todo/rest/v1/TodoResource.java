@@ -68,6 +68,15 @@ public class TodoResource {
         return updatedTodoDTO;
     }
 
+
+    @PutMapping("/todos")
+    @ResponseStatus(HttpStatus.OK)
+    public List<TodoDTO> updateTodo2(@RequestBody final List<TodoDTO> todos) {
+        log.info("REST request to update2 Todo : {}", todos);
+
+        return todoService.retrieveAll();
+    }
+
     @DeleteMapping("/todos/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteTodo(@PathVariable Long id) {
