@@ -57,6 +57,7 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 33. [-] Add nicer css for displayed list of todo
 34. [-] Change css style for drag-and-drop
 35. [-] Add ordered all todos
+35. [-] Do clean up in the ui
 101. [-]  Add Cache handling
 201. [-] Add error handling for non existent Todos etc.
 205. [-] Integrate Spring and Angular into one application
