@@ -18,9 +18,9 @@ export class TodoListHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-
   addTodo() {
     this.add.emit(this.newTodo);
     this.newTodo = new Todo();
   }
+
 }

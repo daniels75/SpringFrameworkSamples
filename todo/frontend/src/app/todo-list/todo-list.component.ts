@@ -60,6 +60,4 @@ export class TodoListComponent implements OnInit {
     this.updateTodos.emit(updTodo);
   }
 
-
-
 }
