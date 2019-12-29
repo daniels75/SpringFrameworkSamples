@@ -19,7 +19,6 @@ public class TodoApplication {
         SpringApplication.run(TodoApplication.class, args);
     }
 
-
     @Bean
     public CommandLineRunner run(TodoRepository todoRepository) {
         return args -> {
@@ -51,4 +50,5 @@ public class TodoApplication {
 
         return todoRepository.findAll();
     }
+
 }
