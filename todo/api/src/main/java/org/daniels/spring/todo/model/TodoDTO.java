@@ -25,17 +25,21 @@ public class TodoDTO {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public TodoDTO title(String title) {
         this.title = title;
         return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public TodoDTO description(String description) {
@@ -43,21 +47,17 @@ public class TodoDTO {
         return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public boolean isComplete() {
         return complete;
+    }
+
+    public void setComplete(boolean complete) {
+        this.complete = complete;
     }
 
     public TodoDTO complete(boolean complete) {
         this.complete = complete;
         return this;
-    }
-
-    public void setComplete(boolean complete) {
-        this.complete = complete;
     }
 
     public int getPriority() {

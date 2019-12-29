@@ -69,7 +69,6 @@ public class TodoResource {
         return updatedTodoDTO;
     }
 
-
     @PutMapping("/todos")
     @ResponseStatus(HttpStatus.OK)
     public List<TodoDTO> updateTodo2(@RequestBody final List<TodoDTO> todos) {
