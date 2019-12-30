@@ -4,17 +4,25 @@
       "title": "test2",
       "order": 0,
       "id": 2,
-      "priority": 0
+      "priority": 0,
+      "complete": true
     },
     {
       "title": "test1",
-      "priority": 1,
-      "id": 3
+      "priority": 2,
+      "id": 3,
+      "complete": false
     },
     {
       "title": "test3",
-      "priority": 2,
-      "id": 4
+      "priority": 1,
+      "id": 4,
+      "complete": false
+    },
+    {
+      "title": "aaa",
+      "priority": 3,
+      "id": 5
     }
   ]
 }

@@ -3,7 +3,6 @@ package org.daniels.spring.mvc.rest.services;
 import org.daniels.spring.mvc.rest.api.v1.mapper.CategoryMapper;
 import org.daniels.spring.mvc.rest.api.v1.model.CategoryDTO;
 import org.daniels.spring.mvc.rest.repositories.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
