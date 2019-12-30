@@ -4,14 +4,14 @@
       "title": "test2",
       "order": 0,
       "id": 2,
-      "priority": 0,
-      "complete": false
+      "priority": 2,
+      "complete": true
     },
     {
       "title": "test1",
-      "priority": 2,
+      "priority": 0,
       "id": 3,
-      "complete": false
+      "complete": true
     },
     {
       "title": "test3",
