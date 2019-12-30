@@ -10,5 +10,13 @@
   color: #21BA45 !important;
 }
 
+.ui.list > .item > i.icon.itemNotDone {
+  color: #4183C4 !important;
+}
+
+.ui.list > .item > i.icon.itemDone {
+  color: #21BA45 !important;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,6 +1,6 @@
 <i class="large circle outline middle aligned icon blue"
    (click)="toggleTodoComplete(todo)"
-   [ngClass]="{ 'check': todo.complete, '': !todo.complete}">
+   [ngClass]="{ 'check itemDone': todo.complete, 'itemNotDone': !todo.complete}">
 
 </i>
 <div class="ui content">

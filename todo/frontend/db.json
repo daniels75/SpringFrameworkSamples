@@ -11,19 +11,19 @@
       "title": "test1",
       "priority": 2,
       "id": 3,
-      "complete": false
+      "complete": true
     },
     {
       "title": "test3",
       "priority": 1,
       "id": 4,
-      "complete": false
+      "complete": true
     },
     {
       "title": "aaa",
       "priority": 3,
       "id": 5,
-      "complete": false
+      "complete": true
     }
   ]
 }
