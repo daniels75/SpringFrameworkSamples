@@ -5,25 +5,19 @@
       "order": 0,
       "id": 2,
       "priority": 0,
-      "complete": true
+      "complete": false
     },
     {
       "title": "test1",
       "priority": 2,
       "id": 3,
-      "complete": true
+      "complete": false
     },
     {
       "title": "test3",
       "priority": 1,
       "id": 4,
-      "complete": true
-    },
-    {
-      "title": "aaa",
-      "priority": 3,
-      "id": 5,
-      "complete": true
+      "complete": false
     }
   ]
 }

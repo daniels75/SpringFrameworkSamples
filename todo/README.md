@@ -53,8 +53,8 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 30. [v] Find an idea for new css for Todo frontend
 31. [v] Apply a new css for frontend
 32. [v] Added single update for all todos - ui + REST
-32. [-] Clean up in the code
-33. [-] Add nicer css for displayed list of todo
+32. [v] Clean up in the code
+33. [v] Add nicer css for displayed list of todo
 34. [-] Change css style for drag-and-drop
 35. [-] Add ordered all todos
 35. [-] Do clean up in the ui
