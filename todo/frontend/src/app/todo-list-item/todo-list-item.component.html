@@ -1,10 +1,11 @@
-<i class="large circle outline middle aligned icon"
+<i class="large circle outline middle aligned icon blue"
    (click)="toggleTodoComplete(todo)"
-   [ngClass]="{ 'check': todo.complete, '': !todo.complete  }">
+   [ngClass]="{ 'check': todo.complete, '': !todo.complete}">
 
 </i>
-<div class="ui content" [ngStyle]="{'color': 'green'}">
-  <a class="ui header itemDone"
+<div class="ui content">
+  <a class="ui header"
+     [ngClass]="{ 'itemDone': todo.complete, '': !todo.complete}"
      [ngStyle]="todo.complete && {'text-decoration': 'line-through'}">
     {{todo.title}}
   </a>

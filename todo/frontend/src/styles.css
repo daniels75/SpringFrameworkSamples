@@ -6,11 +6,9 @@
   font-size: 4em;
   margin-top: 0.3em;
 }
-.itemDone .ui.list > .item  {
+.ui.list > .item a.header.itemDone {
   color: #21BA45 !important;
 }
-.itemDone {
-  color: #21BA45 !important;
-}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
