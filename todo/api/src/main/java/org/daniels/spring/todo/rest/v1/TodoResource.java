@@ -8,8 +8,11 @@ import org.daniels.spring.todo.service.TodoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 //@CrossOrigin(maxAge = 3600)
@@ -47,7 +50,7 @@ public class TodoResource {
 
     @PostMapping("/todos")
     @ResponseStatus(HttpStatus.CREATED)
-    public TodoDTO createTodo(@RequestBody final TodoDTO todoDTO) {
+    public ResponseEntity<TodoDTO> createTodo(@RequestBody final TodoDTO todoDTO) throws URISyntaxException {
         log.info("REST request to save Todo : {}", todoDTO);
         if (todoDTO.getId() != null) {
             throw new RuntimeException("A new todo cannot have an ID");
@@ -56,10 +59,9 @@ public class TodoResource {
             throw new RuntimeException("Title need to have at 3 signs");
         }
 
-
         TodoDTO createdTodo = todoService.add(todoDTO);
 
-        return  createdTodo;
+        return ResponseEntity.created(new URI(BASE_URL + createdTodo.getId())).body(createdTodo);
     }
 
     @PutMapping("/todos/{id}")
