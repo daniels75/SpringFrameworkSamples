@@ -35,6 +35,14 @@ public class TodoService {
         return todoList;
     }
 
+    public List<TodoDTO> retriveAllOrderedByPriority() {
+        List<TodoDTO> todoList = todoRepository.findAllByOrderByPriorityAsc()
+                .stream()
+                .map(todoMapper::todoToTodoDTO)
+                .collect(Collectors.toList());
+        return todoList;
+    }
+
     public TodoDTO update(TodoDTO todoDTO) {
         Todo updatedTodo =  todoRepository.save(todoMapper.todoDTOToTodo(todoDTO));
 

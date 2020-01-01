@@ -29,7 +29,7 @@ public class TodoResource {
     public List<TodoDTO> retrieveAll() {
         log.info("REST request to retrieve all Todos");
 
-        final List<TodoDTO> list = todoService.retrieveAll();
+        final List<TodoDTO> list = todoService.retriveAllOrderedByPriority();
         return list;
     }
 
