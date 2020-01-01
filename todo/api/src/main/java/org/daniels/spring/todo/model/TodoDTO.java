@@ -2,11 +2,15 @@ package org.daniels.spring.todo.model;
 
 
 public class TodoDTO {
+
     private Long id;
     private String title;
     private String description;
     private int priority;
     private boolean complete;
+
+    public static final int TITLE_MIN_LENGTH = 3;
+    public static final int TITLE_MAX_LENGTH = 100;
 
     public Long getId() {
         return id;

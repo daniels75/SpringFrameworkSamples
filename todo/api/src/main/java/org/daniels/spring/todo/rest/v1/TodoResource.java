@@ -1,7 +1,9 @@
 package org.daniels.spring.todo.rest.v1;
 
+import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import org.daniels.spring.todo.model.TodoDTO;
+import org.daniels.spring.todo.rest.v1.errors.InvalidPasswordException;
 import org.daniels.spring.todo.service.TodoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,6 +52,10 @@ public class TodoResource {
         if (todoDTO.getId() != null) {
             throw new RuntimeException("A new todo cannot have an ID");
         }
+        if (!checkTitleLength(todoDTO.getTitle())) {
+            throw new RuntimeException("Title need to have at 3 signs");
+        }
+
 
         TodoDTO createdTodo = todoService.add(todoDTO);
 
@@ -89,4 +95,9 @@ public class TodoResource {
         todoService.delete(id);
     }
 
+    private static boolean checkTitleLength(String title) {
+        return !Strings.isNullOrEmpty(title)
+                && title.length() >= TodoDTO.TITLE_MIN_LENGTH
+                && title.length() <= TodoDTO.TITLE_MAX_LENGTH;
+    }
 }
