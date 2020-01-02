@@ -3,7 +3,6 @@ package org.daniels.spring.todo.rest.v1;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import org.daniels.spring.todo.model.TodoDTO;
-import org.daniels.spring.todo.rest.v1.errors.InvalidPasswordException;
 import org.daniels.spring.todo.service.TodoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
