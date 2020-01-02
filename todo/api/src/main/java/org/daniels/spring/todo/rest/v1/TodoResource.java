@@ -51,13 +51,14 @@ public class TodoResource {
 
     @PostMapping("/todos")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<TodoDTO> createTodo(@RequestBody final TodoDTO todoDTO) throws URISyntaxException {
+    public ResponseEntity<TodoDTO> createTodo(@Valid @RequestBody final TodoDTO todoDTO) throws URISyntaxException {
         log.info("REST request to save Todo : {}", todoDTO);
         if (todoDTO.getId() != null) {
             throw new RuntimeException("A new todo cannot have an ID");
         }
        if (!checkTitleLength(todoDTO.getTitle())) {
-            throw new TitleNotValidException("Title need to have at 3 signs");
+           // already done by @Valid
+           // throw new TitleNotValidException("Title should have at least 3 characters");
         }
 
         TodoDTO createdTodo = todoService.add(todoDTO);

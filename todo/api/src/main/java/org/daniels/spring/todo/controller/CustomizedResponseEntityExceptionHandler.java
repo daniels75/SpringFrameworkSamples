@@ -2,10 +2,12 @@ package org.daniels.spring.todo.controller;
 
 
 import com.google.common.collect.Lists;
+import org.apache.commons.collections4.CollectionUtils;
 import org.daniels.spring.todo.rest.v1.errors.TitleNotValidException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -25,8 +27,15 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
                                                                   HttpHeaders headers,
                                                                   HttpStatus status,
                                                                   WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails("Validation Failed",
-                ex.getBindingResult().toString());
+        List<ErrorDetail> errorDetails = Lists.newArrayList();
+        if (ex.getBindingResult() != null && CollectionUtils.isNotEmpty(ex.getBindingResult().getAllErrors())){
+            for (ObjectError objectError : ex.getBindingResult().getAllErrors()) {
+                ErrorDetail errorDetail = new ErrorDetail("Validation Failed",
+                        objectError.getDefaultMessage());
+                errorDetails.add(errorDetail);
+            }
+        }
+
         ResponseError responseError = new ResponseError()
                 .timestamp(new Date())
                 .errorDetails(errorDetails);
@@ -35,22 +44,22 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 
     @ExceptionHandler(Exception.class)
     public final ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(ex.getMessage(),
+        ErrorDetail errorDetail = new ErrorDetail(ex.getMessage(),
                 request.getDescription(false));
         ResponseError responseError = new ResponseError()
                 .timestamp(new Date())
-                .errorDetails(errorDetails);
+                .errorDetails(errorDetail);
 
         return new ResponseEntity(responseError, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(TitleNotValidException.class)
     public final ResponseEntity<ResponseError> handleUserNotFoundException(TitleNotValidException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails("Validation Failed",
+        ErrorDetail errorDetail = new ErrorDetail("Validation Failed",
                 ex.getMessage());
         ResponseError responseError = new ResponseError()
                 .timestamp(new Date())
-                .errorDetails(errorDetails);
+                .errorDetails(errorDetail);
 
         return new ResponseEntity<>(responseError, HttpStatus.NOT_FOUND);
     }

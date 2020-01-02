@@ -7,15 +7,20 @@ import java.util.List;
 
 public class ResponseError {
     private Date timestamp;
-    private List<ErrorDetails> errors = Lists.newArrayList();
+    private List<ErrorDetail> errors = Lists.newArrayList();
 
     public ResponseError timestamp(Date timestamp) {
         this.timestamp = timestamp;
         return this;
     }
 
-    public ResponseError errorDetails(ErrorDetails errorDetails) {
-        this.errors.add(errorDetails);
+    public ResponseError errorDetails(ErrorDetail errorDetail) {
+        this.errors.add(errorDetail);
+        return this;
+    }
+
+    public ResponseError errorDetails(List<ErrorDetail> errorDetails) {
+        this.errors.addAll(errorDetails);
         return this;
     }
 
@@ -27,11 +32,11 @@ public class ResponseError {
         this.timestamp = timestamp;
     }
 
-    public List<ErrorDetails> getErrors() {
+    public List<ErrorDetail> getErrors() {
         return errors;
     }
 
-    public void setErrors(List<ErrorDetails> errors) {
+    public void setErrors(List<ErrorDetail> errors) {
         this.errors = errors;
     }
 }
