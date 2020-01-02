@@ -3,6 +3,7 @@ package org.daniels.spring.todo.rest.v1;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import org.daniels.spring.todo.model.TodoDTO;
+import org.daniels.spring.todo.rest.v1.errors.TitleNotValidException;
 import org.daniels.spring.todo.service.TodoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,14 +51,14 @@ public class TodoResource {
 
     @PostMapping("/todos")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<TodoDTO> createTodo(@Valid @RequestBody final TodoDTO todoDTO) throws URISyntaxException {
+    public ResponseEntity<TodoDTO> createTodo(@RequestBody final TodoDTO todoDTO) throws URISyntaxException {
         log.info("REST request to save Todo : {}", todoDTO);
         if (todoDTO.getId() != null) {
             throw new RuntimeException("A new todo cannot have an ID");
         }
-/*        if (!checkTitleLength(todoDTO.getTitle())) {
-            throw new RuntimeException("Title need to have at 3 signs");
-        }*/
+       if (!checkTitleLength(todoDTO.getTitle())) {
+            throw new TitleNotValidException("Title need to have at 3 signs");
+        }
 
         TodoDTO createdTodo = todoService.add(todoDTO);
 
