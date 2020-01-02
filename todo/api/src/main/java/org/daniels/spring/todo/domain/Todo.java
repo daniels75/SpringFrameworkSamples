@@ -18,7 +18,7 @@ public class Todo implements Serializable {
     private Long id;
 
     @NotNull
-    @Size(min = 3, max = 100, message = "Title should have at least 3 characters")
+    @Size(min = 3, max = 100, message = "{todo.title}")
     @Column(name = "title")
     private String title;
 
