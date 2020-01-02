@@ -1,9 +1,14 @@
 package org.daniels.spring.todo.model;
 
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class TodoDTO {
 
     private Long id;
+    @NotNull
+    @Size(min = 3, max = 100, message = "Title should have at least 3 signs")
     private String title;
     private String description;
     private int priority;

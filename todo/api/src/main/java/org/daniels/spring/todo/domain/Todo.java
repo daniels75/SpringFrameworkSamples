@@ -1,6 +1,8 @@
 package org.daniels.spring.todo.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import java.io.Serializable;
 
@@ -15,6 +17,8 @@ public class Todo implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @NotNull
+    @Size(min = 3, max = 100, message = "Title should have at least 3 signs")
     @Column(name = "title")
     private String title;
 
