@@ -41,6 +41,9 @@ export class AppComponent implements OnInit {
       .subscribe(
         (newTodo) => {
           this.todos = this.todos.concat(newTodo);
+        },
+        (error) => {
+          console.log("error");
         }
       );
   }
