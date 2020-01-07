@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
 
   todos: Todo[] = [];
   errors: ErrorWrapper;
+  hoverError: boolean;
 
   constructor( private todoDataService: TodoDataService ) {
   }
@@ -45,7 +46,7 @@ export class AppComponent implements OnInit {
           this.todos = this.todos.concat(newTodo);
         },
         (error: ErrorWrapper) => {
-          console.log("error");
+          this.errors = error;
         }
       );
   }
@@ -96,6 +97,10 @@ export class AppComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  cleanErrors() {
+    this.errors = null;
   }
 }
 

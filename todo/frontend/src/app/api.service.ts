@@ -130,7 +130,7 @@ export class ApiService {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
-      console.error("Error in the response: " + JSON.stringify(error)); // log to console instead
+      console.error("Error in the response: " + JSON.stringify(error.error)); // log to console instead
 
       // Let the app keep running by returning an empty result.
 

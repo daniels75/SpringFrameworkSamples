@@ -1,12 +1,15 @@
 <div class="ui doubling stackable grid container">
 
   <div class="ten wide centered column">
-    <div *ngIf="hasErrors()" class="ui form error">
+    <div *ngIf="hasErrors()" class="ui form error" (click)="cleanErrors()">
       <div class="ui error message">
-        <div class="header">Errors</div>
+        <div class="header">
+          Errors
+        </div>
         <ul *ngFor="let details of errors.details">
           <li>{{details.details}}</li>
         </ul>
+        <div class="ui red button" (click)="cleanErrors()">Clear messages</div>
       </div>
     </div>
     <app-todo-list-header (add)="onAddTodo($event)"></app-todo-list-header>
