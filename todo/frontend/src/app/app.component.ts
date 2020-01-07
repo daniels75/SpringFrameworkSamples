@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TodoDataService} from "./todo-data.service";
 import {Todo} from "./todo";
 import {UpdTodo} from "./updtodo";
+import {ErrorWrapper} from "./errorwrapper";
 
 @Component({
   selector: 'app-root',
@@ -39,10 +40,10 @@ export class AppComponent implements OnInit {
     this.todoDataService
       .addTodo(todo)
       .subscribe(
-        (newTodo) => {
+        (newTodo: Todo) => {
           this.todos = this.todos.concat(newTodo);
         },
-        (error) => {
+        (error: ErrorWrapper) => {
           console.log("error");
         }
       );

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Todo } from './todo';
-import {forkJoin, from, Observable, of} from 'rxjs';
+import {forkJoin, from, Observable, of, throwError} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import { catchError, map, tap } from 'rxjs/operators';
@@ -151,7 +151,7 @@ export class ApiService {
 
       errorWrapper.details = errorsDetails;
 
-      return of(errorWrapper);
+      return throwError(errorWrapper);
     }
   };
 
