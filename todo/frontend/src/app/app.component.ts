@@ -13,6 +13,7 @@ import {ErrorWrapper} from "./errorwrapper";
 export class AppComponent implements OnInit {
 
   todos: Todo[] = [];
+  errors: ErrorWrapper;
 
   constructor( private todoDataService: TodoDataService ) {
   }
@@ -90,5 +91,11 @@ export class AppComponent implements OnInit {
     );
   }
 
+  hasErrors(): boolean {
+    if (this.errors && this.errors.details) {
+      return true;
+    }
+    return false;
+  }
 }
 

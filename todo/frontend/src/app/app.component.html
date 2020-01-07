@@ -1,5 +1,14 @@
 <div class="ui doubling stackable grid container">
+
   <div class="ten wide centered column">
+    <div *ngIf="hasErrors()" class="ui form error">
+      <div class="ui error message">
+        <div class="header">Errors</div>
+        <ul *ngFor="let details of errors.details">
+          <li>{{details.details}}</li>
+        </ul>
+      </div>
+    </div>
     <app-todo-list-header (add)="onAddTodo($event)"></app-todo-list-header>
     <app-todo-list [todos]="todos"
                    (toggleComplete)="onToggleTodoComplete($event)"
