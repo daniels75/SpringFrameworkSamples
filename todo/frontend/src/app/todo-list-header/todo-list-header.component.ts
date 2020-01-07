@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Todo} from "../todo";
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-todo-list-header',
@@ -8,12 +9,16 @@ import {Todo} from "../todo";
 })
 export class TodoListHeaderComponent implements OnInit {
 
+
   newTodo: Todo = new Todo();
+
 
   @Output()
   add: EventEmitter<Todo> = new EventEmitter();
 
-  constructor() { }
+  constructor(){
+
+}
 
   ngOnInit() {
   }
