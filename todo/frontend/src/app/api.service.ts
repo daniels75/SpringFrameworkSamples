@@ -5,6 +5,7 @@ import {forkJoin, from, Observable, of} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import { catchError, map, tap } from 'rxjs/operators';
+import {ErrorWrapper} from "./errorwrapper";
 
 
 const API_URL = environment.apiUrl;
@@ -128,10 +129,18 @@ export class ApiService {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
-      console.error("Error in the response: " + error); // log to console instead
+      console.error("Error in the response: " + JSON.stringify(error)); // log to console instead
 
       // Let the app keep running by returning an empty result.
-      return Observable.throw(error);
+
+      let obj: ErrorWrapper = JSON.parse(JSON.stringify(error));
+
+      const errorWrapper: ErrorWrapper = new ErrorWrapper({
+        status: error.status,
+        statusText: error.statusText
+      });
+
+      return of(error);
     }
   };
 
