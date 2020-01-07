@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import { catchError, map, tap } from 'rxjs/operators';
 import {ErrorWrapper} from "./errorwrapper";
+import {Errordetails} from "./errordetails";
 
 
 const API_URL = environment.apiUrl;
@@ -135,12 +136,22 @@ export class ApiService {
 
       let obj: ErrorWrapper = JSON.parse(JSON.stringify(error));
 
-      const errorWrapper: ErrorWrapper = new ErrorWrapper({
+      let errorsDetails: Errordetails[] = [];
+      for (let detail of error.error.errors) {
+        errorsDetails.push(new Errordetails({
+          message: detail.message,
+          details: detail.details
+        }));
+      }
+
+      let errorWrapper: any = new ErrorWrapper({
         status: error.status,
         statusText: error.statusText
       });
 
-      return of(error);
+      errorWrapper.details = errorsDetails;
+
+      return of(errorWrapper);
     }
   };
 
