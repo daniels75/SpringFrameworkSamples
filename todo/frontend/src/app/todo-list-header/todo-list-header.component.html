@@ -4,9 +4,18 @@
     <input type="text" placeholder="What needs to be done?"
            autofocus=""
            [(ngModel)]="newTodo.title"
+           name="title"
+           #title="ngModel"
            required
            (keyup.enter)="addTodo()"
             id="title" #spy>
     <button class="ui icon button" (click)="addTodo()"><i class="large plus icon"></i></button>
+  </div>
+  <div>
+    <p>TODO: remove this: {{spy.className}}</p>
+  </div>
+  <div [hidden]="title.valid || title.pristine"
+       class="alert alert-danger">
+    You have to provide todo
   </div>
 </header>
