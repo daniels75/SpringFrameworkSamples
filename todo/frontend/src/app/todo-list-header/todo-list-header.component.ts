@@ -15,17 +15,25 @@ export class TodoListHeaderComponent implements OnInit {
 
   @Output()
   add: EventEmitter<Todo> = new EventEmitter();
+  todoIsValid: boolean;
 
   constructor(){
 
 }
 
   ngOnInit() {
+    this.todoIsValid = true;
   }
 
   addTodo() {
-    this.add.emit(this.newTodo);
-    this.newTodo = new Todo();
+    if (this.newTodo.title.length > 2) {
+      this.add.emit(this.newTodo);
+      this.newTodo = new Todo();
+      this.todoIsValid = true;
+    } else {
+      this.todoIsValid = false;
+    }
+
   }
 
 }
