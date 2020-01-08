@@ -4,28 +4,22 @@
     <input type="text" placeholder="What needs to be done?"
            autofocus=""
            [(ngModel)]="newTodo.title"
+           id="title"
            name="title"
-           #title="ngModel"
-           required
+           required=""
+           minlength="3"
            (keyup.enter)="addTodo()"
-            id="title" #spy>
+           #title="ngModel">
     <button class="ui icon button"
             (click)="addTodo()">
       <i class="large plus icon"></i>
     </button>
   </div>
-  
-  <div [hidden]="(title.valid || title.pristine) && newTodo.title.length == 0">
+
+  <div *ngIf="title.invalid && title.errors.minlength">
     <div class="ui error message" >
       <div class="header">
-        You have to provide todo
-      </div>
-    </div>
-  </div>
-  <div [hidden]="(title.valid || title.pristine) && newTodo.title.length >= 3">
-    <div class="ui error message" >
-      <div class="header">
-        You have to provide at least 3 characters
+        Name must be at least 3 characters long.
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Todo} from "../todo";
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 
@@ -12,26 +12,25 @@ export class TodoListHeaderComponent implements OnInit {
 
   newTodo: Todo = new Todo();
 
-
   @Output()
   add: EventEmitter<Todo> = new EventEmitter();
-  todoIsValid: boolean;
+  titleInvalid: boolean;
 
   constructor(){
 
-}
+  }
 
   ngOnInit() {
-    this.todoIsValid = true;
+    this.titleInvalid = false;
   }
 
   addTodo() {
     if (this.newTodo.title.length > 2) {
       this.add.emit(this.newTodo);
       this.newTodo = new Todo();
-      this.todoIsValid = true;
+      this.titleInvalid = false;
     } else {
-      this.todoIsValid = false;
+      this.titleInvalid = true;
     }
 
   }
