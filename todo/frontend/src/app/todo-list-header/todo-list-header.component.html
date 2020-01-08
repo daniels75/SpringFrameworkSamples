@@ -4,7 +4,9 @@
     <input type="text" placeholder="What needs to be done?"
            autofocus=""
            [(ngModel)]="newTodo.title"
-           (keyup.enter)="addTodo()">
+           required
+           (keyup.enter)="addTodo()"
+            id="title" #spy>
     <button class="ui icon button" (click)="addTodo()"><i class="large plus icon"></i></button>
   </div>
 </header>
