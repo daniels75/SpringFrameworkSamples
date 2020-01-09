@@ -16,7 +16,7 @@
     </button>
   </div>
 
-  <div *ngIf="title.invalid && title.errors.minlength">
+  <div *ngIf="title.invalid && (title.dirty || title.touched) && title.errors.minlength">
     <div class="ui error message" >
       <div class="header">
         Name must be at least 3 characters long.
