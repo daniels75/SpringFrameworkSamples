@@ -10,7 +10,8 @@
            minlength="3"
            (keyup.enter)="addTodo()"
            #title="ngModel">
-    <button class="ui icon button"
+    <button class="ui icon button disabled"
+            [ngClass]="{'disabled': newTodo.title.length < 3}"
             (click)="addTodo()">
       <i class="large plus icon"></i>
     </button>
