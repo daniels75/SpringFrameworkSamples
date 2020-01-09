@@ -62,7 +62,8 @@ Final goal is creating a Spring Backend server + Angular in the frontend
 37. [v] Add better validation in the backend
 38. [v] Add validation in the ui with error messages that came from backend
 39. [-] Add validation in the ui with error messages on the frontend
-39. [-] Change responses to ResponseEntity
+40. [-] Disable add button when todo is invalid
+41. [-] Change responses to ResponseEntity
 101. [-]  Add Cache handling
 201. [-] Add error handling for non existent Todos etc.
 205. [-] Integrate Spring and Angular into one application
