@@ -63,7 +63,10 @@
 			"email": "test2@any.com"
 		}
     ```
-
+- ##### DELETE
+    - deletes single User by id
+    - url: http://localhost:8080/api/v1/users/1
+	
 ## please keep in mind
 - run mvn clean install before you run Spring application
 - mvn clean install when any mapping will change
