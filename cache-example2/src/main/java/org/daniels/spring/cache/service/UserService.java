@@ -24,13 +24,13 @@ public class UserService {
     public UserDTO add(UserDTO userDTO) {
         User createdEntity = userRepository.save(userMapper.toUser(userDTO));
 
-        return userMapper.toDTO(createdEntity);
+        return userMapper.toUserDTO(createdEntity);
     }
 
     public List<UserDTO> retrieveAll() {
         List<UserDTO> todoList = userRepository.findAll()
                 .stream()
-                .map(userMapper::toDTO)
+                .map(userMapper::toUserDTO)
                 .collect(Collectors.toList());
         return todoList;
     }
@@ -38,13 +38,13 @@ public class UserService {
     public UserDTO update(UserDTO userDTO) {
         User updateEntity = userRepository.save(userMapper.toUser(userDTO));
 
-        return userMapper.toDTO(updateEntity);
+        return userMapper.toUserDTO(updateEntity);
     }
 
     public UserDTO findById(Long id) {
         Optional<User> todo = userRepository.findById(id);
 
-        return userMapper.toDTO(todo.get());
+        return userMapper.toUserDTO(todo.get());
     }
 
     public void delete(Long id) {
