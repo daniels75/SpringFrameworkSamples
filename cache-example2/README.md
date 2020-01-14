@@ -1,4 +1,10 @@
 # REST API with cache
+## How to check cache
+- create a new user
+- get user by id
+- get user by id - it should be cached
+- update user
+- get again user by id
 
 ## Retrieve all
 GET: http://localhost:8080/api/v1/users

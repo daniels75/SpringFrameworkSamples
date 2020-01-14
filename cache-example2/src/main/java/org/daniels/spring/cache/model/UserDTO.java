@@ -2,8 +2,12 @@ package org.daniels.spring.cache.model;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
-public class UserDTO {
+public class UserDTO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private Long id;
     @Size(max = 50)
     private String firstName;
