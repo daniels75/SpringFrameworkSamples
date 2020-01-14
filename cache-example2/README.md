@@ -65,5 +65,5 @@
     ```
 
 ## please keep in mind
-- run mvn clean install at before you run Spring application
+- run mvn clean install before you run Spring application
 - mvn clean install when any mapping will change
