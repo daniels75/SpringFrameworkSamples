@@ -1,8 +1,8 @@
-# REST API witch cach
+# REST API with cache
 
-## retrieve all REST
+## Retrieve all
 GET: http://localhost:8080/api/v1/users
-## create new user
+## Create new user
 POST: http://localhost:8080/api/v1/users
 {
 	"firstName": "Dan",
