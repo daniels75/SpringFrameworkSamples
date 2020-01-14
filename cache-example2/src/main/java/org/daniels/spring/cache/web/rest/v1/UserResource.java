@@ -35,7 +35,7 @@ public class UserResource {
 
     @GetMapping("/users/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public UserDTO retriveUser(@PathVariable Long id) {
+    public UserDTO retrieveUser(@PathVariable Long id) {
         final UserDTO userDTO = userService.findById(id);
         return userDTO;
     }
@@ -51,9 +51,9 @@ public class UserResource {
         return ResponseEntity.created(new URI(BASE_URL + created.getId())).body(created);
     }
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/users")
     @ResponseStatus(HttpStatus.OK)
-    public UserDTO update(@PathVariable Long id, @RequestBody final UserDTO userDTO) {
+    public UserDTO update(@RequestBody final UserDTO userDTO) {
         if (userDTO.getId() == null) {
             throw new RuntimeException("Invalid id");
         }

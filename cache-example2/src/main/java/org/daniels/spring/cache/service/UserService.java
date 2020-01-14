@@ -4,6 +4,7 @@ import org.daniels.spring.cache.domain.User;
 import org.daniels.spring.cache.mapper.UserMapper;
 import org.daniels.spring.cache.model.UserDTO;
 import org.daniels.spring.cache.repository.UserRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,6 +42,7 @@ public class UserService {
         return userMapper.toUserDTO(updateEntity);
     }
 
+    @Cacheable(value = "userCache", key = "#id")
     public UserDTO findById(Long id) {
         Optional<User> todo = userRepository.findById(id);
 
