@@ -1,13 +1,13 @@
-package org.daniels.spring.cache.cacheexample2;
+package org.daniels.spring.cache;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CacheExample2Application {
+public class CacheExampleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CacheExample2Application.class, args);
+		SpringApplication.run(CacheExampleApplication.class, args);
 	}
 
 }
