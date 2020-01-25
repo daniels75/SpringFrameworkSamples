@@ -35,7 +35,35 @@
 			"description": "This is a first TODO"
 		}
     ```
-	
+- ##### GET 
+    - retrieves Admin info with admin/admin123 credential
+    - url: http://localhost:8080/api/admin
+    - response:
+    ```
+		[
+			{
+				"id": 1,
+				"title": "First Admin",
+				"description": "admin desc1"
+			},
+			{
+				"id": 2,
+				"title": "Second Acmin",
+				"description": "admin desc2"
+			}
+		]
+    ```    
+- ##### GET with admin/admin123 credential
+    - retrieves single Admi info
+    - url: http://localhost:8080/api/todo/1
+    - response:
+    ```
+		{
+			"id": 1,
+			"title": "Admin",
+			"description": "Admin account"
+		}
+    ```	
 #### Hints
 #####For test purpose you can use a Postman
 ##### see ExceptionTranslationFilter
