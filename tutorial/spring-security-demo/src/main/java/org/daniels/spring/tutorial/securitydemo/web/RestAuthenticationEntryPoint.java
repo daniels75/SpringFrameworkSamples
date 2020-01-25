@@ -20,7 +20,7 @@ public final class RestAuthenticationEntryPoint implements AuthenticationEntryPo
             final HttpServletResponse response,
             final AuthenticationException authException) throws IOException {
 
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized - please use credential like user/user123 with Basic authentication");
     }
 
 }
