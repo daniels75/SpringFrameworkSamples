@@ -11,8 +11,10 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping(AdminResource.BASE_URL)
 public class AdminResource {
+
+    public static final String BASE_URL = "/api";
 
     @GetMapping("/admin/{id}")
     public Admin getAdmin(@PathVariable Long id) {

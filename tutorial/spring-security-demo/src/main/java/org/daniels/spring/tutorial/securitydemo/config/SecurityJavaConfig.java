@@ -32,9 +32,16 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
+                .withUser("admin").password("admin123").roles("ADMIN")
+                .and()
+                .withUser("user").password("user123").roles("USER");
+
+        /*
+                auth.inMemoryAuthentication()
                 .withUser("admin").password(encoder().encode("admin123")).roles("ADMIN")
                 .and()
                 .withUser("user").password(encoder().encode("user123")).roles("USER");
+         */
     }
 
     @Bean
@@ -50,12 +57,14 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(restAuthenticationEntryPoint)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/todo").authenticated()
+                .antMatchers("/api/todo/**").authenticated()
                 .antMatchers("/api/admin/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .successHandler(mySuccessHandler)
                 .failureHandler(myFailureHandler)
+                .and()
+                .httpBasic()
                 .and()
                 .logout();
     }
