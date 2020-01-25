@@ -5,7 +5,7 @@
 
 #### Spring Security demo
 - spring-security-demo
-##### For test purpose you can use a Postman
+
 - ##### GET 
     - retrieves all Todos
     - url: http://localhost:8080/api/todo
@@ -35,3 +35,8 @@
 			"description": "This is a first TODO"
 		}
     ```
+	
+#### Hints
+#####For test purpose you can use a Postman
+##### see ExceptionTranslationFilter
+##### click Clear in the Postman - since some values can be cached
