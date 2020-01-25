@@ -7,7 +7,7 @@
 - spring-security-demo
 
 - ##### GET 
-    - retrieves all Todos
+    - retrieves all Todos with user/user123 credential
     - url: http://localhost:8080/api/todo
     - response:
     ```
@@ -24,7 +24,7 @@
 			}
 		]
     ```    
-- ##### GET
+- ##### GET with user/user123 credential
     - retrieves single Todo
     - url: http://localhost:8080/api/todo/1
     - response:
