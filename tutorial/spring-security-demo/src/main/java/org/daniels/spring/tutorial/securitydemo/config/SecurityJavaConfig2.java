@@ -30,8 +30,7 @@ public class SecurityJavaConfig2 extends WebSecurityConfigurerAdapter {
                 .withUser("user").password(encoder().encode("user123")).roles("USER");
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure2(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
 
