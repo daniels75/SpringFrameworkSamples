@@ -72,3 +72,9 @@
 
 #### 3. Spring Security JWT
 - spring-jwt-demo
+- ##### GET 
+    - retrieves single user with user/user123 or admin/admin123 credential
+    - url: http://localhost:8080/api/user
+- ##### GET 
+    - retrieves all users with user/user123 or admin/admin123 credential
+    - url: http://localhost:8080/api/all	
