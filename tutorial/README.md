@@ -1,9 +1,9 @@
 # Spring tutorial
 
-#### Spring Bean annotations
+#### 1. Spring Bean annotations
 - spring-bean-annotations
 
-#### Spring Security demo
+#### 2. Spring Security demo
 - spring-security-demo
 
 - ##### GET 
@@ -70,5 +70,5 @@
 ##### click Clear in the Postman - since some values can be cached
 
 
-#### Spring Security JWT
+#### 3. Spring Security JWT
 - spring-jwt-demo
