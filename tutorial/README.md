@@ -68,3 +68,7 @@
 #####For test purpose you can use a Postman
 ##### see ExceptionTranslationFilter
 ##### click Clear in the Postman - since some values can be cached
+
+
+#### Spring Security JWT
+- spring-jwt-demo
