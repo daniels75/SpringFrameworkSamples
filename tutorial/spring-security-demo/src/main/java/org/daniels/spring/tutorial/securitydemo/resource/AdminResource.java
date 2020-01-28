@@ -28,7 +28,7 @@ public class AdminResource {
                 .title("First Admin").description("admin desc1");
 
         final Admin admin2 = new Admin().id(2L)
-                .title("Second Acmin").description("admin desc2");
+                .title("Second Admin").description("admin desc2");
 
         return Lists.newArrayList(admin1, admin2);
     }

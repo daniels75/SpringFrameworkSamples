@@ -48,7 +48,7 @@
 			},
 			{
 				"id": 2,
-				"title": "Second Acmin",
+				"title": "Second Admin",
 				"description": "admin desc2"
 			}
 		]
