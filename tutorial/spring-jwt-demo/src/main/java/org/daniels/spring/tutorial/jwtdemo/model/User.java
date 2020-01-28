@@ -1,6 +1,6 @@
 package org.daniels.spring.tutorial.jwtdemo.model;
 
-public class Employee {
+public class User {
     private Long id;
     private String name;
 
@@ -12,7 +12,7 @@ public class Employee {
         this.id = id;
     }
 
-    public Employee id(Long id) {
+    public User id(Long id) {
         this.id = id;
         return this;
     }
@@ -25,7 +25,7 @@ public class Employee {
         this.name = name;
     }
 
-    public Employee name(String name) {
+    public User name(String name) {
         this.name = name;
         return this;
     }
