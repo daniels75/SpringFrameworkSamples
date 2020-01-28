@@ -74,7 +74,7 @@
 - spring-jwt-demo
 - ##### GET 
     - retrieves single user with user/user123 or admin/admin123 credential
-    - url: http://localhost:8080/api/user
+    - url: http://localhost:8085/spring-security-jwt/api/user
 - ##### GET 
     - retrieves all users with user/user123 or admin/admin123 credential
-    - url: http://localhost:8080/api/all	
+    - url: http://localhost:8085/spring-security-jwt/api/all	
