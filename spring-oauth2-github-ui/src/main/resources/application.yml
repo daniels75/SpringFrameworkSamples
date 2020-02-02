@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          foobar:
+            client-id: ab5f859e82985968aba1
+            client-secret: 91e6a1d6c6e581a961e06e6ef1fb4ff2fba3a56e
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/foobar
+        provider:
+          foobar:
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            userInfoUri: https://api.github.com/user
+            user-name-attribute: login
