@@ -14,3 +14,6 @@
     - http://localhost:8084/ui-first/
 - spring-sso-ui-second
     - http://localhost:8085/ui-second/
+## Spring boot UI - login via github
+- spring-oauth2-github-ui
+	- http://localhost:8086/github-ui
