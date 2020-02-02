@@ -7,9 +7,10 @@
     - http://localhost:8082/ui/
 
 ## another sso example
+#### user: john/123
 - spring-sso-server
     - http://localhost:8081/auth/
 - spring-sso-ui-first
-    - http://localhost:8083/first-ui/
+    - http://localhost:8084/ui-first/
 - spring-sso-ui-second
-    - http://localhost:8084/second-ui/
+    - http://localhost:8085/ui-second/
