@@ -17,3 +17,7 @@
 ## Spring boot UI - login via github
 - spring-oauth2-github-ui
 	- http://localhost:8086/github-ui
+	
+	
+## Some useful pages
+- https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/	
