@@ -22,7 +22,7 @@ provider:
 	user-name-attribute: id	
 	
 	
-# Everthing above can be "simplified" with following but then I don't see what Spring is doing behince of the scene :)
+#### Everything above can be "simplified" as follows, but then you don't see what Spring is doing behind of the scene :)
 
 spring:
   security:
