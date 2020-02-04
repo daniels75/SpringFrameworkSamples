@@ -13,8 +13,8 @@
 #### Add UI part
 1. Generate frontent from angular-cli  [Done]
 2. Change configuration - port 9091    [Done]
-3. Add components                      [Todo]
-4. Check application                   [Todo]
+3. Add components                      [Done]
+4. Check application                   [Done]
 
 #### Add backend with server
 
