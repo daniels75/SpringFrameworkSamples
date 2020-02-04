@@ -18,7 +18,8 @@
 ## Spring boot UI - login via github
 - spring-oauth2-github-ui
 	- http://localhost:8086/github-ui
-## Spring with Angular frontent
+## Spring with Angular frontend
+### This is application with Angular in the frontend and authorization on the backend
 - spring-security-with-angular
 	
 ## Some useful pages
