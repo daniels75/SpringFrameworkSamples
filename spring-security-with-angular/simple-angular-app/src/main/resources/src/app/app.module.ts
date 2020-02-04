@@ -3,9 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import {RouterModule} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from "./home.component";
 import {FooComponent} from "./foo.component";
+
+const routes: Routes = [
+  { path: '', component: HomeComponent, pathMatch: 'full' }
+];
+
 
 @NgModule({
   declarations: [
@@ -16,8 +21,7 @@ import {FooComponent} from "./foo.component";
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }], {onSameUrlNavigation: 'reload'})
+    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
   ],
   providers: [],
   bootstrap: [AppComponent]
