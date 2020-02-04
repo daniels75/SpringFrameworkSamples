@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-	"start": "ng serve --port 9091",
+    "start": "ng serve --port 9091",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -19,7 +19,9 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
-    "rxjs": "~6.4.0",
+    "ng2-cookies": ">=1.0.12",
+    "rxjs": "^6.4.0",
+    "rxjs-compat": "^6.0.0-tactical-rc.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

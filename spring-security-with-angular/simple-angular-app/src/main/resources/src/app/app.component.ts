@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Spring Security Oauth - UI with authorization code</a>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>`
 })
-export class AppComponent {
-  title = 'simple-angular-app';
-}
+
+export class AppComponent {}
