@@ -10,7 +10,7 @@ import {AppService} from './app.service'
         <span>Angular UI</span>
         <a class="btn btn-default pull-right"(click)="logout()" href="#">Logout</a>
         <br/>
-  
+        <foo-details></foo-details>
     </div>
 </div>`
 })

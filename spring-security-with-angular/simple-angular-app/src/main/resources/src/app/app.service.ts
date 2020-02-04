@@ -14,7 +14,7 @@ export class Foo {
 @Injectable()
 export class AppService {
    public clientId = 'fooClientIdPassword';
-   public redirectUri = 'http://localhost:8089/';
+   public redirectUri = 'http://localhost:9091/';
 
   constructor(
     private _http: HttpClient){}
@@ -38,7 +38,7 @@ export class AppService {
     var expireDate = new Date().getTime() + (1000 * token.expires_in);
     Cookie.set("access_token", token.access_token, expireDate);
     console.log('Obtained Access token');
-    window.location.href = 'http://localhost:8089';
+    window.location.href = 'http://localhost:9091';
   }
 
   getResource(resourceUrl) : Observable<any>{
