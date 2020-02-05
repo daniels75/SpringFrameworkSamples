@@ -1,7 +1,7 @@
 # Simple authorization with simple ui
-1. Run: Spring Authenticaiton server -> SpringFramework\spring-security-with-angular\
+1. Run: Spring Authenticaiton server -> oauth-server
 2. Auth token is available: http://localhost:8081/spring-security-oauth-server/oauth/token
-3. Run UI Part -> SpringFramework\spring-security-with-angular\simple-ui\
+3. Run UI Part -> simple-ui
 4. Open simple UI: http://localhost:8086/simple-ui
 5. Authenticate with user: john/123
 6. Accept authorization 
