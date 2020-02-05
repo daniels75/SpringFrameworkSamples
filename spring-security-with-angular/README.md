@@ -1,3 +1,12 @@
+# Simple authorization with simple ui
+1. Run: Spring Authenticaiton server -> SpringFramework\spring-security-with-angular\
+2. Auth token is available: http://localhost:8081/spring-security-oauth-server/oauth/token
+3. Run UI Part -> SpringFramework\spring-security-with-angular\simple-ui\
+4. Open simple UI: http://localhost:8086/simple-ui
+5. Authenticate with user: john/123
+6. Accept authorization 
+7. After all UI part should be authorized 
+
 # Spring security with angular
 ## Add UI part
 1. go to spring-security-with-angular\simple-angular-app\
@@ -6,6 +15,7 @@
 4. run: npm start or ng serve
 5. http://localhost:9091/
 ## Add backend with server
+
 
 
 
