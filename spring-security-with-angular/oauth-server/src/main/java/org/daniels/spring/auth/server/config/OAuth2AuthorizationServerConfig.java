@@ -9,8 +9,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 @EnableAuthorizationServer
 public class OAuth2AuthorizationServerConfig  extends AuthorizationServerConfigurerAdapter {
 
-    @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+    public void configureX1(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
                 .tokenKeyAccess("permitAll()")
                 .checkTokenAccess("isAuthenticated()");

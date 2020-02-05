@@ -1,22 +1,21 @@
 server:
   port: 8086
   servlet:
-    context-path: /github-ui
+    context-path: /simple-ui
 spring:
   security:
     oauth2:
       client:
         registration:
-          foobar:
-            client-id: ab5f859e82985968aba1
-            client-secret: 91e6a1d6c6e581a961e06e6ef1fb4ff2fba3a56e
+          custom:
+            client-id: fooClientIdPassword
+            client-secret: secret
+            scope: read,write,foo
             authorization-grant-type: authorization_code
-            ## that must correspond to the Authorization callback URL in the github app name
-            redirect-uri: http://localhost:8086/github-ui/login/oauth2/code/foobar
+            redirect-uri: http://localhost:8086/simple-ui/login/oauth2/code/custom
         provider:
-          foobar:
-            authorization-uri: https://github.com/login/oauth/authorize
-            token-uri: https://github.com/login/oauth/access_token
-            userInfoUri: https://api.github.com/user
-            ## this can be id, login etc. must must match to one of the user account properties
-            user-name-attribute: id
+          custom:
+            authorization-uri: http://localhost:8081/spring-security-oauth-server/oauth/authorize
+            token-uri: http://localhost:8081/spring-security-oauth-server/oauth/token
+            user-info-uri: http://localhost:8082/spring-security-oauth-resource/users/extra
+            user-name-attribute: user_name
