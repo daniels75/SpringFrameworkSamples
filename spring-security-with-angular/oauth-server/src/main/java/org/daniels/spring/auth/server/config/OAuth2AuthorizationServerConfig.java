@@ -34,5 +34,4 @@ public class OAuth2AuthorizationServerConfig  extends AuthorizationServerConfigu
                 .redirectUris("http://localhost:8086/simple-ui/login/oauth2/code/custom");
     }
 
-
 }
