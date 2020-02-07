@@ -30,6 +30,9 @@
 1. Create very simple auth server
 2. Consider using jwt token
 3. 
+
 #### Optionally add resource server
+1. Add seperate resource server
+2. Configure it to work with with auth server
 
 #### Optionally add another UI appliaction
