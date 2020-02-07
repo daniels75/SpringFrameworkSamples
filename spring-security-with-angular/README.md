@@ -27,7 +27,9 @@
 4. Check application                   [Done]
 
 #### Add backend with server
-
+1. Create very simple auth server
+2. Consider using jwt token
+3. 
 #### Optionally add resource server
 
 #### Optionally add another UI appliaction
