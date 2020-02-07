@@ -17,8 +17,6 @@
 ## Add backend with server
 
 
-
-
 ### Plan
 #### Add UI part
 1. Generate frontent from angular-cli  [Done]
