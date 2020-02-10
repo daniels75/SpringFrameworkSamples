@@ -30,7 +30,10 @@ public class OAuth2AuthorizationServerConfig  extends AuthorizationServerConfigu
                 .authorizedGrantTypes("authorization_code")
                 .scopes("user_info")
                 //.autoApprove(true)
-                .redirectUris("http://localhost:8086/simple-ui/login/oauth2/code/custom");
+                .redirectUris(
+                        "http://localhost:8086/simple-ui/login/oauth2/code/custom",
+                        "http://localhost:8089/"
+                        );
     }
 
 }
