@@ -17,10 +17,9 @@ public class OAuth2AuthorizationServerConfig  extends AuthorizationServerConfigu
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void configureFixme(
-            AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-        oauthServer.tokenKeyAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()");
+    @Override
+    public void configure(final AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
+        oauthServer.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
     }
 
     @Override
