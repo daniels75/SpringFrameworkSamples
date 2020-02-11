@@ -1,6 +1,7 @@
 package org.daniels.spring.auth.server.config;
 
 
+import org.daniels.spring.auth.server.model.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,9 @@ public class UserController {
         return principal;
     }
 
-
+    @RequestMapping("/simple")
+    public User findUser() {
+        return new User().id(1L).name("john").surname("kowalski");
+    }
 
 }
