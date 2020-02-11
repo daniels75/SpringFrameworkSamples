@@ -1,13 +1,17 @@
-# Simple authorization with simple ui
+# Simple authorization server
+1. Go to spring-security-with-angular/oauth-server
+2. Run: Spring Authenticaiton server -> oauth-server
+
+# Simple authorization with simple UI
 1. Run: Spring Authenticaiton server -> oauth-server
 2. Auth token is available: http://localhost:8081/spring-security-oauth-server/oauth/token
 3. Run UI Part -> simple-ui
-4. Open simple UI: http://localhost:8086/simple-ui
+4. Open simple UI: http://localhost:8090/simple-ui
 5. Authenticate with user: john/123
 6. Accept authorization 
 7. After all UI part should be authorized 
 
-# Spring security with angular
+# Spring security with Angular
 ## Add UI part
 1. go to spring-security-with-angular/simple-angular-app
 2. run: mvn clean install

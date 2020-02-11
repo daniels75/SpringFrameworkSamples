@@ -31,8 +31,8 @@ public class OAuth2AuthorizationServerConfig  extends AuthorizationServerConfigu
                 .scopes("user_info")
                 //.autoApprove(true)
                 .redirectUris(
-                        "http://localhost:8086/simple-ui/login/oauth2/code/custom",
-                        "http://localhost:8089/"
+                        "http://localhost:8089/",
+                        "http://localhost:8090/simple-ui/login/oauth2/code/custom"
                         );
     }
 
