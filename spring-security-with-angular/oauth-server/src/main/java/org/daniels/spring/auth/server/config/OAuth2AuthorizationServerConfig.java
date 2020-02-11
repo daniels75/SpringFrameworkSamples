@@ -27,12 +27,13 @@ public class OAuth2AuthorizationServerConfig  extends AuthorizationServerConfigu
         clients.inMemory()
                 .withClient("fooClientIdPassword")
                 .secret(passwordEncoder.encode("secret"))
-                .authorizedGrantTypes("authorization_code")
+                .authorizedGrantTypes("password", "authorization_code", "refresh_token", "client_credentials")
                 .scopes("user_info")
                 //.autoApprove(true)
                 .redirectUris(
                         "http://localhost:8089/",
-                        "http://localhost:8090/simple-ui/login/oauth2/code/custom"
+                        "http://localhost:8090/simple-ui/login/oauth2/code/custom",
+                        "http://localhost:8091/"
                         );
     }
 
