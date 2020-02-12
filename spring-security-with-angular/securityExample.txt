@@ -5,10 +5,15 @@ curl fooClientIdPassword:secret@localhost:8081/spring-security-oauth-server/oaut
  
  http://localhost:8081/spring-security-oauth-server/oauth/authorize?grant_type=authorization_code&response_type=code&client_id=fooClientIdPassword&state=1234
  
- Step1
- via browser
+ # First of all you need run authentication server:
+	spring-security-with-angular/oauth-server
+	
+   Auth server url: http://localhost:8081/spring-security-oauth-server/
+ 
+ 
+ Step1 - via browser or Postman
  http://localhost:8081/spring-security-oauth-server/oauth/authorize?
- client_id=fooClientIdPassword&response_type=code&scope=user_info&redirect_uri=http://localhost:8091/
+client_id=fooClientIdPassword&response_type=code&scope=user_info&redirect_uri=http://localhost:8091/
  
  Response:
  http://localhost:8091/?code=ITIK2f
@@ -28,7 +33,7 @@ curl fooClientIdPassword:secret@localhost:8081/spring-security-oauth-server/oaut
 Authorization Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=
  
  
- response:
+Response:
  
  {
     "access_token": "8c737be0-194b-4af5-b21a-8c424b8d97f4",
@@ -36,4 +41,22 @@ Authorization Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=
     "refresh_token": "f98419c0-cafb-4e2f-8e15-f248a226c744",
     "expires_in": 42832,
     "scope": "user_info"
+}
+
+Step 3 - via POSTMAN
+Access resource from auth server with retrived access token
+http://localhost:8081/spring-security-oauth-server/user/simple
+
+GET: http://localhost:8081/spring-security-oauth-server/user/simple?access_token=8c737be0-194b-4af5-b21a-8c424b8d97f4
+or
+GET http://localhost:8081/spring-security-oauth-server/user/simple
++ Header
+Authorization Bearer 8c737be0-194b-4af5-b21a-8c424b8d97f4
+
+
+Response:
+{
+    "id": 1,
+    "name": "john",
+    "surname": "kowalski"
 }
