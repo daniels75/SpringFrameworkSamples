@@ -5,4 +5,35 @@ curl fooClientIdPassword:secret@localhost:8081/spring-security-oauth-server/oaut
  
  http://localhost:8081/spring-security-oauth-server/oauth/authorize?grant_type=authorization_code&response_type=code&client_id=fooClientIdPassword&state=1234
  
- http://localhost:8081/spring-security-oauth-server/oauth/authorize?client_id=fooClientIdPassword&response_type=code&scope=user_info&redirect_uri=http://localhost:8091/
+ Step1
+ via browser
+ http://localhost:8081/spring-security-oauth-server/oauth/authorize?
+ client_id=fooClientIdPassword&response_type=code&scope=user_info&redirect_uri=http://localhost:8091/
+ 
+ Response:
+ http://localhost:8091/?code=ITIK2f
+ 
+ 
+ Step 2 
+ Token with POSTMAN
+ http://localhost:8081/spring-security-oauth-server/oauth/token
+ grant_type		 authorization_code
+ code 			 ITIK2f
+ redirect_uri    http://localhost:8091/
+ client_id       fooClientIdPassword   [optional]
+ client_secret   secret
+ 
+ x-www-form-urlencoded
+ here should be: (Authorization base64Encoded(client_id:client_secret)).
+Authorization Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=
+ 
+ 
+ response:
+ 
+ {
+    "access_token": "8c737be0-194b-4af5-b21a-8c424b8d97f4",
+    "token_type": "bearer",
+    "refresh_token": "f98419c0-cafb-4e2f-8e15-f248a226c744",
+    "expires_in": 42832,
+    "scope": "user_info"
+}
