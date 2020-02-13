@@ -25,7 +25,7 @@ public class OAuth2AuthorizationServerConfig  extends AuthorizationServerConfigu
     private final AuthenticationManager authenticationManager;
 
     public OAuth2AuthorizationServerConfig(PasswordEncoder passwordEncoder,
-                                           AuthenticationManager authenticationManager) throws Exception {
+                                           AuthenticationManager authenticationManager)  {
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
     }
