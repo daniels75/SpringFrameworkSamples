@@ -55,6 +55,7 @@
 #### Add backend with server
 1. Create very simple auth server                   [Done]
 2. Consider using jwt token                         [Done]
+3. Condider adding token service + REST				[Todo]
 3. Change/Play with configuraiton for auth server   [Todo]
 
 #### Optionally add resource server
