@@ -39,4 +39,5 @@ public class OAuth2AuthorizationServerConfig  extends AuthorizationServerConfigu
                         );
     }
 
+
 }
