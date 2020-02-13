@@ -6,6 +6,9 @@
 ## oauth-jwt-server - this alternative - auth server uses a jwt token
 1. run from intellij or command line
 2. server is available at address: http://localhost:8081/spring-security-oauth-server/
+### Some helpful links
+#### https://jwt.io/introduction/
+#### https://jwt.io/#libraries
 
 ## simple-ui - this is simple ui
 1. Available at address: http://localhost:8090/simple-ui
