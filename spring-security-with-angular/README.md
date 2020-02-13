@@ -7,8 +7,9 @@
 1. run from intellij or command line
 2. server is available at address: http://localhost:8081/spring-security-oauth-server/
 3. Some helpful links
--  https://jwt.io/introduction/
--  https://jwt.io/#libraries
+- https://jwt.io/introduction/
+- https://jwt.io/#libraries
+- https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html/boot-features-security-oauth2-authorization-server.html#oauth2-boot-authorization-server-password-grant
 
 ## simple-ui - this is simple ui
 1. Available at address: http://localhost:8090/simple-ui
@@ -17,7 +18,10 @@
 1. Available at address: http://localhost:8089/
 
 
+---
 
+
+  
 ### Simple authorization server
 1. Go to spring-security-with-angular/oauth-server
 2. Run: Spring Authenticaiton server -> oauth-server
