@@ -30,6 +30,7 @@ public class OAuth2AuthorizationServerConfig  extends AuthorizationServerConfigu
                 .authorizedGrantTypes("password", "authorization_code", "refresh_token", "client_credentials")
                 .scopes("user_info")
                 //.autoApprove(true)
+                .accessTokenValiditySeconds(3600)       // 1 hour
                 .redirectUris(
                         "http://localhost:8089/",
                         "http://localhost:8090/simple-ui/login/oauth2/code/custom",
