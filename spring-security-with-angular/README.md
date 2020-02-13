@@ -1,3 +1,20 @@
+# Simple examples of the auth servers and simple ui with authentication and authorization
+## oauth-server - this is main auth server 
+1. run from intellij or command line
+2. server is available at address: http://localhost:8081/spring-security-oauth-server/
+
+## oauth-jwt-server - this alternative - auth server uses a jwt token
+1. run from intellij or command line
+2. server is available at address: http://localhost:8081/spring-security-oauth-server/
+
+## simple-ui - this is simple ui
+1. Available at address: http://localhost:8090/simple-ui
+
+## simple-angular-app angular application
+1. Available at address: http://localhost:8089/
+
+
+
 # Simple authorization server
 1. Go to spring-security-with-angular/oauth-server
 2. Run: Spring Authenticaiton server -> oauth-server
