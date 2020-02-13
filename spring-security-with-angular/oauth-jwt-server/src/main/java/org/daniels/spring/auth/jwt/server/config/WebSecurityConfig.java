@@ -1,4 +1,4 @@
-package org.daniels.spring.auth.server.config;
+package org.daniels.spring.auth.jwt.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

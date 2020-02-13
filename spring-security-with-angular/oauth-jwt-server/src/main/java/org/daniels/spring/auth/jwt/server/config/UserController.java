@@ -1,9 +1,8 @@
-package org.daniels.spring.auth.server.config;
+package org.daniels.spring.auth.jwt.server.config;
 
 
-import org.daniels.spring.auth.server.model.User;
+import org.daniels.spring.auth.jwt.server.model.User;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

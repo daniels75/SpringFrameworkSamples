@@ -1,4 +1,4 @@
-package org.daniels.spring.auth.server;
+package org.daniels.spring.auth.jwt.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

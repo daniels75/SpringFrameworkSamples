@@ -1,4 +1,4 @@
-package org.daniels.spring.auth.server.model;
+package org.daniels.spring.auth.jwt.server.model;
 
 public class User {
     private Long id;
