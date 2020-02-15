@@ -58,7 +58,9 @@
 	
 ## Step 4
 Revoke token
-http://localhost:8081/spring-security-oauth-server/oauth/token/revokeById/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODE3ODk4OTAsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiOTBlY2I4OTctZWQyZS00YTNkLTliOTgtOGNjMmUwOTIxYzUwIiwiY2xpZW50X2lkIjoiZm9vQ2xpZW50SWRQYXNzd29yZCIsInNjb3BlIjpbInVzZXJfaW5mbyJdfQ.a7it0dN4EF3d2ggN1LxNkqPdMm_UiAx9QuavLqgx1fI
+http://localhost:8081/spring-security-oauth-server/oauth/token/revokeById/94548d45-6b78-4b9e-bc56-5098c4323540
++ Header
+Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
 
 ## Step 5
 Tokens
