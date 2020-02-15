@@ -61,3 +61,7 @@ curl fooClientIdPassword:secret@localhost:8081/spring-security-oauth-server/oaut
 		"name": "john",
 		"surname": "kowalski"
 	}
+	
+## Step 4
+Revoke token
+http://localhost:8081/spring-security-oauth-server//oauth/token/revokeById/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODE3ODk4OTAsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiOTBlY2I4OTctZWQyZS00YTNkLTliOTgtOGNjMmUwOTIxYzUwIiwiY2xpZW50X2lkIjoiZm9vQ2xpZW50SWRQYXNzd29yZCIsInNjb3BlIjpbInVzZXJfaW5mbyJdfQ.a7it0dN4EF3d2ggN1LxNkqPdMm_UiAx9QuavLqgx1fI
