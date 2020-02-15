@@ -1,11 +1,5 @@
-curl fooClientIdPassword:secret@localhost:8081/spring-security-oauth-server/oauth/token
- -dgrant_type=authorization_code -dscope=user_info -dusername=john -dpassword123
 
- 
- 
- http://localhost:8081/spring-security-oauth-server/oauth/authorize?grant_type=authorization_code&response_type=code&client_id=fooClientIdPassword&state=1234
- 
- # First of all you need run authentication server:
+## First of all you need run authentication server:
 	spring-security-with-angular/oauth-server
 	
    Auth server url: http://localhost:8081/spring-security-oauth-server/
@@ -64,4 +58,11 @@ curl fooClientIdPassword:secret@localhost:8081/spring-security-oauth-server/oaut
 	
 ## Step 4
 Revoke token
-http://localhost:8081/spring-security-oauth-server//oauth/token/revokeById/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODE3ODk4OTAsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiOTBlY2I4OTctZWQyZS00YTNkLTliOTgtOGNjMmUwOTIxYzUwIiwiY2xpZW50X2lkIjoiZm9vQ2xpZW50SWRQYXNzd29yZCIsInNjb3BlIjpbInVzZXJfaW5mbyJdfQ.a7it0dN4EF3d2ggN1LxNkqPdMm_UiAx9QuavLqgx1fI
+http://localhost:8081/spring-security-oauth-server/oauth/token/revokeById/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODE3ODk4OTAsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiOTBlY2I4OTctZWQyZS00YTNkLTliOTgtOGNjMmUwOTIxYzUwIiwiY2xpZW50X2lkIjoiZm9vQ2xpZW50SWRQYXNzd29yZCIsInNjb3BlIjpbInVzZXJfaW5mbyJdfQ.a7it0dN4EF3d2ggN1LxNkqPdMm_UiAx9QuavLqgx1fI
+
+## Step 5
+Tokens
+http://localhost:8081/spring-security-oauth-server/tokens
+
+
+
