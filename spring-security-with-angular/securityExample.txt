@@ -65,6 +65,7 @@ Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
 ## Step 5
 Tokens
 http://localhost:8081/spring-security-oauth-server/tokens
-
++ Header
+Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
 
 
