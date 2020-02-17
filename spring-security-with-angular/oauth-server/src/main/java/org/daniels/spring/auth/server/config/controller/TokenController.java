@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -29,6 +30,16 @@ public class TokenController {
     @ResponseBody
     public void revokeToken(@PathVariable String tokenId) {
         tokenServices.revokeToken(tokenId);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/oauth/token")
+    @ResponseBody
+    public void revokeTokenWithDelete(HttpServletRequest request) {
+        String authorization = request.getHeader("Authorization");
+        if (authorization != null && authorization.contains("Bearer")) {
+            String tokenId = authorization.substring("Bearer".length() + 1);
+            tokenServices.revokeToken(tokenId);
+        }
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/tokens")
