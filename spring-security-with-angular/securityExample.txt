@@ -4,7 +4,7 @@
 	
    Auth server url: http://localhost:8081/spring-security-oauth-server/
  
- 
+
 ## Step1 - retrieve code - via browser or Postman
 	### code will returned after login with john/123
 	http://localhost:8081/spring-security-oauth-server/oauth/authorize?
@@ -12,7 +12,6 @@
  
 	### Response:
 		http://localhost:8091/?code=ITIK2f
- 
  
 ## Step 2 - retrieve token with POSTMAN
 	### Request
