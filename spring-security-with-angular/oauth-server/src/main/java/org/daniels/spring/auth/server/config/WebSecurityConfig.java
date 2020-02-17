@@ -21,13 +21,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .roles("USER");
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configureFixme(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .antMatchers("/login", "/oauth/authorize").permitAll()
                 .antMatchers("/oauth/token/revokeById/**").permitAll()
                 .antMatchers("/tokens/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().permitAll()
+                .and().csrf().disable();
+    }
+
+    protected void configure(HttpSecurity http) throws Exception {
+        http.requestMatchers()
+                .antMatchers("/login", "/oauth/authorize")
+                .and()
+                .authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().permitAll();

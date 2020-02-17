@@ -26,7 +26,7 @@ public class TokenController {
     @Resource(name = "tokenStore")
     private TokenStore tokenStore;
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/oauth/token")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/oauth/token/remove")
     @ResponseBody
     public void revokeTokenWithDelete(HttpServletRequest request) {
         String authorization = request.getHeader("Authorization");
