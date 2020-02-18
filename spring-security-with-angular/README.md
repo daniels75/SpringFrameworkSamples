@@ -62,3 +62,83 @@
 1. Add seperate resource server                     [Todo]
 2. Configure it to work with with auth server       [Todo]
 
+---
+
+### Some helpful links and information
+
+
+## First of all you need run authentication server:
+	spring-security-with-angular/oauth-server
+	
+   Auth server url: http://localhost:8081/spring-security-oauth-server/
+ 
+
+## Step1 - retrieve code - via browser or Postman
+	### code will returned after login with john/123
+	http://localhost:8081/spring-security-oauth-server/oauth/authorize?
+		client_id=fooClientIdPassword&response_type=code&scope=user_info&redirect_uri=http://localhost:8091/
+ 
+	### Response:
+		http://localhost:8091/?code=ITIK2f
+ 
+## Step 2 - retrieve token with POSTMAN
+	### Request
+		 http://localhost:8081/spring-security-oauth-server/oauth/token
+		 ```
+		 grant_type		 authorization_code
+		 code 			 ITIK2f
+		 redirect_uri    http://localhost:8091/
+		 client_id       fooClientIdPassword   [optional]
+		 client_secret   secret
+ 
+		 x-www-form-urlencoded
+			here should be: (Authorization base64Encoded(client_id:client_secret)).
+				Authorization Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=
+		```
+ 
+	### Response:
+		```
+		{
+			"access_token": "8c737be0-194b-4af5-b21a-8c424b8d97f4",
+			"token_type": "bearer",
+			"refresh_token": "f98419c0-cafb-4e2f-8e15-f248a226c744",
+			"expires_in": 42832,
+			"scope": "user_info"
+		}
+		```
+
+## Step 3 - with token we have acess to the resources - via POSTMAN
+	### Access resource from auth server with retrived access token
+	http://localhost:8081/spring-security-oauth-server/user/simple
+
+	GET: http://localhost:8081/spring-security-oauth-server/user/simple?access_token=8c737be0-194b-4af5-b21a-8c424b8d97f4
+		or
+	GET http://localhost:8081/spring-security-oauth-server/user/simple
+	+ Header
+		Authorization Bearer 8c737be0-194b-4af5-b21a-8c424b8d97f4
+
+
+	### Response:
+	```
+	{
+		"id": 1,
+		"name": "john",
+		"surname": "kowalski"
+	}
+	```
+	
+## Step 4
+Revoke token
+http://localhost:8081/spring-security-oauth-server/oauth/token/revokeById/94548d45-6b78-4b9e-bc56-5098c4323540
++ Header
+Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
+
+## Step 5
+Tokens
+http://localhost:8081/spring-security-oauth-server/tokens
++ Header
+Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
+
+
+
+
