@@ -34,19 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    protected void configureOrg(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/login", "/oauth/authorize").permitAll()
-                .antMatchers("/oauth/token/revokeById/**").permitAll()
-                .antMatchers("/tokens/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin().permitAll()
-                .and().csrf().disable();
-    }
-
-    protected void configure2(HttpSecurity http) throws Exception {
+    protected void configureOld(HttpSecurity http) throws Exception {
         http.requestMatchers()
                 .antMatchers("/login", "/oauth/authorize")
                 .and()
