@@ -31,10 +31,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().permitAll();
-
     }
 
-    protected void configureOld(HttpSecurity http) throws Exception {
+    protected void configureDeprecated(HttpSecurity http) throws Exception {
         http.requestMatchers()
                 .antMatchers("/login", "/oauth/authorize")
                 .and()
