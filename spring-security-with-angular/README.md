@@ -1,3 +1,7 @@
+## Content
+### oauth-resource-server - resource server - not implemented yet
+
+
 # Simple examples of the auth servers and simple ui with authentication and authorization
 ## oauth-server - this is main auth server 
 1. run from intellij or command line
