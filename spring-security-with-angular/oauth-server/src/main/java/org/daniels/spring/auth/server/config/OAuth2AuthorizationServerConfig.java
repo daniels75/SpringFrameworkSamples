@@ -50,10 +50,8 @@ public class OAuth2AuthorizationServerConfig  extends AuthorizationServerConfigu
 
     @Override
     public void configure(final AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        // @formatter:off
         endpoints.tokenStore(tokenStore())
                .authenticationManager(authenticationManager);
-        // @formatter:on
     }
 
     @Bean
