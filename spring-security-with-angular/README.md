@@ -1,5 +1,6 @@
 ## Content
 ### oauth-resource-server - resource server - not implemented yet
+- Available at address: http://localhost:8082/spring-security-oauth-resource
 
 
 # Simple examples of the auth servers and simple ui with authentication and authorization
