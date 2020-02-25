@@ -2,7 +2,6 @@
 ### oauth-resource-server - resource server - not implemented yet
 - Available at address: http://localhost:8082/spring-security-oauth-resource
 
-
 # Simple examples of the auth servers and simple ui with authentication and authorization
 ## oauth-server - this is main auth server 
 1. run from intellij or command line
@@ -22,10 +21,7 @@
 ## simple-angular-app angular application
 1. Available at address: http://localhost:8089/
 
-
 ---
-
-
   
 ### Simple authorization server
 1. Go to spring-security-with-angular/oauth-server
