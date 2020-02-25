@@ -67,7 +67,6 @@
 
 ### Some helpful links and information
 
-
 ## First of all you need run authentication server:
 	spring-security-with-angular/oauth-server
 	
