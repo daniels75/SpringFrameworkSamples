@@ -127,14 +127,14 @@
 	}
 	```
 	
-## Step 4
-Revoke token
+## Step 4 - Revoke token
+
 http://localhost:8081/spring-security-oauth-server/oauth/token/revokeById/94548d45-6b78-4b9e-bc56-5098c4323540
 + Header
 Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
 
-## Step 5
-Tokens
+## Step 5 - Tokens
+
 http://localhost:8081/spring-security-oauth-server/tokens
 + Header
 Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
