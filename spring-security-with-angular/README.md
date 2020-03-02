@@ -77,7 +77,7 @@
 	### code will returned after login with john/123
 	http://localhost:8081/spring-security-oauth-server/oauth/authorize?
 		client_id=fooClientIdPassword&response_type=code&scope=user_info&redirect_uri=http://localhost:8091/
- 
+		
 	### Response:
 		http://localhost:8091/?code=ITIK2f
  
@@ -140,5 +140,47 @@ http://localhost:8081/spring-security-oauth-server/tokens
 Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
 
 
-
+## Step - how to to use autentication server + resource server
+### Run authentication server: oauth-jwt-server
+### Run resource server: oauth-resource-server
+### Retrieve token code - via browser or Postman
+	### code will returned after login with john/123
+	id=fooClientIdPassword&response_type=code&scope=user_info&redirect_uri=http://localhost:8091/
+		
+	http://localhost:8081/spring-security-oauth-server/oauth/authorize?
+		client_id=fooClientIdPassword&response_type=code&scope=user_info%20read%20write%20foo&redirect_uri=http://localhost:8091/		
+ 
+### Retrieve token with POSTMAN
+	### Request
+		 http://localhost:8081/spring-security-oauth-server/oauth/token
+		 ```
+		 grant_type		 authorization_code
+		 code 			 ptY8pP
+		 redirect_uri    http://localhost:8091/
+		 client_id       fooClientIdPassword   [optional]
+		 client_secret   secret
+ 
+		 Headers:
+		 Content-Type: application/x-www-form-urlencoded
+		 Authorization: Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=
+		 
+			here should be: (Authorization base64Encoded(client_id:client_secret)).
+				Authorization Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=
+		```
+ 
+	### Response:
+		```
+		{
+			"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODMxOTEyNTYsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiYTE3YWJlMTUtN2JlYy00ZTRiLTkyNDUtZjQ0ZDRlODY4NTU4IiwiY2xpZW50X2lkIjoiZm9vQ2xpZW50SWRQYXNzd29yZCIsInNjb3BlIjpbImZvbyIsInJlYWQiLCJ1c2VyX2luZm8iLCJ3cml0ZSJdfQ.Mtmx83cgUNGnBMDkLpcchdzfGIXs88rKoa-7qUfjgiQ",
+			"token_type": "bearer",
+			"refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJqb2huIiwic2NvcGUiOlsiZm9vIiwicmVhZCIsInVzZXJfaW5mbyIsIndyaXRlIl0sImF0aSI6ImExN2FiZTE1LTdiZWMtNGU0Yi05MjQ1LWY0NGQ0ZTg2ODU1OCIsImV4cCI6MTU4NTc3OTY1NiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6IjVmYTc3ZGY5LWYzMDYtNDAxYS1iMDYxLTcxNTM5NWQyZjdjNCIsImNsaWVudF9pZCI6ImZvb0NsaWVudElkUGFzc3dvcmQifQ.dmB-TNHtKUfE0TyNOcBY88l7bKwkxvQXD-MnxBp-kK8",
+			"expires_in": 3599,
+			"scope": "foo read user_info write",
+			"jti": "a17abe15-7bec-4e4b-9245-f44d4e868558"
+		}
+		```
+### Retrive resource from the resource server
+#### http://localhost:8082/spring-security-oauth-resource/foos/1
+with header:
+	Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODMxOTEyNTYsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiYTE3YWJlMTUtN2JlYy00ZTRiLTkyNDUtZjQ0ZDRlODY4NTU4IiwiY2xpZW50X2lkIjoiZm9vQ2xpZW50SWRQYXNzd29yZCIsInNjb3BlIjpbImZvbyIsInJlYWQiLCJ1c2VyX2luZm8iLCJ3cml0ZSJdfQ.Mtmx83cgUNGnBMDkLpcchdzfGIXs88rKoa-7qUfjgiQ
 

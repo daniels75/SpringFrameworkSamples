@@ -10,7 +10,7 @@ spring:
           custom:
             client-id: fooClientIdPassword
             client-secret: secret
-            scope: user_info
+            scope: user_info,read,write,foo
             authorization-grant-type: authorization_code
             redirect-uri: http://localhost:8090/simple-ui/login/oauth2/code/custom
         provider:
@@ -20,3 +20,5 @@ spring:
             user-info-uri: http://localhost:8081/spring-security-oauth-server/user/simple
             # user-info-uri: http://localhost:8081/spring-security-oauth-server/user/me
             user-name-attribute: name
+            #user-info-uri: http://localhost:8082/spring-security-oauth-resource/users/extra
+            #user-name-attribute: user_name
