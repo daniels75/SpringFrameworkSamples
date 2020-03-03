@@ -122,17 +122,17 @@ Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
 
 ---
 ## Step - how to to use autentication server + resource server
-### Run authentication server: oauth-jwt-server
-### Run resource server: oauth-resource-server
-### Retrieve token code - via browser or Postman
-	### code will returned after login with john/123
+1. Run authentication server: oauth-jwt-server
+2. Run resource server: oauth-resource-server
+3. Retrieve token code - via browser or Postman
+	#### code will returned after login with john/123
 	id=fooClientIdPassword&response_type=code&scope=user_info&redirect_uri=http://localhost:8091/
 		
 	http://localhost:8081/spring-security-oauth-server/oauth/authorize?
 		client_id=fooClientIdPassword&response_type=code&scope=user_info%20read%20write%20foo&redirect_uri=http://localhost:8091/		
  
-### Retrieve token with POSTMAN
-	### Request
+#### Retrieve token with POSTMAN
+	#### Request
 		 http://localhost:8081/spring-security-oauth-server/oauth/token
 		 ```
 		 grant_type		 authorization_code
@@ -149,7 +149,7 @@ Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
 				Authorization Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=
 		```
  
-	### Response:
+	#### Response:
 		```
 		{
 			"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODMxOTEyNTYsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiYTE3YWJlMTUtN2JlYy00ZTRiLTkyNDUtZjQ0ZDRlODY4NTU4IiwiY2xpZW50X2lkIjoiZm9vQ2xpZW50SWRQYXNzd29yZCIsInNjb3BlIjpbImZvbyIsInJlYWQiLCJ1c2VyX2luZm8iLCJ3cml0ZSJdfQ.Mtmx83cgUNGnBMDkLpcchdzfGIXs88rKoa-7qUfjgiQ",
@@ -160,12 +160,12 @@ Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
 			"jti": "a17abe15-7bec-4e4b-9245-f44d4e868558"
 		}
 		```
-### Retrive resource from the resource server
-#### http://localhost:8082/spring-security-oauth-resource/foos/1
+#### Retrive resource from the resource server
+##### http://localhost:8082/spring-security-oauth-resource/foos/1
 with header:
 	Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODMxOTEyNTYsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiYTE3YWJlMTUtN2JlYy00ZTRiLTkyNDUtZjQ0ZDRlODY4NTU4IiwiY2xpZW50X2lkIjoiZm9vQ2xpZW50SWRQYXNzd29yZCIsInNjb3BlIjpbImZvbyIsInJlYWQiLCJ1c2VyX2luZm8iLCJ3cml0ZSJdfQ.Mtmx83cgUNGnBMDkLpcchdzfGIXs88rKoa-7qUfjgiQ
 
-### you can check authorization token with following:
+#### you can check authorization token with following:
 https://jwt.io/
 
 just place eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODMxOTEyNTYsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiYTE3YWJlMTUtN2JlYy00ZTRiLTkyNDUtZjQ0ZDRlODY4NTU4IiwiY2xpZW50X2lkIjoiZm9vQ2xpZW50SWRQYXNzd29yZCIsInNjb3BlIjpbImZvbyIsInJlYWQiLCJ1c2VyX2luZm8iLCJ3cml0ZSJdfQ.Mtmx83cgUNGnBMDkLpcchdzfGIXs88rKoa-7qUfjgiQ
