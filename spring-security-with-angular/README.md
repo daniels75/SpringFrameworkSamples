@@ -46,25 +46,6 @@
 #### Add backend with server
 
 
-### Plan
-#### Add UI part
-1. Generate frontent from angular-cli               [Done]
-2. Change configuration - port 8089                 [Done]
-3. Add components                                   [Done]
-4. Check application                                [Done]
-
-#### Add backend with server
-1. Create very simple auth server                   [Done]
-2. Consider using jwt token                         [Done]
-3. Condider adding token service + REST				[Todo]
-3. Change/Play with configuraiton for auth server   [Todo]
-
-#### Optionally add resource server
-1. Add seperate resource server                     [Todo]
-2. Configure it to work with with auth server       [Todo]
-
----
-
 ### Some helpful links and information
 
 ## First of all you need run authentication server:
@@ -139,7 +120,7 @@ http://localhost:8081/spring-security-oauth-server/tokens
 + Header
 Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
 
-
+---
 ## Step - how to to use autentication server + resource server
 ### Run authentication server: oauth-jwt-server
 ### Run resource server: oauth-resource-server
@@ -189,3 +170,25 @@ https://jwt.io/
 
 just place eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODMxOTEyNTYsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiYTE3YWJlMTUtN2JlYy00ZTRiLTkyNDUtZjQ0ZDRlODY4NTU4IiwiY2xpZW50X2lkIjoiZm9vQ2xpZW50SWRQYXNzd29yZCIsInNjb3BlIjpbImZvbyIsInJlYWQiLCJ1c2VyX2luZm8iLCJ3cml0ZSJdfQ.Mtmx83cgUNGnBMDkLpcchdzfGIXs88rKoa-7qUfjgiQ
 in the Encoded field	
+
+
+---
+
+### Plan
+#### Add UI part
+1. Generate frontent from angular-cli               [Done]
+2. Change configuration - port 8089                 [Done]
+3. Add components                                   [Done]
+4. Check application                                [Done]
+
+#### Add backend with server
+1. Create very simple auth server                   [Done]
+2. Consider using jwt token                         [Done]
+3. Condider adding token service + REST				[Todo]
+3. Change/Play with configuraiton for auth server   [Todo]
+
+#### Optionally add resource server
+1. Add seperate resource server                     [Todo]
+2. Configure it to work with with auth server       [Todo]
+
+---
