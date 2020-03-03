@@ -55,9 +55,10 @@
  
 
 ## Step1 - retrieve code - via browser or Postman
-	### code will returned after login with john/123
+	### The code will be returned after login with john/123
 	http://localhost:8081/spring-security-oauth-server/oauth/authorize?
 		client_id=fooClientIdPassword&response_type=code&scope=user_info&redirect_uri=http://localhost:8091/
+		
 		
 	### Response:
 		http://localhost:8091/?code=ITIK2f
@@ -125,8 +126,7 @@ Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
 1. Run authentication server: oauth-jwt-server
 2. Run resource server: oauth-resource-server
 3. Retrieve token code - via browser or Postman
-	#### code will returned after login with john/123
-	id=fooClientIdPassword&response_type=code&scope=user_info&redirect_uri=http://localhost:8091/
+	#### The token code will returned after login with john/123
 		
 	http://localhost:8081/spring-security-oauth-server/oauth/authorize?
 		client_id=fooClientIdPassword&response_type=code&scope=user_info%20read%20write%20foo&redirect_uri=http://localhost:8091/		
