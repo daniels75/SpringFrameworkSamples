@@ -172,23 +172,3 @@ just place eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODMxOTEyNTYsInVzZXJf
 in the Encoded field	
 
 
----
-
-### Plan
-#### Add UI part
-1. Generate frontent from angular-cli               [Done]
-2. Change configuration - port 8089                 [Done]
-3. Add components                                   [Done]
-4. Check application                                [Done]
-
-#### Add backend with server
-1. Create very simple auth server                   [Done]
-2. Consider using jwt token                         [Done]
-3. Condider adding token service + REST				[Todo]
-3. Change/Play with configuraiton for auth server   [Todo]
-
-#### Optionally add resource server
-1. Add seperate resource server                     [Todo]
-2. Configure it to work with with auth server       [Todo]
-
----

@@ -101,5 +101,5 @@ public class OAuth2AuthorizationServerConfig  extends AuthorizationServerConfigu
         defaultTokenServices.setSupportRefreshToken(true);
         return defaultTokenServices;
     }
-    
+
 }
