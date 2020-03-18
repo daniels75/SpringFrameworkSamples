@@ -122,7 +122,9 @@ http://localhost:8081/spring-security-oauth-server/tokens
 Authorization Bearer 94548d45-6b78-4b9e-bc56-5098c4323540
 
 ---
-## Step - how to to use autentication server + resource server
+
+### Step - how to to use autentication server + resource server
+
 1. Run authentication server: oauth-jwt-server
 2. Run resource server: oauth-resource-server
 3. Retrieve token code - via browser or Postman
