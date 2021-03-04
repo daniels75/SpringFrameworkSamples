@@ -7,6 +7,9 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -18,7 +21,8 @@ import java.util.List;
  * Created by daniels on 06.07.2017.
  */
 @Component
-@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+@SessionScope
 public class UserProfileSession implements Serializable {
 
     private String twitterHandle;

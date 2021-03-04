@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+<div th:fragment="content">
+    <div class="row-fluid" id="clientInfoDiv">
+        <div class="span4">
+            <div class="box">
+                <div class="box-header">
+                    <ul class="nav nav-tabs nav-tabs-left" data-tabs="tabs" id="clientInfoTabs">
+                        <li class="">
+                            <a href="#clientGeneralInfo" data-toggle="tab" style="line-height: 14px">
+                                General
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#clientRuntime" data-toggle="tab" style="line-height: 14px">
+                                Runtime
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#clientOs" data-toggle="tab" style="line-height: 14px">
+                                OS
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-content scrollable" style="height: 372px; overflow-y: auto">
+                    <div class="tab-content">
+                        <div class="tab-pane" id="clientGeneralInfo" style="padding: 5px">
+                            <table id="clientGeneralInfoTable" class="table" style="padding:2px">
+                                <tbody>
+                                <tr>
+                                    <td><strong>Name:</strong></td>
+                                    <td id="clientGeneralInfoName" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Address:</strong></td>
+                                    <td id="clientGeneralInfoAddress" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Type:</strong></td>
+                                    <td id="clientGeneralInfoType" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Enterprise:</strong></td>
+                                    <td id="clientGeneralInfoEnterprise" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Member Connection:</strong></td>
+                                    <td id="clientGeneralInfoMemberConnection" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Version:</strong></td>
+                                    <td id="clientGeneralInfoVersion" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Last Connection to Cluster:</strong></td>
+                                    <td id="lastConnectionToCluster" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Last Statistics Collection:</strong></td>
+                                    <td id="lastStatisticsCollection" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>User Executor Queue Size:</strong></td>
+                                    <td id="userExecutorQueueSize" class="valueTd"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="clientRuntime">
+                            <table id="clientRuntimeTable" class="table" style="padding:2px">
+                                <tbody>
+                                <tr>
+                                    <td><strong>Number of Processors:</strong></td>
+                                    <td id="clientAvailableProcessors" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Up Time:</strong></td>
+                                    <td id="clientUpTime" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Maximum Memory:</strong></td>
+                                    <td id="clientMaxMemory" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Memory:</strong></td>
+                                    <td id="clientTotalMemory" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Free Memory:</strong></td>
+                                    <td id="clientFreeMemory" class="valueTd"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Used Memory:</strong></td>
+                                    <td id="clientMemoryUsed" class="valueTd"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="clientOs" style="padding: 5px">
+                            <table id="clientOSTable" class="table">
+                                <tr>
+                                    <td><strong>Free Physical Memory:</strong></td>
+                                    <td id="clientFreePhysicalMemory" class="freePhysicalMemory"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Committed Virtual Memory:</strong></td>
+                                    <td id="clientCommittedVirtualMemory" class="committedVirtualMemory"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Physical Memory:</strong></td>
+                                    <td id="clientTotalPhysicalMemory" class="totalPhysicalMemory"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Free Swap Space:</strong></td>
+                                    <td id="clientFreeSwapSpace" class="freeSwapSpace"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Swap Space:</strong></td>
+                                    <td id="clientTotalSwapSpace" class="totalSwapSpace"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Maximum File Descriptor Count:</strong></td>
+                                    <td id="clientMaxFileDescriptorCount" class="maxFileDescriptorCount"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Open File Descriptor Count:</strong></td>
+                                    <td id="clientOpenFileDescriptorCount" class="openFileDescriptorCount"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Process CPU Time:</strong></td>
+                                    <td id="clientProcessCpuTime" class="processCpuTime"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>System Load Average:</strong></td>
+                                    <td id="clientSystemLoadAverage" class="systemLoadAverage"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="box">
+                <div class="box-header"><span class="title">Heap Memory Utilization</span>
+                    <ul class="box-toolbar">
+                        <li class="toolbar-link">
+                            <a href="#"
+                               onclick="openChartWindow(''+ activeCluster +'',''+ activeView  +'',''+ activeObject +'','' + chartOptions['clientDetail']['clientMemoryChart']);">
+                                <i class="icon-resize-full"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-content padded">
+                    <div style="width: 100%; height: 358px" id="clientMemoryChart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid" id="clientNearCacheForMapsDiv">
+        <div class="span12">
+            <div class="box">
+                <div class="box-header">
+                    <span class="title">
+                        Client Near Cache Statistics (for Maps)
+                    </span>
+                </div>
+                <div class="box-content">
+                    <table class="dTable responsive dataTable" id="clientNearCacheTableForMaps">
+                        <thead>
+                        <tr>
+                            <th class="sorting">
+                                <div><span>#&nbsp;&nbsp;</span></div>
+                            </th>
+                            <th class="sorting">
+                                <div>Map Name</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Creation Time</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Evictions</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Expirations</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Hits</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Misses</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Owned Entry Count</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Owned Entry Memory Cost</div>
+                            </th>
+                            <th class="sorting">
+                                <div>LP Duration</div>
+                            </th>
+                            <th class="sorting">
+                                <div>LP Key Count</div>
+                            </th>
+                            <th class="sorting">
+                                <div>LP Time</div>
+                            </th>
+                            <th class="sorting">
+                                <div>LP Written Bytes</div>
+                            </th>
+                            <th class="sorting">
+                                <div>LP Failure</div>
+                            </th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid" id="clientNearCacheForCachesDiv">
+        <div class="span12">
+            <div class="box">
+                <div class="box-header">
+                    <span class="title">
+                        Client Near Cache Statistics (for Caches)
+                    </span>
+                </div>
+                <div class="box-content">
+                    <table class="dTable responsive dataTable" id="clientNearCacheTableForCaches">
+                        <thead>
+                        <tr>
+                            <th class="sorting">
+                                <div><span>#&nbsp;&nbsp;</span></div>
+                            </th>
+                            <th class="sorting">
+                                <div>Cache Name</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Creation Time</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Evictions</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Expirations</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Hits</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Misses</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Owned Entry Count</div>
+                            </th>
+                            <th class="sorting">
+                                <div>Owned Entry Memory Cost</div>
+                            </th>
+                            <th class="sorting">
+                                <div>LP Duration</div>
+                            </th>
+                            <th class="sorting">
+                                <div>LP Key Count</div>
+                            </th>
+                            <th class="sorting">
+                                <div>LP Time</div>
+                            </th>
+                            <th class="sorting">
+                                <div>LP Written Bytes</div>
+                            </th>
+                            <th class="sorting">
+                                <div>LP Failure</div>
+                            </th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

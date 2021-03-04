@@ -1,0 +1,6844 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Hazelcast, IMDG, In-Memory Data Grid, Scalable, Clustering, Partitioning, Distributed, Open Source, distributed map, queue, topic, ringbuffer, executor service, transactions, high-density memory, jcache, mapreduce, aggregators, Java client, serialization">
+    <meta name="description" content="Hazelcast Reference Manual explains all in-memory data grid features provided by Hazelcast in detail with code samples and configuration options.">
+    <title>Hazelcast 3.8.7 Reference Manual</title>
+
+    <link type="text/css" rel="stylesheet" href="assets/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/github.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/docs.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/print.css" media="print">
+    
+    <link type="text/css" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.sticky-kit.min.js"></script>
+    <script type="text/javascript" src="assets/js/lunr.min.js"></script>
+    <script type="text/javascript" src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
+    
+    <script type="text/javascript">var BASE_URL = "";</script>
+    <script type="text/javascript" src="assets/js/viewer.js"></script>
+    <script type="text/javascript"> 
+      $(function(){
+        $("#sidebar").stick_in_parent()
+       });
+    </script>
+</head>
+<body>
+  <div id="page">
+    <div id="sitebar">
+      <div class="content">
+        <p><a href="http://hazelcast.org/documentation">Go to <span style="font-weight:bold">hazelcast.org/documentation</span></a></p>
+      </div>
+    </div>
+    <header id="header">
+      <div class="content">
+        <div style="overflow:hidden">
+          <div style="float:left">
+            <a href="http://www.hazelcast.org"><img src="assets/img/logo.png" style="width: 199px;padding-top: 18px"/></a>
+          </div>
+          <div style="float:left;padding-top: 20px;padding-left: 30px;">
+            <a href=""></a> <span style="font-size:36px;color:white"> Reference Manual </span> <span style="font-size:12px;color:white"> Version: 3.8.7 - Publication Date : Nov 09, 2017 </span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="content">
+      
+
+<script type="text/javascript">
+  $( function() {
+    var availableTags = [
+      
+  
+    {label: "Preface", url: "index.html#preface"},
+      
+        
+  
+    {label: "Hazelcast IMDG Editions", url: "index.html#hazelcast-imdg-editions"},
+      
+        
+  
+
+      
+    
+    {label: "Hazelcast IMDG Architecture", url: "index.html#hazelcast-imdg-architecture"},
+      
+        
+  
+
+      
+    
+    {label: "Hazelcast IMDG Plugins", url: "index.html#hazelcast-imdg-plugins"},
+      
+        
+  
+
+      
+    
+    {label: "Licensing", url: "index.html#licensing"},
+      
+        
+  
+
+      
+    
+    {label: "Trademarks", url: "index.html#trademarks"},
+      
+        
+  
+
+      
+    
+    {label: "Customer Support", url: "index.html#customer-support"},
+      
+        
+  
+
+      
+    
+    {label: "Release Notes", url: "index.html#release-notes"},
+      
+        
+  
+
+      
+    
+    {label: "Contributing to Hazelcast IMDG", url: "index.html#contributing-to-hazelcast-imdg"},
+      
+        
+  
+
+      
+    
+    {label: "Partners", url: "index.html#partners"},
+      
+        
+  
+
+      
+    
+    {label: "Phone Home", url: "index.html#phone-home"},
+      
+        
+  
+
+      
+    
+    {label: "Typographical Conventions", url: "index.html#typographical-conventions"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Document Revision History", url: "index.html#document-revision-history"},
+      
+        
+  
+
+      
+    
+    {label: "Getting Started", url: "index.html#getting-started"},
+      
+        
+  
+    {label: "Installation", url: "index.html#installation"},
+      
+        
+  
+    {label: "Hazelcast IMDG", url: "index.html#hazelcast-imdg"},
+      
+    
+    {label: "Hazelcast IMDG Enterprise", url: "index.html#hazelcast-imdg-enterprise"},
+      
+    
+    {label: "Setting the License Key", url: "index.html#setting-the-license-key"},
+      
+    
+    {label: "Upgrading from 3.x", url: "index.html#upgrading-from-3x"},
+      
+    
+    {label: "Upgrading from 2.x", url: "index.html#upgrading-from-2x"},
+      
+    
+
+      
+    
+    {label: "Starting the Member and Client", url: "index.html#starting-the-member-and-client"},
+      
+        
+  
+
+      
+    
+    {label: "Using the Scripts In The Package", url: "index.html#using-the-scripts-in-the-package"},
+      
+        
+  
+
+      
+    
+    {label: "Deploying On Amazon EC2", url: "index.html#deploying-on-amazon-ec2"},
+      
+        
+  
+
+      
+    
+    {label: "Deploying On Microsoft Azure", url: "index.html#deploying-on-microsoft-azure"},
+      
+        
+  
+
+      
+    
+    {label: "Deploying On Pivotal Cloud Foundry", url: "index.html#deploying-on-pivotal-cloud-foundry"},
+      
+        
+  
+
+      
+    
+    {label: "Deploying using Docker", url: "index.html#deploying-using-docker"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Hazelcast Overview", url: "index.html#hazelcast-overview"},
+      
+        
+  
+    {label: "Sharding in Hazelcast", url: "index.html#sharding-in-hazelcast"},
+      
+        
+  
+
+      
+    
+    {label: "Hazelcast Topology", url: "index.html#hazelcast-topology"},
+      
+        
+  
+
+      
+    
+    {label: "Why Hazelcast?", url: "index.html#why-hazelcast"},
+      
+        
+  
+
+      
+    
+    {label: "Data Partitioning", url: "index.html#data-partitioning"},
+      
+        
+  
+    {label: "How the Data is Partitioned", url: "index.html#how-the-data-is-partitioned"},
+      
+    
+    {label: "Partition Table", url: "index.html#partition-table"},
+      
+    
+    {label: "Repartitioning", url: "index.html#repartitioning"},
+      
+    
+
+      
+    
+    {label: "Use Cases", url: "index.html#use-cases"},
+      
+        
+  
+
+      
+    
+    {label: "Resources", url: "index.html#resources"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Understanding Configuration", url: "index.html#understanding-configuration"},
+      
+        
+  
+    {label: "Configuring Declaratively", url: "index.html#configuring-declaratively"},
+      
+        
+  
+    {label: "Composing Declarative Configuration", url: "index.html#composing-declarative-configuration"},
+      
+    
+
+      
+    
+    {label: "Configuring Programmatically", url: "index.html#configuring-programmatically"},
+      
+        
+  
+
+      
+    
+    {label: "Configuring with System Properties", url: "index.html#configuring-with-system-properties"},
+      
+        
+  
+
+      
+    
+    {label: "Configuring within Spring Context", url: "index.html#configuring-within-spring-context"},
+      
+        
+  
+
+      
+    
+    {label: "Checking Configuration", url: "index.html#checking-configuration"},
+      
+        
+  
+
+      
+    
+    {label: "Configuration Pattern Matcher", url: "index.html#configuration-pattern-matcher"},
+      
+        
+  
+
+      
+    
+    {label: "Using Wildcards", url: "index.html#using-wildcards"},
+      
+        
+  
+
+      
+    
+    {label: "Using Variables", url: "index.html#using-variables"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Setting Up Clusters", url: "index.html#setting-up-clusters"},
+      
+        
+  
+    {label: "Discovering Cluster Members", url: "index.html#discovering-cluster-members"},
+      
+        
+  
+    {label: "Discovering Members by Multicast", url: "index.html#discovering-members-by-multicast"},
+      
+    
+    {label: "Discovering Members by TCP", url: "index.html#discovering-members-by-tcp"},
+      
+    
+    {label: "Discovering Members within EC2 Cloud", url: "index.html#discovering-members-within-ec2-cloud"},
+      
+    
+    {label: "Discovering Members within Azure Cloud", url: "index.html#discovering-members-within-azure-cloud"},
+      
+    
+    {label: "Discovering Members with jclouds", url: "index.html#discovering-members-with-jclouds"},
+      
+    
+    {label: "Discovering Native Clients", url: "index.html#discovering-native-clients"},
+      
+    
+
+      
+    
+    {label: "Creating Cluster Groups", url: "index.html#creating-cluster-groups"},
+      
+        
+  
+
+      
+    
+    {label: "User Code Deployment - BETA", url: "index.html#user-code-deployment-beta"},
+      
+        
+  
+    {label: "Configuring User Code Deployment", url: "index.html#configuring-user-code-deployment"},
+      
+    
+
+      
+    
+    {label: "Partition Group Configuration", url: "index.html#partition-group-configuration"},
+      
+        
+  
+    {label: "Grouping Types", url: "index.html#grouping-types"},
+      
+    
+
+      
+    
+    {label: "Logging Configuration", url: "index.html#logging-configuration"},
+      
+        
+  
+
+      
+    
+    {label: "Other Network Configurations", url: "index.html#other-network-configurations"},
+      
+        
+  
+    {label: "Public Address", url: "index.html#public-address"},
+      
+    
+    {label: "Port", url: "index.html#port"},
+      
+    
+    {label: "Outbound Ports", url: "index.html#outbound-ports"},
+      
+    
+    {label: "Reuse Address", url: "index.html#reuse-address"},
+      
+    
+    {label: "Join", url: "index.html#join"},
+      
+    
+    {label: "Interfaces", url: "index.html#interfaces"},
+      
+    
+    {label: "IPv6 Support", url: "index.html#ipv6-support"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "Rolling Member Upgrades", url: "index.html#rolling-member-upgrades"},
+      
+        
+  
+    {label: "Terminology", url: "index.html#terminology"},
+      
+        
+  
+
+      
+    
+    {label: "Hazelcast Members Compatibility Guarantees", url: "index.html#hazelcast-members-compatibility-guarantees"},
+      
+        
+  
+
+      
+    
+    {label: "Rolling Upgrade Procedure", url: "index.html#rolling-upgrade-procedure"},
+      
+        
+  
+
+      
+    
+    {label: "Network Partitions and Rolling Upgrades", url: "index.html#network-partitions-and-rolling-upgrades"},
+      
+        
+  
+
+      
+    
+    {label: "Rolling Upgrade FAQ", url: "index.html#rolling-upgrade-faq"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Distributed Data Structures", url: "index.html#distributed-data-structures"},
+      
+        
+  
+    {label: "Map", url: "index.html#map"},
+      
+        
+  
+    {label: "Getting a Map and Putting an Entry", url: "index.html#getting-a-map-and-putting-an-entry"},
+      
+    
+    {label: "Backing Up Maps", url: "index.html#backing-up-maps"},
+      
+    
+    {label: "Map Eviction", url: "index.html#map-eviction"},
+      
+    
+    {label: "Evicting Map Entries", url: "index.html#evicting-map-entries"},
+      
+    
+    {label: "Setting In-Memory Format", url: "index.html#setting-in-memory-format"},
+      
+    
+    {label: "Using High-Density Memory Store with Map", url: "index.html#using-high-density-memory-store-with-map"},
+      
+    
+    {label: "Loading and Storing Persistent Data", url: "index.html#loading-and-storing-persistent-data"},
+      
+    
+    {label: "Creating Near Cache for Map", url: "index.html#creating-near-cache-for-map"},
+      
+    
+    {label: "Locking Maps", url: "index.html#locking-maps"},
+      
+    
+    {label: "Lock Split-Brain Protection with Pessimistic Locking", url: "index.html#lock-split-brain-protection-with-pessimistic-locking"},
+      
+    
+    {label: "Accessing Entry Statistics", url: "index.html#accessing-entry-statistics"},
+      
+    
+    {label: "Map Listener", url: "index.html#map-listener"},
+      
+    
+    {label: "Listening to Map Entries with Predicates", url: "index.html#listening-to-map-entries-with-predicates"},
+      
+    
+    {label: "Removing Bulk Map Entries with Predicates", url: "index.html#removing-bulk-map-entries-with-predicates"},
+      
+    
+    {label: "Adding Interceptors", url: "index.html#adding-interceptors"},
+      
+    
+    {label: "Preventing Out of Memory Exceptions", url: "index.html#preventing-out-of-memory-exceptions"},
+      
+    
+
+      
+    
+    {label: "Queue", url: "index.html#queue"},
+      
+        
+  
+    {label: "Getting a Queue and Putting Items", url: "index.html#getting-a-queue-and-putting-items"},
+      
+    
+    {label: "Creating an Example Queue", url: "index.html#creating-an-example-queue"},
+      
+    
+    {label: "Setting a Bounded Queue", url: "index.html#setting-a-bounded-queue"},
+      
+    
+    {label: "Queueing with Persistent Datastore", url: "index.html#queueing-with-persistent-datastore"},
+      
+    
+    {label: "Split-Brain Protection for Queue", url: "index.html#split-brain-protection-for-queue"},
+      
+    
+    {label: "Configuring Queue", url: "index.html#configuring-queue"},
+      
+    
+
+      
+    
+    {label: "MultiMap", url: "index.html#multimap"},
+      
+        
+  
+    {label: "Getting a MultiMap and Putting an Entry", url: "index.html#getting-a-multimap-and-putting-an-entry"},
+      
+    
+    {label: "Configuring MultiMap", url: "index.html#configuring-multimap"},
+      
+    
+
+      
+    
+    {label: "Set", url: "index.html#set"},
+      
+        
+  
+    {label: "Getting a Set and Putting Items", url: "index.html#getting-a-set-and-putting-items"},
+      
+    
+    {label: "Configuring Set", url: "index.html#configuring-set"},
+      
+    
+
+      
+    
+    {label: "List", url: "index.html#list"},
+      
+        
+  
+    {label: "Getting a List and Putting Items", url: "index.html#getting-a-list-and-putting-items"},
+      
+    
+    {label: "Configuring List", url: "index.html#configuring-list"},
+      
+    
+
+      
+    
+    {label: "Ringbuffer", url: "index.html#ringbuffer"},
+      
+        
+  
+    {label: "Getting a Ringbuffer and Reading Items", url: "index.html#getting-a-ringbuffer-and-reading-items"},
+      
+    
+    {label: "Adding Items to a Ringbuffer", url: "index.html#adding-items-to-a-ringbuffer"},
+      
+    
+    {label: "IQueue vs. Ringbuffer", url: "index.html#iqueue-vs-ringbuffer"},
+      
+    
+    {label: "Configuring Ringbuffer Capacity", url: "index.html#configuring-ringbuffer-capacity"},
+      
+    
+    {label: "Backing Up Ringbuffer", url: "index.html#backing-up-ringbuffer"},
+      
+    
+    {label: "Configuring Ringbuffer Time To Live", url: "index.html#configuring-ringbuffer-time-to-live"},
+      
+    
+    {label: "Setting Ringbuffer Overflow Policy", url: "index.html#setting-ringbuffer-overflow-policy"},
+      
+    
+    {label: "Ringbuffer with Persistent Datastore", url: "index.html#ringbuffer-with-persistent-datastore"},
+      
+    
+    {label: "Configuring Ringbuffer In-Memory Format", url: "index.html#configuring-ringbuffer-in-memory-format"},
+      
+    
+    {label: "Adding Batched Items", url: "index.html#adding-batched-items"},
+      
+    
+    {label: "Reading Batched Items", url: "index.html#reading-batched-items"},
+      
+    
+    {label: "Using Async Methods", url: "index.html#using-async-methods"},
+      
+    
+    {label: "Ringbuffer Configuration Examples", url: "index.html#ringbuffer-configuration-examples"},
+      
+    
+
+      
+    
+    {label: "Topic", url: "index.html#topic"},
+      
+        
+  
+    {label: "Getting a Topic and Publishing Messages", url: "index.html#getting-a-topic-and-publishing-messages"},
+      
+    
+    {label: "Getting Topic Statistics", url: "index.html#getting-topic-statistics"},
+      
+    
+    {label: "Understanding Topic Behavior", url: "index.html#understanding-topic-behavior"},
+      
+    
+    {label: "Configuring Topic", url: "index.html#configuring-topic"},
+      
+    
+
+      
+    
+    {label: "Reliable Topic", url: "index.html#reliable-topic"},
+      
+        
+  
+    {label: "Sample Reliable ITopic Code", url: "index.html#sample-reliable-itopic-code"},
+      
+    
+    {label: "Slow Consumers", url: "index.html#slow-consumers"},
+      
+    
+    {label: "Configuring Reliable Topic", url: "index.html#configuring-reliable-topic"},
+      
+    
+
+      
+    
+    {label: "Lock", url: "index.html#lock"},
+      
+        
+  
+    {label: "Using Try-Catch Blocks with Locks", url: "index.html#using-try-catch-blocks-with-locks"},
+      
+    
+    {label: "Releasing Locks with tryLock Timeout", url: "index.html#releasing-locks-with-trylock-timeout"},
+      
+    
+    {label: "Avoiding Waiting Threads with Lease Time", url: "index.html#avoiding-waiting-threads-with-lease-time"},
+      
+    
+    {label: "Understanding Lock Behavior", url: "index.html#understanding-lock-behavior"},
+      
+    
+    {label: "Synchronizing Threads with ICondition", url: "index.html#synchronizing-threads-with-icondition"},
+      
+    
+    {label: "Split-Brain Protection for Lock", url: "index.html#split-brain-protection-for-lock"},
+      
+    
+    {label: "Lock Configuration", url: "index.html#lock-configuration"},
+      
+    
+
+      
+    
+    {label: "IAtomicLong", url: "index.html#iatomiclong"},
+      
+        
+  
+    {label: "Sending Functions to IAtomicLong", url: "index.html#sending-functions-to-iatomiclong"},
+      
+    
+    {label: "Executing Functions on IAtomicLong", url: "index.html#executing-functions-on-iatomiclong"},
+      
+    
+    {label: "Reasons to Use Functions with IAtomic", url: "index.html#reasons-to-use-functions-with-iatomic"},
+      
+    
+
+      
+    
+    {label: "ISemaphore", url: "index.html#isemaphore"},
+      
+        
+  
+    {label: "Controlling Thread Counts with Permits", url: "index.html#controlling-thread-counts-with-permits"},
+      
+    
+    {label: "Example Semaphore Code", url: "index.html#example-semaphore-code"},
+      
+    
+    {label: "Configuring Semaphore", url: "index.html#configuring-semaphore"},
+      
+    
+
+      
+    
+    {label: "IAtomicReference", url: "index.html#iatomicreference"},
+      
+        
+  
+    {label: "Sending Functions to IAtomicReference", url: "index.html#sending-functions-to-iatomicreference"},
+      
+    
+    {label: "Using IAtomicReference", url: "index.html#using-iatomicreference"},
+      
+    
+
+      
+    
+    {label: "ICountDownLatch", url: "index.html#icountdownlatch"},
+      
+        
+  
+    {label: "Gate-Keeping Concurrent Activities", url: "index.html#gate-keeping-concurrent-activities"},
+      
+    
+    {label: "Recovering From Failure", url: "index.html#recovering-from-failure"},
+      
+    
+    {label: "Using ICountDownLatch", url: "index.html#using-icountdownlatch"},
+      
+    
+
+      
+    
+    {label: "IdGenerator", url: "index.html#idgenerator"},
+      
+        
+  
+    {label: "Generating Cluster-Wide IDs", url: "index.html#generating-cluster-wide-ids"},
+      
+    
+    {label: "Unique IDs and Duplicate IDs", url: "index.html#unique-ids-and-duplicate-ids"},
+      
+    
+
+      
+    
+    {label: "Replicated Map", url: "index.html#replicated-map"},
+      
+        
+  
+    {label: "Replicating Instead of Partitioning", url: "index.html#replicating-instead-of-partitioning"},
+      
+    
+    {label: "Example Replicated Map Code", url: "index.html#example-replicated-map-code"},
+      
+    
+    {label: "Considerations for Replicated Map", url: "index.html#considerations-for-replicated-map"},
+      
+    
+    {label: "Configuration Design for Replicated Map", url: "index.html#configuration-design-for-replicated-map"},
+      
+    
+    {label: "Configuring Replicated Map", url: "index.html#configuring-replicated-map"},
+      
+    
+    {label: "Using EntryListener on Replicated Map", url: "index.html#using-entrylistener-on-replicated-map"},
+      
+    
+
+      
+    
+    {label: "Cardinality Estimator Service", url: "index.html#cardinality-estimator-service"},
+      
+        
+  
+    {label: "Cardinality Estimator API", url: "index.html#cardinality-estimator-api"},
+      
+    
+    {label: "Examples", url: "index.html#examples"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "Distributed Events", url: "index.html#distributed-events"},
+      
+        
+  
+    {label: "Event Listeners for Hazelcast Members", url: "index.html#event-listeners-for-hazelcast-members"},
+      
+        
+  
+    {label: "Listening for Member Events", url: "index.html#listening-for-member-events"},
+      
+    
+    {label: "Listening for Distributed Object Events", url: "index.html#listening-for-distributed-object-events"},
+      
+    
+    {label: "Listening for Migration Events", url: "index.html#listening-for-migration-events"},
+      
+    
+    {label: "Listening for Partition Lost Events", url: "index.html#listening-for-partition-lost-events"},
+      
+    
+    {label: "Listening for Lifecycle Events", url: "index.html#listening-for-lifecycle-events"},
+      
+    
+    {label: "Listening for Map Events", url: "index.html#listening-for-map-events"},
+      
+    
+    {label: "Listening for MultiMap Events", url: "index.html#listening-for-multimap-events"},
+      
+    
+    {label: "Listening for Item Events", url: "index.html#listening-for-item-events"},
+      
+    
+    {label: "Listening for Topic Messages", url: "index.html#listening-for-topic-messages"},
+      
+    
+    {label: "Listening for Clients", url: "index.html#listening-for-clients"},
+      
+    
+
+      
+    
+    {label: "Event Listeners for Hazelcast Clients", url: "index.html#event-listeners-for-hazelcast-clients"},
+      
+        
+  
+
+      
+    
+    {label: "Global Event Configuration", url: "index.html#global-event-configuration"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Distributed Computing", url: "index.html#distributed-computing"},
+      
+        
+  
+    {label: "Executor Service", url: "index.html#executor-service"},
+      
+        
+  
+    {label: "Implementing a Callable Task", url: "index.html#implementing-a-callable-task"},
+      
+    
+    {label: "Implementing a Runnable Task", url: "index.html#implementing-a-runnable-task"},
+      
+    
+    {label: "Scaling The Executor Service", url: "index.html#scaling-the-executor-service"},
+      
+    
+    {label: "Executing Code in the Cluster", url: "index.html#executing-code-in-the-cluster"},
+      
+    
+    {label: "Canceling an Executing Task", url: "index.html#canceling-an-executing-task"},
+      
+    
+    {label: "Callback When Task Completes", url: "index.html#callback-when-task-completes"},
+      
+    
+    {label: "Selecting Members for Task Execution", url: "index.html#selecting-members-for-task-execution"},
+      
+    
+    {label: "Configuring Executor Service", url: "index.html#configuring-executor-service"},
+      
+    
+
+      
+    
+    {label: "Durable Executor Service", url: "index.html#durable-executor-service"},
+      
+        
+  
+    {label: "Configuring Durable Executor Service", url: "index.html#configuring-durable-executor-service"},
+      
+    
+
+      
+    
+    {label: "Scheduled Executor Service", url: "index.html#scheduled-executor-service"},
+      
+        
+  
+    {label: "Scheduled Executor API", url: "index.html#scheduled-executor-api"},
+      
+    
+    {label: "Configuring Scheduled Executor Service", url: "index.html#configuring-scheduled-executor-service"},
+      
+    
+    {label: "Examples", url: "index.html#examples"},
+      
+    
+
+      
+    
+    {label: "Entry Processor", url: "index.html#entry-processor"},
+      
+        
+  
+    {label: "Performing Fast In-Memory Map Operations", url: "index.html#performing-fast-in-memory-map-operations"},
+      
+    
+    {label: "Using Indexes", url: "index.html#using-indexes"},
+      
+    
+    {label: "Using OBJECT In-Memory Format", url: "index.html#using-object-in-memory-format"},
+      
+    
+    {label: "`EntryProcessor` Interface", url: "index.html#entryprocessor-interface"},
+      
+    
+    {label: "Processing Backup Entries", url: "index.html#processing-backup-entries"},
+      
+    
+    {label: "Creating an Entry Processor", url: "index.html#creating-an-entry-processor"},
+      
+    
+    {label: "Abstract Entry Processor", url: "index.html#abstract-entry-processor"},
+      
+    
+    {label: "Entry Processor Performance Optimizations", url: "index.html#entry-processor-performance-optimizations"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "Distributed Query", url: "index.html#distributed-query"},
+      
+        
+  
+    {label: "How Distributed Query Works", url: "index.html#how-distributed-query-works"},
+      
+        
+  
+    {label: "Employee Map Query Example", url: "index.html#employee-map-query-example"},
+      
+    
+    {label: "Querying with Criteria API", url: "index.html#querying-with-criteria-api"},
+      
+    
+    {label: "Querying with SQL", url: "index.html#querying-with-sql"},
+      
+    
+    {label: "Filtering with Paging Predicates", url: "index.html#filtering-with-paging-predicates"},
+      
+    
+    {label: "Indexing Queries", url: "index.html#indexing-queries"},
+      
+    
+    {label: "Configuring Query Thread Pool", url: "index.html#configuring-query-thread-pool"},
+      
+    
+
+      
+    
+    {label: "Querying in Collections and Arrays", url: "index.html#querying-in-collections-and-arrays"},
+      
+        
+  
+    {label: "Indexing in Collections and Arrays", url: "index.html#indexing-in-collections-and-arrays"},
+      
+    
+    {label: "Corner cases", url: "index.html#corner-cases"},
+      
+    
+
+      
+    
+    {label: "Custom Attributes", url: "index.html#custom-attributes"},
+      
+        
+  
+    {label: "Implementing a ValueExtractor", url: "index.html#implementing-a-valueextractor"},
+      
+    
+    {label: "Extraction Arguments", url: "index.html#extraction-arguments"},
+      
+    
+    {label: "Configuring a Custom Attribute Programmatically", url: "index.html#configuring-a-custom-attribute-programmatically"},
+      
+    
+    {label: "Configuring a Custom Attribute Declaratively", url: "index.html#configuring-a-custom-attribute-declaratively"},
+      
+    
+    {label: "Indexing Custom Attributes", url: "index.html#indexing-custom-attributes"},
+      
+    
+
+      
+    
+    {label: "MapReduce", url: "index.html#mapreduce"},
+      
+        
+  
+    {label: "Understanding MapReduce", url: "index.html#understanding-mapreduce"},
+      
+    
+    {label: "Using the MapReduce API", url: "index.html#using-the-mapreduce-api"},
+      
+    
+    {label: "Hazelcast MapReduce Architecture", url: "index.html#hazelcast-mapreduce-architecture"},
+      
+    
+    {label: "MapReduce Deprecation", url: "index.html#mapreduce-deprecation"},
+      
+    
+
+      
+    
+    {label: "Aggregators", url: "index.html#aggregators"},
+      
+        
+  
+    {label: "Aggregations Basics", url: "index.html#aggregations-basics"},
+      
+    
+    {label: "Using the Aggregations API", url: "index.html#using-the-aggregations-api"},
+      
+    
+    {label: "Aggregations Examples", url: "index.html#aggregations-examples"},
+      
+    
+    {label: "Implementing Aggregations", url: "index.html#implementing-aggregations"},
+      
+    
+
+      
+    
+    {label: "Fast-Aggregations", url: "index.html#fast-aggregations"},
+      
+        
+  
+    {label: "Aggregator API", url: "index.html#aggregator-api"},
+      
+    
+    {label: "Sample Implementation", url: "index.html#sample-implementation"},
+      
+    
+    {label: "Built-In Aggregations", url: "index.html#built-in-aggregations"},
+      
+    
+    {label: "Configuration Options", url: "index.html#configuration-options"},
+      
+    
+
+      
+    
+    {label: "Projections", url: "index.html#projections"},
+      
+        
+  
+    {label: "Projections API", url: "index.html#projections-api"},
+      
+    
+    {label: "Sample implementation", url: "index.html#sample-implementation"},
+      
+    
+    {label: "Built-In Projections", url: "index.html#built-in-projections"},
+      
+    
+
+      
+    
+    {label: "Continuous Query Cache", url: "index.html#continuous-query-cache"},
+      
+        
+  
+    {label: "Keeping Query Results Local and Ready", url: "index.html#keeping-query-results-local-and-ready"},
+      
+    
+    {label: "Accessing Continuous Query Cache from Member", url: "index.html#accessing-continuous-query-cache-from-member"},
+      
+    
+    {label: "Accessing Continuous Query Cache from Client Side", url: "index.html#accessing-continuous-query-cache-from-client-side"},
+      
+    
+    {label: "Features of Continuous Query Cache", url: "index.html#features-of-continuous-query-cache"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "Transactions", url: "index.html#transactions"},
+      
+        
+  
+    {label: "Creating a Transaction Interface", url: "index.html#creating-a-transaction-interface"},
+      
+        
+  
+    {label: "Queue/Set/List vs. Map/Multimap", url: "index.html#queuesetlist-vs-mapmultimap"},
+      
+    
+    {label: "ONE_PHASE vs. TWO_PHASE", url: "index.html#one-phase-vs-two-phase"},
+      
+    
+
+      
+    
+    {label: "Providing XA Transactions", url: "index.html#providing-xa-transactions"},
+      
+        
+  
+
+      
+    
+    {label: "Integrating into J2EE", url: "index.html#integrating-into-j2ee"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Hazelcast JCache", url: "index.html#hazelcast-jcache"},
+      
+        
+  
+    {label: "JCache Overview", url: "index.html#jcache-overview"},
+      
+        
+  
+
+      
+    
+    {label: "JCache Setup and Configuration", url: "index.html#jcache-setup-and-configuration"},
+      
+        
+  
+    {label: "Setting up Your Application", url: "index.html#setting-up-your-application"},
+      
+    
+    {label: "Example JCache Application", url: "index.html#example-jcache-application"},
+      
+    
+    {label: "Configuring for JCache", url: "index.html#configuring-for-jcache"},
+      
+    
+
+      
+    
+    {label: "JCache Providers", url: "index.html#jcache-providers"},
+      
+        
+  
+    {label: "Configuring JCache Provider", url: "index.html#configuring-jcache-provider"},
+      
+    
+    {label: "Configuring JCache with Client Provider", url: "index.html#configuring-jcache-with-client-provider"},
+      
+    
+    {label: "Configuring JCache with Server Provider", url: "index.html#configuring-jcache-with-server-provider"},
+      
+    
+
+      
+    
+    {label: "JCache API", url: "index.html#jcache-api"},
+      
+        
+  
+    {label: "JCache API Application Example", url: "index.html#jcache-api-application-example"},
+      
+    
+    {label: "JCache Base Classes", url: "index.html#jcache-base-classes"},
+      
+    
+    {label: "Implementing Factory and FactoryBuilder", url: "index.html#implementing-factory-and-factorybuilder"},
+      
+    
+    {label: "Implementing CacheLoader", url: "index.html#implementing-cacheloader"},
+      
+    
+    {label: "CacheWriter", url: "index.html#cachewriter"},
+      
+    
+    {label: "Implementing EntryProcessor", url: "index.html#implementing-entryprocessor"},
+      
+    
+    {label: "CacheEntryListener", url: "index.html#cacheentrylistener"},
+      
+    
+    {label: "ExpirePolicy", url: "index.html#expirepolicy"},
+      
+    
+
+      
+    
+    {label: "JCache - Hazelcast Instance Integration", url: "index.html#jcache-hazelcast-instance-integration"},
+      
+        
+  
+    {label: "JCache and Hazelcast Instance Awareness", url: "index.html#jcache-and-hazelcast-instance-awareness"},
+      
+    
+
+      
+    
+    {label: "Hazelcast JCache Extension - ICache", url: "index.html#hazelcast-jcache-extension-icache"},
+      
+        
+  
+    {label: "Scoping to Join Clusters", url: "index.html#scoping-to-join-clusters"},
+      
+    
+    {label: "Namespacing", url: "index.html#namespacing"},
+      
+    
+    {label: "Retrieving an ICache Instance", url: "index.html#retrieving-an-icache-instance"},
+      
+    
+    {label: "ICache Configuration", url: "index.html#icache-configuration"},
+      
+    
+    {label: "ICache Async Methods", url: "index.html#icache-async-methods"},
+      
+    
+    {label: "Defining a Custom ExpiryPolicy", url: "index.html#defining-a-custom-expirypolicy"},
+      
+    
+    {label: "JCache Eviction", url: "index.html#jcache-eviction"},
+      
+    
+    {label: "JCache Near Cache", url: "index.html#jcache-near-cache"},
+      
+    
+    {label: "ICache Convenience Methods", url: "index.html#icache-convenience-methods"},
+      
+    
+    {label: "Implementing BackupAwareEntryProcessor", url: "index.html#implementing-backupawareentryprocessor"},
+      
+    
+    {label: "ICache Partition Lost Listener", url: "index.html#icache-partition-lost-listener"},
+      
+    
+    {label: "JCache Split-Brain", url: "index.html#jcache-split-brain"},
+      
+    
+
+      
+    
+    {label: "Testing for JCache Specification Compliance", url: "index.html#testing-for-jcache-specification-compliance"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Integrated Clustering", url: "index.html#integrated-clustering"},
+      
+        
+  
+    {label: "Hibernate Second Level Cache", url: "index.html#hibernate-second-level-cache"},
+      
+        
+  
+
+      
+    
+    {label: "Web Session Replication", url: "index.html#web-session-replication"},
+      
+        
+  
+    {label: "Filter Based Web Session Replication", url: "index.html#filter-based-web-session-replication"},
+      
+    
+    {label: "Tomcat Based Web Session Replication", url: "index.html#tomcat-based-web-session-replication"},
+      
+    
+    {label: "Jetty Based Web Session Replication", url: "index.html#jetty-based-web-session-replication"},
+      
+    
+
+      
+    
+    {label: "Spring Integration", url: "index.html#spring-integration"},
+      
+        
+  
+    {label: "Supported Versions", url: "index.html#supported-versions"},
+      
+    
+    {label: "Configuring Spring", url: "index.html#configuring-spring"},
+      
+    
+    {label: "Enabling SpringAware Objects", url: "index.html#enabling-springaware-objects"},
+      
+    
+    {label: "Adding Caching to Spring", url: "index.html#adding-caching-to-spring"},
+      
+    
+    {label: "Configuring Hibernate Second Level Cache", url: "index.html#configuring-hibernate-second-level-cache"},
+      
+    
+    {label: "Configuring Hazelcast Transaction Manager", url: "index.html#configuring-hazelcast-transaction-manager"},
+      
+    
+    {label: "Best Practices", url: "index.html#best-practices"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "Storage", url: "index.html#storage"},
+      
+        
+  
+    {label: "High-Density Memory Store", url: "index.html#high-density-memory-store"},
+      
+        
+  
+    {label: "Configuring High-Density Memory Store", url: "index.html#configuring-high-density-memory-store"},
+      
+    
+
+      
+    
+    {label: "Sizing Practices", url: "index.html#sizing-practices"},
+      
+        
+  
+
+      
+    
+    {label: "Hot Restart Persistence", url: "index.html#hot-restart-persistence"},
+      
+        
+  
+    {label: "Hot Restart Persistence Overview", url: "index.html#hot-restart-persistence-overview"},
+      
+    
+    {label: "Hot Restart Types", url: "index.html#hot-restart-types"},
+      
+    
+    {label: "Restart Process", url: "index.html#restart-process"},
+      
+    
+    {label: "Force Start", url: "index.html#force-start"},
+      
+    
+    {label: "Partial Start", url: "index.html#partial-start"},
+      
+    
+    {label: "Configuring Hot Restart", url: "index.html#configuring-hot-restart"},
+      
+    
+    {label: "Moving/Copying Hot Restart Data", url: "index.html#movingcopying-hot-restart-data"},
+      
+    
+    {label: "Hot Restart Persistence Design Details", url: "index.html#hot-restart-persistence-design-details"},
+      
+    
+    {label: "Concurrent, Incremental, Generational GC", url: "index.html#concurrent-incremental-generational-gc"},
+      
+    
+    {label: "Hot Restart Performance Considerations", url: "index.html#hot-restart-performance-considerations"},
+      
+    
+    {label: "Hot Backup", url: "index.html#hot-backup"},
+      
+    
+
+      
+    
+    {label: "Hazelcast Striim Hot Cache", url: "index.html#hazelcast-striim-hot-cache"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Hazelcast Java Client", url: "index.html#hazelcast-java-client"},
+      
+        
+  
+    {label: "Hazelcast Clients Feature Comparison", url: "index.html#hazelcast-clients-feature-comparison"},
+      
+        
+  
+
+      
+    
+    {label: "Java Client Overview", url: "index.html#java-client-overview"},
+      
+        
+  
+    {label: "Including Dependencies for Java Clients", url: "index.html#including-dependencies-for-java-clients"},
+      
+    
+    {label: "Getting Started with Client API", url: "index.html#getting-started-with-client-api"},
+      
+    
+    {label: "Java Client Operation Modes", url: "index.html#java-client-operation-modes"},
+      
+    
+    {label: "Handling Failures", url: "index.html#handling-failures"},
+      
+    
+    {label: "Using Supported Distributed Data Structures", url: "index.html#using-supported-distributed-data-structures"},
+      
+    
+    {label: "Using Client Services", url: "index.html#using-client-services"},
+      
+    
+    {label: "Client Listeners", url: "index.html#client-listeners"},
+      
+    
+    {label: "Client Transactions", url: "index.html#client-transactions"},
+      
+    
+
+      
+    
+    {label: "Configuring Java Client", url: "index.html#configuring-java-client"},
+      
+        
+  
+    {label: "Configuring Client Network", url: "index.html#configuring-client-network"},
+      
+    
+    {label: "Configuring Client Load Balancer", url: "index.html#configuring-client-load-balancer"},
+      
+    
+    {label: "Configuring Client Near Cache", url: "index.html#configuring-client-near-cache"},
+      
+    
+    {label: "Client Group Configuration", url: "index.html#client-group-configuration"},
+      
+    
+    {label: "Client Security Configuration", url: "index.html#client-security-configuration"},
+      
+    
+    {label: "Client Serialization Configuration", url: "index.html#client-serialization-configuration"},
+      
+    
+    {label: "Configuring Client Listeners", url: "index.html#configuring-client-listeners"},
+      
+    
+    {label: "ExecutorPoolSize", url: "index.html#executorpoolsize"},
+      
+    
+    {label: "ClassLoader", url: "index.html#classloader"},
+      
+    
+
+      
+    
+    {label: "Client System Properties", url: "index.html#client-system-properties"},
+      
+        
+  
+
+      
+    
+    {label: "Sample Codes for Client", url: "index.html#sample-codes-for-client"},
+      
+        
+  
+
+      
+    
+    {label: "Using High-Density Memory Store with Java Client", url: "index.html#using-high-density-memory-store-with-java-client"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Other Client and Language Implementations", url: "index.html#other-client-and-language-implementations"},
+      
+        
+  
+    {label: "C++ Client", url: "index.html#c-client"},
+      
+        
+  
+
+      
+    
+    {label: ".NET Client", url: "index.html#net-client"},
+      
+        
+  
+
+      
+    
+    {label: "Python Client", url: "index.html#python-client"},
+      
+        
+  
+
+      
+    
+    {label: "Node.js Client", url: "index.html#nodejs-client"},
+      
+        
+  
+
+      
+    
+    {label: "Scala", url: "index.html#scala"},
+      
+        
+  
+
+      
+    
+    {label: "REST Client", url: "index.html#rest-client"},
+      
+        
+  
+    {label: "REST Client GET/POST/DELETE Examples", url: "index.html#rest-client-getpostdelete-examples"},
+      
+    
+    {label: "Checking the Status of the Cluster for REST Client", url: "index.html#checking-the-status-of-the-cluster-for-rest-client"},
+      
+    
+
+      
+    
+    {label: "Memcache Client", url: "index.html#memcache-client"},
+      
+        
+  
+    {label: "Memcache Client Code Examples", url: "index.html#memcache-client-code-examples"},
+      
+    
+    {label: "Unsupported Operations for Memcache", url: "index.html#unsupported-operations-for-memcache"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "Serialization", url: "index.html#serialization"},
+      
+        
+  
+    {label: "Serialization Interface Types", url: "index.html#serialization-interface-types"},
+      
+        
+  
+
+      
+    
+    {label: "Comparing Serialization Interfaces", url: "index.html#comparing-serialization-interfaces"},
+      
+        
+  
+
+      
+    
+    {label: "Implementing Java Serializable and Externalizable", url: "index.html#implementing-java-serializable-and-externalizable"},
+      
+        
+  
+    {label: "Implementing Java Externalizable", url: "index.html#implementing-java-externalizable"},
+      
+    
+
+      
+    
+    {label: "Implementing DataSerializable", url: "index.html#implementing-dataserializable"},
+      
+        
+  
+    {label: "IdentifiedDataSerializable", url: "index.html#identifieddataserializable"},
+      
+    
+
+      
+    
+    {label: "Implementing Portable Serialization", url: "index.html#implementing-portable-serialization"},
+      
+        
+  
+    {label: "Portable Serialization Example Code", url: "index.html#portable-serialization-example-code"},
+      
+    
+    {label: "Registering the Portable Factory", url: "index.html#registering-the-portable-factory"},
+      
+    
+    {label: "Versioning for Portable Serialization", url: "index.html#versioning-for-portable-serialization"},
+      
+    
+    {label: "Ordering Consistency for `writePortable`", url: "index.html#ordering-consistency-for-writeportable"},
+      
+    
+    {label: "Null Portable Serialization", url: "index.html#null-portable-serialization"},
+      
+    
+    {label: "DistributedObject Serialization", url: "index.html#distributedobject-serialization"},
+      
+    
+
+      
+    
+    {label: "Custom Serialization", url: "index.html#custom-serialization"},
+      
+        
+  
+    {label: "Implementing StreamSerializer", url: "index.html#implementing-streamserializer"},
+      
+    
+    {label: "Implementing ByteArraySerializer", url: "index.html#implementing-bytearrayserializer"},
+      
+    
+
+      
+    
+    {label: "Global Serializer", url: "index.html#global-serializer"},
+      
+        
+  
+    {label: "Sample Global Serializer", url: "index.html#sample-global-serializer"},
+      
+    
+
+      
+    
+    {label: "Implementing HazelcastInstanceAware", url: "index.html#implementing-hazelcastinstanceaware"},
+      
+        
+  
+
+      
+    
+    {label: "Serialization Configuration Wrap-Up", url: "index.html#serialization-configuration-wrap-up"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Management", url: "index.html#management"},
+      
+        
+  
+    {label: "Getting Member Statistics", url: "index.html#getting-member-statistics"},
+      
+        
+  
+    {label: "Map Statistics", url: "index.html#map-statistics"},
+      
+    
+    {label: "Multimap Statistics", url: "index.html#multimap-statistics"},
+      
+    
+    {label: "Queue Statistics", url: "index.html#queue-statistics"},
+      
+    
+    {label: "Topic Statistics", url: "index.html#topic-statistics"},
+      
+    
+    {label: "Executor Statistics", url: "index.html#executor-statistics"},
+      
+    
+
+      
+    
+    {label: "JMX API per Member", url: "index.html#jmx-api-per-member"},
+      
+        
+  
+
+      
+    
+    {label: "Monitoring with JMX", url: "index.html#monitoring-with-jmx"},
+      
+        
+  
+    {label: "MBean Naming for Hazelcast Data Structures", url: "index.html#mbean-naming-for-hazelcast-data-structures"},
+      
+    
+    {label: "Connecting to JMX Agent", url: "index.html#connecting-to-jmx-agent"},
+      
+    
+
+      
+    
+    {label: "Cluster Utilities", url: "index.html#cluster-utilities"},
+      
+        
+  
+    {label: "Getting Member Events and Member Sets", url: "index.html#getting-member-events-and-member-sets"},
+      
+    
+    {label: "Managing Cluster and Member States", url: "index.html#managing-cluster-and-member-states"},
+      
+    
+    {label: "Using the Script cluster.sh", url: "index.html#using-the-script-clustersh"},
+      
+    
+    {label: "Using REST API for Cluster Management", url: "index.html#using-rest-api-for-cluster-management"},
+      
+    
+    {label: "Enabling Lite Members", url: "index.html#enabling-lite-members"},
+      
+    
+    {label: "Defining Member Attributes", url: "index.html#defining-member-attributes"},
+      
+    
+    {label: "Safety Checking Cluster Members", url: "index.html#safety-checking-cluster-members"},
+      
+    
+
+      
+    
+    {label: "Diagnostics", url: "index.html#diagnostics"},
+      
+        
+  
+    {label: "Enabling Diagnostics Logging", url: "index.html#enabling-diagnostics-logging"},
+      
+    
+    {label: "Diagnostics Log File", url: "index.html#diagnostics-log-file"},
+      
+    
+    {label: "Diagnostics Plugins", url: "index.html#diagnostics-plugins"},
+      
+    
+
+      
+    
+    {label: "Management Center", url: "index.html#management-center"},
+      
+        
+  
+    {label: "Deploying and Starting", url: "index.html#deploying-and-starting"},
+      
+    
+    {label: "Getting Started to Management Center", url: "index.html#getting-started-to-management-center"},
+      
+    
+    {label: "Using Management Center with TLS/SSL Only", url: "index.html#using-management-center-with-tlsssl-only"},
+      
+    
+    {label: "LDAP Authentication", url: "index.html#ldap-authentication"},
+      
+    
+    {label: "Active Directory Authentication", url: "index.html#active-directory-authentication"},
+      
+    
+    {label: "JAAS Authentication", url: "index.html#jaas-authentication"},
+      
+    
+    {label: "Management Center Tools", url: "index.html#management-center-tools"},
+      
+    
+    {label: "Management Center Home Page", url: "index.html#management-center-home-page"},
+      
+    
+    {label: "Monitoring Caches", url: "index.html#monitoring-caches"},
+      
+    
+    {label: "Managing Maps", url: "index.html#managing-maps"},
+      
+    
+    {label: "Monitoring Replicated Maps", url: "index.html#monitoring-replicated-maps"},
+      
+    
+    {label: "Monitoring Queues", url: "index.html#monitoring-queues"},
+      
+    
+    {label: "Monitoring Topics", url: "index.html#monitoring-topics"},
+      
+    
+    {label: "Monitoring MultiMaps", url: "index.html#monitoring-multimaps"},
+      
+    
+    {label: "Monitoring Executors", url: "index.html#monitoring-executors"},
+      
+    
+    {label: "Monitoring WAN Replication", url: "index.html#monitoring-wan-replication"},
+      
+    
+    {label: "Monitoring Members", url: "index.html#monitoring-members"},
+      
+    
+    {label: "Scripting", url: "index.html#scripting"},
+      
+    
+    {label: "Executing Console Commands", url: "index.html#executing-console-commands"},
+      
+    
+    {label: "Creating Alerts", url: "index.html#creating-alerts"},
+      
+    
+    {label: "Administering Management Center", url: "index.html#administering-management-center"},
+      
+    
+    {label: "Hot Restart", url: "index.html#hot-restart"},
+      
+    
+    {label: "Checking Past Status with Time Travel", url: "index.html#checking-past-status-with-time-travel"},
+      
+    
+    {label: "Management Center Documentation", url: "index.html#management-center-documentation"},
+      
+    
+    {label: "Suggested Heap Size", url: "index.html#suggested-heap-size"},
+      
+    
+
+      
+    
+    {label: "Clustered JMX via Management Center", url: "index.html#clustered-jmx-via-management-center"},
+      
+        
+  
+    {label: "Configuring Clustered JMX", url: "index.html#configuring-clustered-jmx"},
+      
+    
+    {label: "Enabling TLS/SSL for Clustered JMX", url: "index.html#enabling-tlsssl-for-clustered-jmx"},
+      
+    
+    {label: "Clustered JMX API", url: "index.html#clustered-jmx-api"},
+      
+    
+    {label: "Integrating with New Relic", url: "index.html#integrating-with-new-relic"},
+      
+    
+    {label: "Integrating with AppDynamics", url: "index.html#integrating-with-appdynamics"},
+      
+    
+
+      
+    
+    {label: "Clustered REST via Management Center", url: "index.html#clustered-rest-via-management-center"},
+      
+        
+  
+    {label: "Enabling Clustered REST", url: "index.html#enabling-clustered-rest"},
+      
+    
+    {label: "Clustered REST API Root", url: "index.html#clustered-rest-api-root"},
+      
+    
+    {label: "Clusters Resource", url: "index.html#clusters-resource"},
+      
+    
+    {label: "Cluster Resource", url: "index.html#cluster-resource"},
+      
+    
+    {label: "Members Resource", url: "index.html#members-resource"},
+      
+    
+    {label: "Member Resource", url: "index.html#member-resource"},
+      
+    
+    {label: "Clients Resource", url: "index.html#clients-resource"},
+      
+    
+    {label: "Maps Resource", url: "index.html#maps-resource"},
+      
+    
+    {label: "MultiMaps Resource", url: "index.html#multimaps-resource"},
+      
+    
+    {label: "Queues Resource", url: "index.html#queues-resource"},
+      
+    
+    {label: "Topics Resource", url: "index.html#topics-resource"},
+      
+    
+    {label: "Executors Resource", url: "index.html#executors-resource"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "Security", url: "index.html#security"},
+      
+        
+  
+    {label: "Enabling Security", url: "index.html#enabling-security"},
+      
+        
+  
+
+      
+    
+    {label: "Socket Interceptor", url: "index.html#socket-interceptor"},
+      
+        
+  
+
+      
+    
+    {label: "Security Interceptor", url: "index.html#security-interceptor"},
+      
+        
+  
+
+      
+    
+    {label: "Encryption", url: "index.html#encryption"},
+      
+        
+  
+
+      
+    
+    {label: "TLS/SSL", url: "index.html#tlsssl"},
+      
+        
+  
+    {label: "TLS/SSL for Hazelcast Members", url: "index.html#tlsssl-for-hazelcast-members"},
+      
+    
+    {label: "TLS/SSL for Hazelcast Clients", url: "index.html#tlsssl-for-hazelcast-clients"},
+      
+    
+    {label: "Mutual Authentication", url: "index.html#mutual-authentication"},
+      
+    
+    {label: "TLS/SSL Performance Improvements for Java", url: "index.html#tlsssl-performance-improvements-for-java"},
+      
+    
+
+      
+    
+    {label: "Credentials", url: "index.html#credentials"},
+      
+        
+  
+
+      
+    
+    {label: "ClusterLoginModule", url: "index.html#clusterloginmodule"},
+      
+        
+  
+    {label: "Enterprise Integration", url: "index.html#enterprise-integration"},
+      
+    
+
+      
+    
+    {label: "Cluster Member Security", url: "index.html#cluster-member-security"},
+      
+        
+  
+
+      
+    
+    {label: "Native Client Security", url: "index.html#native-client-security"},
+      
+        
+  
+    {label: "Authentication", url: "index.html#authentication"},
+      
+    
+    {label: "Authorization", url: "index.html#authorization"},
+      
+    
+    {label: "Permissions", url: "index.html#permissions"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "Performance", url: "index.html#performance"},
+      
+        
+  
+    {label: "Data Affinity", url: "index.html#data-affinity"},
+      
+        
+  
+
+      
+    
+    {label: "Back Pressure", url: "index.html#back-pressure"},
+      
+        
+  
+    {label: "Member Side", url: "index.html#member-side"},
+      
+    
+    {label: "Client Side", url: "index.html#client-side"},
+      
+    
+
+      
+    
+    {label: "Threading Model", url: "index.html#threading-model"},
+      
+        
+  
+    {label: "I/O Threading", url: "index.html#io-threading"},
+      
+    
+    {label: "Event Threading", url: "index.html#event-threading"},
+      
+    
+    {label: "IExecutor Threading", url: "index.html#iexecutor-threading"},
+      
+    
+    {label: "Operation Threading", url: "index.html#operation-threading"},
+      
+    
+
+      
+    
+    {label: "SlowOperationDetector", url: "index.html#slowoperationdetector"},
+      
+        
+  
+    {label: "Logging of Slow Operations", url: "index.html#logging-of-slow-operations"},
+      
+    
+    {label: "Purging of Slow Operation Logs", url: "index.html#purging-of-slow-operation-logs"},
+      
+    
+
+      
+    
+    {label: "Near Cache", url: "index.html#near-cache"},
+      
+        
+  
+    {label: "Hazelcast Data Structures with Near Cache Support", url: "index.html#hazelcast-data-structures-with-near-cache-support"},
+      
+    
+    {label: "Configuring Near Cache", url: "index.html#configuring-near-cache"},
+      
+    
+    {label: "Near Cache Configuration Examples", url: "index.html#near-cache-configuration-examples"},
+      
+    
+    {label: "Near Cache Eviction", url: "index.html#near-cache-eviction"},
+      
+    
+    {label: "Near Cache Expiration", url: "index.html#near-cache-expiration"},
+      
+    
+    {label: "Near Cache Invalidation", url: "index.html#near-cache-invalidation"},
+      
+    
+    {label: "Near Cache Eventual Consistency", url: "index.html#near-cache-eventual-consistency"},
+      
+    
+    {label: "Near Cache Preloader", url: "index.html#near-cache-preloader"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "Hazelcast Simulator", url: "index.html#hazelcast-simulator"},
+      
+        
+  
+
+      
+    
+    {label: "WAN", url: "index.html#wan"},
+      
+        
+  
+    {label: "WAN Replication", url: "index.html#wan-replication"},
+      
+        
+  
+    {label: "Defining WAN Replication", url: "index.html#defining-wan-replication"},
+      
+    
+    {label: "WanBatchReplication Implementation", url: "index.html#wanbatchreplication-implementation"},
+      
+    
+    {label: "Configuring WAN Replication for IMap and ICache", url: "index.html#configuring-wan-replication-for-imap-and-icache"},
+      
+    
+    {label: "Batch Size", url: "index.html#batch-size"},
+      
+    
+    {label: "Batch Maximum Delay", url: "index.html#batch-maximum-delay"},
+      
+    
+    {label: "Response Timeout", url: "index.html#response-timeout"},
+      
+    
+    {label: "Queue Capacity", url: "index.html#queue-capacity"},
+      
+    
+    {label: "Queue Full Behavior", url: "index.html#queue-full-behavior"},
+      
+    
+    {label: "Event Filtering API", url: "index.html#event-filtering-api"},
+      
+    
+    {label: "Acknowledgment Types", url: "index.html#acknowledgment-types"},
+      
+    
+    {label: "Synchronizing WAN Target Cluster", url: "index.html#synchronizing-wan-target-cluster"},
+      
+    
+    {label: "WAN Replication Additional Information", url: "index.html#wan-replication-additional-information"},
+      
+    
+
+      
+    
+    {label: "Hazelcast WAN Replication with Solace", url: "index.html#hazelcast-wan-replication-with-solace"},
+      
+        
+  
+    {label: "Enabling Integration", url: "index.html#enabling-integration"},
+      
+    
+    {label: "Additional Information", url: "index.html#additional-information"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "OSGI", url: "index.html#osgi"},
+      
+        
+  
+    {label: "OSGI Support", url: "index.html#osgi-support"},
+      
+        
+  
+
+      
+    
+    {label: "API", url: "index.html#api"},
+      
+        
+  
+
+      
+    
+    {label: "Configuring Hazelcast OSGI Support", url: "index.html#configuring-hazelcast-osgi-support"},
+      
+        
+  
+
+      
+    
+    {label: "Design", url: "index.html#design"},
+      
+        
+  
+
+      
+    
+    {label: "Using Hazelcast OSGI Service", url: "index.html#using-hazelcast-osgi-service"},
+      
+        
+  
+    {label: "Getting Hazelcast OSGI Service Instances", url: "index.html#getting-hazelcast-osgi-service-instances"},
+      
+    
+    {label: "Managing and Using Hazelcast instances", url: "index.html#managing-and-using-hazelcast-instances"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "Extending Hazelcast", url: "index.html#extending-hazelcast"},
+      
+        
+  
+    {label: "User Defined Services", url: "index.html#user-defined-services"},
+      
+        
+  
+    {label: "Creating the Service Class", url: "index.html#creating-the-service-class"},
+      
+    
+    {label: "Enabling the Service Class", url: "index.html#enabling-the-service-class"},
+      
+    
+    {label: "Adding Properties to the Service", url: "index.html#adding-properties-to-the-service"},
+      
+    
+    {label: "Starting the Service", url: "index.html#starting-the-service"},
+      
+    
+    {label: "Placing a Remote Call via Proxy", url: "index.html#placing-a-remote-call-via-proxy"},
+      
+    
+    {label: "Creating Containers", url: "index.html#creating-containers"},
+      
+    
+    {label: "Partition Migration", url: "index.html#partition-migration"},
+      
+    
+    {label: "Creating Backups", url: "index.html#creating-backups"},
+      
+    
+
+      
+    
+    {label: "WaitNotifyService", url: "index.html#waitnotifyservice"},
+      
+        
+  
+
+      
+    
+    {label: "Discovery SPI", url: "index.html#discovery-spi"},
+      
+        
+  
+    {label: "Discovery SPI Interfaces and Classes", url: "index.html#discovery-spi-interfaces-and-classes"},
+      
+    
+    {label: "Discovery Strategy", url: "index.html#discovery-strategy"},
+      
+    
+    {label: "DiscoveryService (Framework integration)", url: "index.html#discoveryservice-framework-integration"},
+      
+    
+
+      
+    
+    {label: "Config Properties SPI", url: "index.html#config-properties-spi"},
+      
+        
+  
+    {label: "Config Properties SPI Classes", url: "index.html#config-properties-spi-classes"},
+      
+    
+    {label: "Config Properties SPI Example", url: "index.html#config-properties-spi-example"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "Network Partitioning - Split-Brain Syndrome", url: "index.html#network-partitioning-split-brain-syndrome"},
+      
+        
+  
+    {label: "Understanding Partition Recreation", url: "index.html#understanding-partition-recreation"},
+      
+        
+  
+
+      
+    
+    {label: "Understanding Backup Partition Creation", url: "index.html#understanding-backup-partition-creation"},
+      
+        
+  
+
+      
+    
+    {label: "Understanding The Update Overwrite Scenario", url: "index.html#understanding-the-update-overwrite-scenario"},
+      
+        
+  
+
+      
+    
+    {label: "What Happens When The Network Failure Is Fixed", url: "index.html#what-happens-when-the-network-failure-is-fixed"},
+      
+        
+  
+
+      
+    
+    {label: "How Hazelcast Split-Brain Merge Happens", url: "index.html#how-hazelcast-split-brain-merge-happens"},
+      
+        
+  
+
+      
+    
+    {label: "Specifying Merge Policies", url: "index.html#specifying-merge-policies"},
+      
+        
+  
+
+      
+    
+    {label: "Split-Brain Protection", url: "index.html#split-brain-protection"},
+      
+        
+  
+    {label: "Time Window for Split-Brain Protection", url: "index.html#time-window-for-split-brain-protection"},
+      
+    
+    {label: "Configuring Quorum", url: "index.html#configuring-quorum"},
+      
+    
+    {label: "Configuring Quorum Listeners", url: "index.html#configuring-quorum-listeners"},
+      
+    
+    {label: "Querying Quorum Results", url: "index.html#querying-quorum-results"},
+      
+    
+
+      
+    
+
+      
+    
+    {label: "System Properties", url: "index.html#system-properties"},
+      
+        
+  
+
+      
+    
+    {label: "Common Exception Types", url: "index.html#common-exception-types"},
+      
+        
+  
+
+      
+    
+    {label: "License Questions", url: "index.html#license-questions"},
+      
+        
+  
+    {label: "Embedded Dependencies", url: "index.html#embedded-dependencies"},
+      
+        
+  
+
+      
+    
+    {label: "Runtime Dependencies", url: "index.html#runtime-dependencies"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Frequently Asked Questions", url: "index.html#frequently-asked-questions"},
+      
+        
+  
+    {label: "Why 271 as the default partition count?", url: "index.html#why-271-as-the-default-partition-count"},
+      
+        
+  
+
+      
+    
+    {label: "Is Hazelcast thread safe?", url: "index.html#is-hazelcast-thread-safe"},
+      
+        
+  
+
+      
+    
+    {label: "How do members discover each other?", url: "index.html#how-do-members-discover-each-other"},
+      
+        
+  
+
+      
+    
+    {label: "What happens when a member goes down?", url: "index.html#what-happens-when-a-member-goes-down"},
+      
+        
+  
+
+      
+    
+    {label: "How do I test the connectivity?", url: "index.html#how-do-i-test-the-connectivity"},
+      
+        
+  
+
+      
+    
+    {label: "How do I choose keys properly?", url: "index.html#how-do-i-choose-keys-properly"},
+      
+        
+  
+
+      
+    
+    {label: "How do I reflect value modifications?", url: "index.html#how-do-i-reflect-value-modifications"},
+      
+        
+  
+
+      
+    
+    {label: "How do I test my Hazelcast cluster?", url: "index.html#how-do-i-test-my-hazelcast-cluster"},
+      
+        
+  
+
+      
+    
+    {label: "Does Hazelcast support hundreds of members?", url: "index.html#does-hazelcast-support-hundreds-of-members"},
+      
+        
+  
+
+      
+    
+    {label: "Does Hazelcast support thousands of clients?", url: "index.html#does-hazelcast-support-thousands-of-clients"},
+      
+        
+  
+
+      
+    
+    {label: "Difference between Lite Member and Smart Client?", url: "index.html#difference-between-lite-member-and-smart-client"},
+      
+        
+  
+
+      
+    
+    {label: "How do you give support?", url: "index.html#how-do-you-give-support"},
+      
+        
+  
+
+      
+    
+    {label: "Does Hazelcast persist?", url: "index.html#does-hazelcast-persist"},
+      
+        
+  
+
+      
+    
+    {label: "Can I use Hazelcast in a single server?", url: "index.html#can-i-use-hazelcast-in-a-single-server"},
+      
+        
+  
+
+      
+    
+    {label: "How can I monitor Hazelcast?", url: "index.html#how-can-i-monitor-hazelcast"},
+      
+        
+  
+
+      
+    
+    {label: "How can I see debug level logs?", url: "index.html#how-can-i-see-debug-level-logs"},
+      
+        
+  
+
+      
+    
+    {label: "Client-server vs. embedded topologies?", url: "index.html#client-server-vs-embedded-topologies"},
+      
+        
+  
+
+      
+    
+    {label: "How do I know it is safe to kill the second member?", url: "index.html#how-do-i-know-it-is-safe-to-kill-the-second-member"},
+      
+        
+  
+
+      
+    
+    {label: "When do I need Native Memory solutions?", url: "index.html#when-do-i-need-native-memory-solutions"},
+      
+        
+  
+
+      
+    
+    {label: "Is there any disadvantage of using near-cache?", url: "index.html#is-there-any-disadvantage-of-using-near-cache"},
+      
+        
+  
+
+      
+    
+    {label: "Is Hazelcast secure?", url: "index.html#is-hazelcast-secure"},
+      
+        
+  
+
+      
+    
+    {label: "How can I set socket options?", url: "index.html#how-can-i-set-socket-options"},
+      
+        
+  
+
+      
+    
+    {label: "Client disconnections during idle time?", url: "index.html#client-disconnections-during-idle-time"},
+      
+        
+  
+
+      
+    
+    {label: "OOME: Unable to create new native thread?", url: "index.html#oome-unable-to-create-new-native-thread"},
+      
+        
+  
+
+      
+    
+    {label: "Does repartitioning wait for Entry Processor?", url: "index.html#does-repartitioning-wait-for-entry-processor"},
+      
+        
+  
+
+      
+    
+    {label: "Instances on different machines cannot see each other?", url: "index.html#instances-on-different-machines-cannot-see-each-other"},
+      
+        
+  
+
+      
+    
+    {label: "What Does &quot;Replica: 1 has no owner&quot; Mean?", url: "index.html#what-does-replica-1-has-no-owner-mean"},
+      
+        
+  
+
+      
+    
+
+      
+    
+    {label: "Glossary", url: "index.html#glossary"},
+      
+        
+  
+
+      
+    
+
+    ];
+    $( "#search" ).autocomplete({
+      source: availableTags,
+      select: function(event, ui){
+      window.location = ui.item.url
+       }
+     });
+  } );
+</script>
+<div id="sidebar" style="overflow-y:auto">
+  <form action="search.html"><input id="search" type="text" placeholder="Search" name="q" /></form>
+  <nav id="toc">
+    
+  <ol>
+    
+    <li>
+      <a href="index.html#preface">Preface</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#hazelcast-imdg-editions">Hazelcast IMDG Editions</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-imdg-architecture">Hazelcast IMDG Architecture</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-imdg-plugins">Hazelcast IMDG Plugins</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#licensing">Licensing</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#trademarks">Trademarks</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#customer-support">Customer Support</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#release-notes">Release Notes</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#contributing-to-hazelcast-imdg">Contributing to Hazelcast IMDG</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#partners">Partners</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#phone-home">Phone Home</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#typographical-conventions">Typographical Conventions</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#document-revision-history">Document Revision History</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#getting-started">Getting Started</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#installation">Installation</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#hazelcast-imdg">Hazelcast IMDG</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-imdg-enterprise">Hazelcast IMDG Enterprise</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#setting-the-license-key">Setting the License Key</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#upgrading-from-3x">Upgrading from 3.x</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#upgrading-from-2x">Upgrading from 2.x</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#starting-the-member-and-client">Starting the Member and Client</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-the-scripts-in-the-package">Using the Scripts In The Package</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#deploying-on-amazon-ec2">Deploying On Amazon EC2</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#deploying-on-microsoft-azure">Deploying On Microsoft Azure</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#deploying-on-pivotal-cloud-foundry">Deploying On Pivotal Cloud Foundry</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#deploying-using-docker">Deploying using Docker</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-overview">Hazelcast Overview</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#sharding-in-hazelcast">Sharding in Hazelcast</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-topology">Hazelcast Topology</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#why-hazelcast">Why Hazelcast?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#data-partitioning">Data Partitioning</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#how-the-data-is-partitioned">How the Data is Partitioned</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#partition-table">Partition Table</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#repartitioning">Repartitioning</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#use-cases">Use Cases</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#resources">Resources</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#understanding-configuration">Understanding Configuration</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#configuring-declaratively">Configuring Declaratively</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#composing-declarative-configuration">Composing Declarative Configuration</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-programmatically">Configuring Programmatically</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-with-system-properties">Configuring with System Properties</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-within-spring-context">Configuring within Spring Context</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#checking-configuration">Checking Configuration</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuration-pattern-matcher">Configuration Pattern Matcher</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-wildcards">Using Wildcards</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-variables">Using Variables</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#setting-up-clusters">Setting Up Clusters</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#discovering-cluster-members">Discovering Cluster Members</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#discovering-members-by-multicast">Discovering Members by Multicast</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#discovering-members-by-tcp">Discovering Members by TCP</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#discovering-members-within-ec2-cloud">Discovering Members within EC2 Cloud</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#discovering-members-within-azure-cloud">Discovering Members within Azure Cloud</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#discovering-members-with-jclouds">Discovering Members with jclouds</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#discovering-native-clients">Discovering Native Clients</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#creating-cluster-groups">Creating Cluster Groups</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#user-code-deployment-beta">User Code Deployment - BETA</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#configuring-user-code-deployment">Configuring User Code Deployment</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#partition-group-configuration">Partition Group Configuration</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#grouping-types">Grouping Types</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#logging-configuration">Logging Configuration</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#other-network-configurations">Other Network Configurations</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#public-address">Public Address</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#port">Port</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#outbound-ports">Outbound Ports</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#reuse-address">Reuse Address</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#join">Join</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#interfaces">Interfaces</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#ipv6-support">IPv6 Support</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#rolling-member-upgrades">Rolling Member Upgrades</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#terminology">Terminology</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-members-compatibility-guarantees">Hazelcast Members Compatibility Guarantees</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#rolling-upgrade-procedure">Rolling Upgrade Procedure</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#network-partitions-and-rolling-upgrades">Network Partitions and Rolling Upgrades</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#rolling-upgrade-faq">Rolling Upgrade FAQ</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#distributed-data-structures">Distributed Data Structures</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#map">Map</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#getting-a-map-and-putting-an-entry">Getting a Map and Putting an Entry</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#backing-up-maps">Backing Up Maps</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#map-eviction">Map Eviction</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#evicting-map-entries">Evicting Map Entries</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#setting-in-memory-format">Setting In-Memory Format</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-high-density-memory-store-with-map">Using High-Density Memory Store with Map</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#loading-and-storing-persistent-data">Loading and Storing Persistent Data</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#creating-near-cache-for-map">Creating Near Cache for Map</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#locking-maps">Locking Maps</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#lock-split-brain-protection-with-pessimistic-locking">Lock Split-Brain Protection with Pessimistic Locking</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#accessing-entry-statistics">Accessing Entry Statistics</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#map-listener">Map Listener</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#listening-to-map-entries-with-predicates">Listening to Map Entries with Predicates</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#removing-bulk-map-entries-with-predicates">Removing Bulk Map Entries with Predicates</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#adding-interceptors">Adding Interceptors</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#preventing-out-of-memory-exceptions">Preventing Out of Memory Exceptions</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#queue">Queue</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#getting-a-queue-and-putting-items">Getting a Queue and Putting Items</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#creating-an-example-queue">Creating an Example Queue</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#setting-a-bounded-queue">Setting a Bounded Queue</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#queueing-with-persistent-datastore">Queueing with Persistent Datastore</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#split-brain-protection-for-queue">Split-Brain Protection for Queue</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-queue">Configuring Queue</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#multimap">MultiMap</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#getting-a-multimap-and-putting-an-entry">Getting a MultiMap and Putting an Entry</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-multimap">Configuring MultiMap</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#set">Set</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#getting-a-set-and-putting-items">Getting a Set and Putting Items</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-set">Configuring Set</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#list">List</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#getting-a-list-and-putting-items">Getting a List and Putting Items</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-list">Configuring List</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#ringbuffer">Ringbuffer</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#getting-a-ringbuffer-and-reading-items">Getting a Ringbuffer and Reading Items</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#adding-items-to-a-ringbuffer">Adding Items to a Ringbuffer</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#iqueue-vs-ringbuffer">IQueue vs. Ringbuffer</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-ringbuffer-capacity">Configuring Ringbuffer Capacity</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#backing-up-ringbuffer">Backing Up Ringbuffer</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-ringbuffer-time-to-live">Configuring Ringbuffer Time To Live</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#setting-ringbuffer-overflow-policy">Setting Ringbuffer Overflow Policy</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#ringbuffer-with-persistent-datastore">Ringbuffer with Persistent Datastore</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-ringbuffer-in-memory-format">Configuring Ringbuffer In-Memory Format</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#adding-batched-items">Adding Batched Items</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#reading-batched-items">Reading Batched Items</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-async-methods">Using Async Methods</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#ringbuffer-configuration-examples">Ringbuffer Configuration Examples</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#topic">Topic</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#getting-a-topic-and-publishing-messages">Getting a Topic and Publishing Messages</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#getting-topic-statistics">Getting Topic Statistics</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#understanding-topic-behavior">Understanding Topic Behavior</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-topic">Configuring Topic</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#reliable-topic">Reliable Topic</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#sample-reliable-itopic-code">Sample Reliable ITopic Code</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#slow-consumers">Slow Consumers</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-reliable-topic">Configuring Reliable Topic</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#lock">Lock</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#using-try-catch-blocks-with-locks">Using Try-Catch Blocks with Locks</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#releasing-locks-with-trylock-timeout">Releasing Locks with tryLock Timeout</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#avoiding-waiting-threads-with-lease-time">Avoiding Waiting Threads with Lease Time</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#understanding-lock-behavior">Understanding Lock Behavior</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#synchronizing-threads-with-icondition">Synchronizing Threads with ICondition</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#split-brain-protection-for-lock">Split-Brain Protection for Lock</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#lock-configuration">Lock Configuration</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#iatomiclong">IAtomicLong</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#sending-functions-to-iatomiclong">Sending Functions to IAtomicLong</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#executing-functions-on-iatomiclong">Executing Functions on IAtomicLong</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#reasons-to-use-functions-with-iatomic">Reasons to Use Functions with IAtomic</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#isemaphore">ISemaphore</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#controlling-thread-counts-with-permits">Controlling Thread Counts with Permits</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#example-semaphore-code">Example Semaphore Code</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-semaphore">Configuring Semaphore</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#iatomicreference">IAtomicReference</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#sending-functions-to-iatomicreference">Sending Functions to IAtomicReference</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-iatomicreference">Using IAtomicReference</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#icountdownlatch">ICountDownLatch</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#gate-keeping-concurrent-activities">Gate-Keeping Concurrent Activities</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#recovering-from-failure">Recovering From Failure</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-icountdownlatch">Using ICountDownLatch</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#idgenerator">IdGenerator</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#generating-cluster-wide-ids">Generating Cluster-Wide IDs</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#unique-ids-and-duplicate-ids">Unique IDs and Duplicate IDs</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#replicated-map">Replicated Map</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#replicating-instead-of-partitioning">Replicating Instead of Partitioning</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#example-replicated-map-code">Example Replicated Map Code</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#considerations-for-replicated-map">Considerations for Replicated Map</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuration-design-for-replicated-map">Configuration Design for Replicated Map</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-replicated-map">Configuring Replicated Map</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-entrylistener-on-replicated-map">Using EntryListener on Replicated Map</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#cardinality-estimator-service">Cardinality Estimator Service</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#cardinality-estimator-api">Cardinality Estimator API</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#examples">Examples</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#distributed-events">Distributed Events</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#event-listeners-for-hazelcast-members">Event Listeners for Hazelcast Members</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#listening-for-member-events">Listening for Member Events</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#listening-for-distributed-object-events">Listening for Distributed Object Events</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#listening-for-migration-events">Listening for Migration Events</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#listening-for-partition-lost-events">Listening for Partition Lost Events</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#listening-for-lifecycle-events">Listening for Lifecycle Events</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#listening-for-map-events">Listening for Map Events</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#listening-for-multimap-events">Listening for MultiMap Events</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#listening-for-item-events">Listening for Item Events</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#listening-for-topic-messages">Listening for Topic Messages</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#listening-for-clients">Listening for Clients</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#event-listeners-for-hazelcast-clients">Event Listeners for Hazelcast Clients</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#global-event-configuration">Global Event Configuration</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#distributed-computing">Distributed Computing</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#executor-service">Executor Service</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#implementing-a-callable-task">Implementing a Callable Task</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#implementing-a-runnable-task">Implementing a Runnable Task</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#scaling-the-executor-service">Scaling The Executor Service</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#executing-code-in-the-cluster">Executing Code in the Cluster</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#canceling-an-executing-task">Canceling an Executing Task</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#callback-when-task-completes">Callback When Task Completes</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#selecting-members-for-task-execution">Selecting Members for Task Execution</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-executor-service">Configuring Executor Service</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#durable-executor-service">Durable Executor Service</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#configuring-durable-executor-service">Configuring Durable Executor Service</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#scheduled-executor-service">Scheduled Executor Service</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#scheduled-executor-api">Scheduled Executor API</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-scheduled-executor-service">Configuring Scheduled Executor Service</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#examples">Examples</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#entry-processor">Entry Processor</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#performing-fast-in-memory-map-operations">Performing Fast In-Memory Map Operations</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-indexes">Using Indexes</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-object-in-memory-format">Using OBJECT In-Memory Format</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#entryprocessor-interface">`EntryProcessor` Interface</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#processing-backup-entries">Processing Backup Entries</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#creating-an-entry-processor">Creating an Entry Processor</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#abstract-entry-processor">Abstract Entry Processor</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#entry-processor-performance-optimizations">Entry Processor Performance Optimizations</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#distributed-query">Distributed Query</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#how-distributed-query-works">How Distributed Query Works</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#employee-map-query-example">Employee Map Query Example</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#querying-with-criteria-api">Querying with Criteria API</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#querying-with-sql">Querying with SQL</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#filtering-with-paging-predicates">Filtering with Paging Predicates</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#indexing-queries">Indexing Queries</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-query-thread-pool">Configuring Query Thread Pool</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#querying-in-collections-and-arrays">Querying in Collections and Arrays</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#indexing-in-collections-and-arrays">Indexing in Collections and Arrays</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#corner-cases">Corner cases</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#custom-attributes">Custom Attributes</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#implementing-a-valueextractor">Implementing a ValueExtractor</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#extraction-arguments">Extraction Arguments</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-a-custom-attribute-programmatically">Configuring a Custom Attribute Programmatically</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-a-custom-attribute-declaratively">Configuring a Custom Attribute Declaratively</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#indexing-custom-attributes">Indexing Custom Attributes</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#mapreduce">MapReduce</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#understanding-mapreduce">Understanding MapReduce</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-the-mapreduce-api">Using the MapReduce API</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-mapreduce-architecture">Hazelcast MapReduce Architecture</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#mapreduce-deprecation">MapReduce Deprecation</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#aggregators">Aggregators</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#aggregations-basics">Aggregations Basics</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-the-aggregations-api">Using the Aggregations API</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#aggregations-examples">Aggregations Examples</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#implementing-aggregations">Implementing Aggregations</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#fast-aggregations">Fast-Aggregations</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#aggregator-api">Aggregator API</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#sample-implementation">Sample Implementation</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#built-in-aggregations">Built-In Aggregations</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuration-options">Configuration Options</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#projections">Projections</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#projections-api">Projections API</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#sample-implementation">Sample implementation</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#built-in-projections">Built-In Projections</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#continuous-query-cache">Continuous Query Cache</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#keeping-query-results-local-and-ready">Keeping Query Results Local and Ready</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#accessing-continuous-query-cache-from-member">Accessing Continuous Query Cache from Member</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#accessing-continuous-query-cache-from-client-side">Accessing Continuous Query Cache from Client Side</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#features-of-continuous-query-cache">Features of Continuous Query Cache</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#transactions">Transactions</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#creating-a-transaction-interface">Creating a Transaction Interface</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#queuesetlist-vs-mapmultimap">Queue/Set/List vs. Map/Multimap</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#one-phase-vs-two-phase">ONE_PHASE vs. TWO_PHASE</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#providing-xa-transactions">Providing XA Transactions</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#integrating-into-j2ee">Integrating into J2EE</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-jcache">Hazelcast JCache</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#jcache-overview">JCache Overview</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#jcache-setup-and-configuration">JCache Setup and Configuration</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#setting-up-your-application">Setting up Your Application</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#example-jcache-application">Example JCache Application</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-for-jcache">Configuring for JCache</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#jcache-providers">JCache Providers</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#configuring-jcache-provider">Configuring JCache Provider</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-jcache-with-client-provider">Configuring JCache with Client Provider</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-jcache-with-server-provider">Configuring JCache with Server Provider</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#jcache-api">JCache API</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#jcache-api-application-example">JCache API Application Example</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#jcache-base-classes">JCache Base Classes</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#implementing-factory-and-factorybuilder">Implementing Factory and FactoryBuilder</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#implementing-cacheloader">Implementing CacheLoader</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#cachewriter">CacheWriter</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#implementing-entryprocessor">Implementing EntryProcessor</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#cacheentrylistener">CacheEntryListener</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#expirepolicy">ExpirePolicy</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#jcache-hazelcast-instance-integration">JCache - Hazelcast Instance Integration</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#jcache-and-hazelcast-instance-awareness">JCache and Hazelcast Instance Awareness</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-jcache-extension-icache">Hazelcast JCache Extension - ICache</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#scoping-to-join-clusters">Scoping to Join Clusters</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#namespacing">Namespacing</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#retrieving-an-icache-instance">Retrieving an ICache Instance</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#icache-configuration">ICache Configuration</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#icache-async-methods">ICache Async Methods</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#defining-a-custom-expirypolicy">Defining a Custom ExpiryPolicy</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#jcache-eviction">JCache Eviction</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#jcache-near-cache">JCache Near Cache</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#icache-convenience-methods">ICache Convenience Methods</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#implementing-backupawareentryprocessor">Implementing BackupAwareEntryProcessor</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#icache-partition-lost-listener">ICache Partition Lost Listener</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#jcache-split-brain">JCache Split-Brain</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#testing-for-jcache-specification-compliance">Testing for JCache Specification Compliance</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#integrated-clustering">Integrated Clustering</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#hibernate-second-level-cache">Hibernate Second Level Cache</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#web-session-replication">Web Session Replication</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#filter-based-web-session-replication">Filter Based Web Session Replication</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#tomcat-based-web-session-replication">Tomcat Based Web Session Replication</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#jetty-based-web-session-replication">Jetty Based Web Session Replication</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#spring-integration">Spring Integration</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#supported-versions">Supported Versions</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-spring">Configuring Spring</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#enabling-springaware-objects">Enabling SpringAware Objects</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#adding-caching-to-spring">Adding Caching to Spring</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-hibernate-second-level-cache">Configuring Hibernate Second Level Cache</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-hazelcast-transaction-manager">Configuring Hazelcast Transaction Manager</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#best-practices">Best Practices</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#storage">Storage</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#high-density-memory-store">High-Density Memory Store</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#configuring-high-density-memory-store">Configuring High-Density Memory Store</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#sizing-practices">Sizing Practices</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hot-restart-persistence">Hot Restart Persistence</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#hot-restart-persistence-overview">Hot Restart Persistence Overview</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hot-restart-types">Hot Restart Types</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#restart-process">Restart Process</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#force-start">Force Start</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#partial-start">Partial Start</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-hot-restart">Configuring Hot Restart</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#movingcopying-hot-restart-data">Moving/Copying Hot Restart Data</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hot-restart-persistence-design-details">Hot Restart Persistence Design Details</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#concurrent-incremental-generational-gc">Concurrent, Incremental, Generational GC</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hot-restart-performance-considerations">Hot Restart Performance Considerations</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hot-backup">Hot Backup</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-striim-hot-cache">Hazelcast Striim Hot Cache</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-java-client">Hazelcast Java Client</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#hazelcast-clients-feature-comparison">Hazelcast Clients Feature Comparison</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#java-client-overview">Java Client Overview</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#including-dependencies-for-java-clients">Including Dependencies for Java Clients</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#getting-started-with-client-api">Getting Started with Client API</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#java-client-operation-modes">Java Client Operation Modes</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#handling-failures">Handling Failures</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-supported-distributed-data-structures">Using Supported Distributed Data Structures</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-client-services">Using Client Services</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#client-listeners">Client Listeners</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#client-transactions">Client Transactions</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-java-client">Configuring Java Client</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#configuring-client-network">Configuring Client Network</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-client-load-balancer">Configuring Client Load Balancer</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-client-near-cache">Configuring Client Near Cache</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#client-group-configuration">Client Group Configuration</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#client-security-configuration">Client Security Configuration</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#client-serialization-configuration">Client Serialization Configuration</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-client-listeners">Configuring Client Listeners</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#executorpoolsize">ExecutorPoolSize</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#classloader">ClassLoader</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#client-system-properties">Client System Properties</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#sample-codes-for-client">Sample Codes for Client</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-high-density-memory-store-with-java-client">Using High-Density Memory Store with Java Client</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#other-client-and-language-implementations">Other Client and Language Implementations</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#c-client">C++ Client</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#net-client">.NET Client</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#python-client">Python Client</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#nodejs-client">Node.js Client</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#scala">Scala</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#rest-client">REST Client</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#rest-client-getpostdelete-examples">REST Client GET/POST/DELETE Examples</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#checking-the-status-of-the-cluster-for-rest-client">Checking the Status of the Cluster for REST Client</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#memcache-client">Memcache Client</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#memcache-client-code-examples">Memcache Client Code Examples</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#unsupported-operations-for-memcache">Unsupported Operations for Memcache</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#serialization">Serialization</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#serialization-interface-types">Serialization Interface Types</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#comparing-serialization-interfaces">Comparing Serialization Interfaces</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#implementing-java-serializable-and-externalizable">Implementing Java Serializable and Externalizable</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#implementing-java-externalizable">Implementing Java Externalizable</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#implementing-dataserializable">Implementing DataSerializable</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#identifieddataserializable">IdentifiedDataSerializable</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#implementing-portable-serialization">Implementing Portable Serialization</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#portable-serialization-example-code">Portable Serialization Example Code</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#registering-the-portable-factory">Registering the Portable Factory</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#versioning-for-portable-serialization">Versioning for Portable Serialization</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#ordering-consistency-for-writeportable">Ordering Consistency for `writePortable`</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#null-portable-serialization">Null Portable Serialization</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#distributedobject-serialization">DistributedObject Serialization</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#custom-serialization">Custom Serialization</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#implementing-streamserializer">Implementing StreamSerializer</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#implementing-bytearrayserializer">Implementing ByteArraySerializer</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#global-serializer">Global Serializer</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#sample-global-serializer">Sample Global Serializer</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#implementing-hazelcastinstanceaware">Implementing HazelcastInstanceAware</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#serialization-configuration-wrap-up">Serialization Configuration Wrap-Up</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#management">Management</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#getting-member-statistics">Getting Member Statistics</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#map-statistics">Map Statistics</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#multimap-statistics">Multimap Statistics</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#queue-statistics">Queue Statistics</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#topic-statistics">Topic Statistics</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#executor-statistics">Executor Statistics</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#jmx-api-per-member">JMX API per Member</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#monitoring-with-jmx">Monitoring with JMX</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#mbean-naming-for-hazelcast-data-structures">MBean Naming for Hazelcast Data Structures</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#connecting-to-jmx-agent">Connecting to JMX Agent</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#cluster-utilities">Cluster Utilities</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#getting-member-events-and-member-sets">Getting Member Events and Member Sets</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#managing-cluster-and-member-states">Managing Cluster and Member States</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-the-script-clustersh">Using the Script cluster.sh</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-rest-api-for-cluster-management">Using REST API for Cluster Management</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#enabling-lite-members">Enabling Lite Members</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#defining-member-attributes">Defining Member Attributes</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#safety-checking-cluster-members">Safety Checking Cluster Members</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#diagnostics">Diagnostics</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#enabling-diagnostics-logging">Enabling Diagnostics Logging</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#diagnostics-log-file">Diagnostics Log File</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#diagnostics-plugins">Diagnostics Plugins</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#management-center">Management Center</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#deploying-and-starting">Deploying and Starting</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#getting-started-to-management-center">Getting Started to Management Center</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-management-center-with-tlsssl-only">Using Management Center with TLS/SSL Only</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#ldap-authentication">LDAP Authentication</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#active-directory-authentication">Active Directory Authentication</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#jaas-authentication">JAAS Authentication</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#management-center-tools">Management Center Tools</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#management-center-home-page">Management Center Home Page</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#monitoring-caches">Monitoring Caches</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#managing-maps">Managing Maps</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#monitoring-replicated-maps">Monitoring Replicated Maps</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#monitoring-queues">Monitoring Queues</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#monitoring-topics">Monitoring Topics</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#monitoring-multimaps">Monitoring MultiMaps</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#monitoring-executors">Monitoring Executors</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#monitoring-wan-replication">Monitoring WAN Replication</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#monitoring-members">Monitoring Members</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#scripting">Scripting</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#executing-console-commands">Executing Console Commands</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#creating-alerts">Creating Alerts</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#administering-management-center">Administering Management Center</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hot-restart">Hot Restart</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#checking-past-status-with-time-travel">Checking Past Status with Time Travel</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#management-center-documentation">Management Center Documentation</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#suggested-heap-size">Suggested Heap Size</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#clustered-jmx-via-management-center">Clustered JMX via Management Center</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#configuring-clustered-jmx">Configuring Clustered JMX</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#enabling-tlsssl-for-clustered-jmx">Enabling TLS/SSL for Clustered JMX</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#clustered-jmx-api">Clustered JMX API</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#integrating-with-new-relic">Integrating with New Relic</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#integrating-with-appdynamics">Integrating with AppDynamics</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#clustered-rest-via-management-center">Clustered REST via Management Center</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#enabling-clustered-rest">Enabling Clustered REST</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#clustered-rest-api-root">Clustered REST API Root</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#clusters-resource">Clusters Resource</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#cluster-resource">Cluster Resource</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#members-resource">Members Resource</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#member-resource">Member Resource</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#clients-resource">Clients Resource</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#maps-resource">Maps Resource</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#multimaps-resource">MultiMaps Resource</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#queues-resource">Queues Resource</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#topics-resource">Topics Resource</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#executors-resource">Executors Resource</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#security">Security</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#enabling-security">Enabling Security</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#socket-interceptor">Socket Interceptor</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#security-interceptor">Security Interceptor</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#encryption">Encryption</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#tlsssl">TLS/SSL</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#tlsssl-for-hazelcast-members">TLS/SSL for Hazelcast Members</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#tlsssl-for-hazelcast-clients">TLS/SSL for Hazelcast Clients</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#mutual-authentication">Mutual Authentication</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#tlsssl-performance-improvements-for-java">TLS/SSL Performance Improvements for Java</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#credentials">Credentials</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#clusterloginmodule">ClusterLoginModule</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#enterprise-integration">Enterprise Integration</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#cluster-member-security">Cluster Member Security</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#native-client-security">Native Client Security</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#authentication">Authentication</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#authorization">Authorization</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#permissions">Permissions</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#performance">Performance</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#data-affinity">Data Affinity</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#back-pressure">Back Pressure</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#member-side">Member Side</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#client-side">Client Side</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#threading-model">Threading Model</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#io-threading">I/O Threading</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#event-threading">Event Threading</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#iexecutor-threading">IExecutor Threading</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#operation-threading">Operation Threading</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#slowoperationdetector">SlowOperationDetector</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#logging-of-slow-operations">Logging of Slow Operations</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#purging-of-slow-operation-logs">Purging of Slow Operation Logs</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#near-cache">Near Cache</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#hazelcast-data-structures-with-near-cache-support">Hazelcast Data Structures with Near Cache Support</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-near-cache">Configuring Near Cache</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#near-cache-configuration-examples">Near Cache Configuration Examples</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#near-cache-eviction">Near Cache Eviction</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#near-cache-expiration">Near Cache Expiration</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#near-cache-invalidation">Near Cache Invalidation</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#near-cache-eventual-consistency">Near Cache Eventual Consistency</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#near-cache-preloader">Near Cache Preloader</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-simulator">Hazelcast Simulator</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#wan">WAN</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#wan-replication">WAN Replication</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#defining-wan-replication">Defining WAN Replication</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#wanbatchreplication-implementation">WanBatchReplication Implementation</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-wan-replication-for-imap-and-icache">Configuring WAN Replication for IMap and ICache</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#batch-size">Batch Size</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#batch-maximum-delay">Batch Maximum Delay</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#response-timeout">Response Timeout</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#queue-capacity">Queue Capacity</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#queue-full-behavior">Queue Full Behavior</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#event-filtering-api">Event Filtering API</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#acknowledgment-types">Acknowledgment Types</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#synchronizing-wan-target-cluster">Synchronizing WAN Target Cluster</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#wan-replication-additional-information">WAN Replication Additional Information</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#hazelcast-wan-replication-with-solace">Hazelcast WAN Replication with Solace</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#enabling-integration">Enabling Integration</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#additional-information">Additional Information</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#osgi">OSGI</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#osgi-support">OSGI Support</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#api">API</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-hazelcast-osgi-support">Configuring Hazelcast OSGI Support</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#design">Design</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#using-hazelcast-osgi-service">Using Hazelcast OSGI Service</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#getting-hazelcast-osgi-service-instances">Getting Hazelcast OSGI Service Instances</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#managing-and-using-hazelcast-instances">Managing and Using Hazelcast instances</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#extending-hazelcast">Extending Hazelcast</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#user-defined-services">User Defined Services</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#creating-the-service-class">Creating the Service Class</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#enabling-the-service-class">Enabling the Service Class</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#adding-properties-to-the-service">Adding Properties to the Service</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#starting-the-service">Starting the Service</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#placing-a-remote-call-via-proxy">Placing a Remote Call via Proxy</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#creating-containers">Creating Containers</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#partition-migration">Partition Migration</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#creating-backups">Creating Backups</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#waitnotifyservice">WaitNotifyService</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#discovery-spi">Discovery SPI</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#discovery-spi-interfaces-and-classes">Discovery SPI Interfaces and Classes</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#discovery-strategy">Discovery Strategy</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#discoveryservice-framework-integration">DiscoveryService (Framework integration)</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#config-properties-spi">Config Properties SPI</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#config-properties-spi-classes">Config Properties SPI Classes</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#config-properties-spi-example">Config Properties SPI Example</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#network-partitioning-split-brain-syndrome">Network Partitioning - Split-Brain Syndrome</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#understanding-partition-recreation">Understanding Partition Recreation</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#understanding-backup-partition-creation">Understanding Backup Partition Creation</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#understanding-the-update-overwrite-scenario">Understanding The Update Overwrite Scenario</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#what-happens-when-the-network-failure-is-fixed">What Happens When The Network Failure Is Fixed</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#how-hazelcast-split-brain-merge-happens">How Hazelcast Split-Brain Merge Happens</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#specifying-merge-policies">Specifying Merge Policies</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#split-brain-protection">Split-Brain Protection</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#time-window-for-split-brain-protection">Time Window for Split-Brain Protection</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-quorum">Configuring Quorum</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#configuring-quorum-listeners">Configuring Quorum Listeners</a>
+      
+    </li>
+  
+    <li>
+      <a href="index.html#querying-quorum-results">Querying Quorum Results</a>
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#system-properties">System Properties</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#common-exception-types">Common Exception Types</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#license-questions">License Questions</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#embedded-dependencies">Embedded Dependencies</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#runtime-dependencies">Runtime Dependencies</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#frequently-asked-questions">Frequently Asked Questions</a>
+      
+        
+  <ol>
+    
+    <li>
+      <a href="index.html#why-271-as-the-default-partition-count">Why 271 as the default partition count?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#is-hazelcast-thread-safe">Is Hazelcast thread safe?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#how-do-members-discover-each-other">How do members discover each other?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#what-happens-when-a-member-goes-down">What happens when a member goes down?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#how-do-i-test-the-connectivity">How do I test the connectivity?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#how-do-i-choose-keys-properly">How do I choose keys properly?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#how-do-i-reflect-value-modifications">How do I reflect value modifications?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#how-do-i-test-my-hazelcast-cluster">How do I test my Hazelcast cluster?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#does-hazelcast-support-hundreds-of-members">Does Hazelcast support hundreds of members?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#does-hazelcast-support-thousands-of-clients">Does Hazelcast support thousands of clients?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#difference-between-lite-member-and-smart-client">Difference between Lite Member and Smart Client?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#how-do-you-give-support">How do you give support?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#does-hazelcast-persist">Does Hazelcast persist?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#can-i-use-hazelcast-in-a-single-server">Can I use Hazelcast in a single server?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#how-can-i-monitor-hazelcast">How can I monitor Hazelcast?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#how-can-i-see-debug-level-logs">How can I see debug level logs?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#client-server-vs-embedded-topologies">Client-server vs. embedded topologies?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#how-do-i-know-it-is-safe-to-kill-the-second-member">How do I know it is safe to kill the second member?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#when-do-i-need-native-memory-solutions">When do I need Native Memory solutions?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#is-there-any-disadvantage-of-using-near-cache">Is there any disadvantage of using near-cache?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#is-hazelcast-secure">Is Hazelcast secure?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#how-can-i-set-socket-options">How can I set socket options?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#client-disconnections-during-idle-time">Client disconnections during idle time?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#oome-unable-to-create-new-native-thread">OOME: Unable to create new native thread?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#does-repartitioning-wait-for-entry-processor">Does repartitioning wait for Entry Processor?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#instances-on-different-machines-cannot-see-each-other">Instances on different machines cannot see each other?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#what-does-replica-1-has-no-owner-mean">What Does &quot;Replica: 1 has no owner&quot; Mean?</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+      
+    </li>
+  
+    <li>
+      <a href="index.html#glossary">Glossary</a>
+      
+        
+  <ol>
+    
+  </ol>
+
+      
+    </li>
+  
+  </ol>
+
+  </nav>
+</div>
+      <div id="content">
+        <h2>Search results for "<span id="search-q"></span>"</h2>
+<ul id="search-results"></ul>
+<script type="text/javascript" src="lunr-index.js"></script>
+<script type="text/javascript">
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    $(function() {
+        var q = getParameterByName('q'), 
+            ul = $('#search-results').empty(),
+            results = index.search(q);
+
+        $('#search-q').text(q);
+        if (results.length > 0) {
+            for (var i = 0; i < results.length; i++) {
+                ul.append($('<li><a href="' + results[i].ref + '">' + documentTitles[results[i].ref] + '</a></li>'));
+            }
+        } else {
+            ul.append($('<li class="no-results">No results found</li>'));
+        }
+    })
+</script>
+
+      </div>
+      <a class="sendfix" href="https://github.com/hazelcast/hazelcast-reference-manual/issues/new" target="_blank">Send Us a Fix!</a>
+    </div>
+  </div>
+    <script type="text/javascript" src="assets/js/scroll-scrollup.js"></script>	
+    <script type="text/javascript" src="assets/js/lunr.min.js"></script>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-74505322-1', 'auto');
+       ga('send', 'pageview');
+    </script>
+</body>
+</html>

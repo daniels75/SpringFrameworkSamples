@@ -1,0 +1,89 @@
+
+In this Release Notes document, you will find the new features, enhancements and fixes of the Hazelcast Management Center 3.9.x releases.
+The numbers in the square brackets refer to the issue number in Hazelcast Management Center’s GitHub repository.
+
+--------------------------------------------------------------------------------------------------------------------
+***Hazelcast Management Center 3.9.1***
+
+1. Enhancements
+
+- Introduced the display of last login time. [#575]
+- Type of the key is validated on Browse Map/Cache dialog. [#588]
+- Added extra option to start the script for the location to expand the WAR file. [#581]
+- Repeated unsuccessful login attempts cause the login to be disabled incrementally. [#578]
+- "Secure" flag is set for cookies when HTTPS is used. [#574]
+
+2. Fixes
+
+- Fix a bug where no labels were shown on "Partition Distribution" pie chart. [#570]
+- Show the correct license type when a Management Center only license is used. [#548]
+- Fix role checking for manual calls to HTTP endpoints. [#579]
+- Fix NPE during cluster restart. [#547]
+- Fix confusing WAN start/stop button. [#496]
+- Fix script's help command. [#577]
+- Fix "No Socket Interceptor" warning for 3.8.x clusters. [#586]
+
+--------------------------------------------------------------------------------------------------------------------
+***Hazelcast Management Center 3.9***
+
+1. New Features
+
+- Monitoring Clients:  You can now monitor all the clients that are connected to your Hazelcast cluster. Currently only the Java clients can be monitored.
+
+
+2. Enhancements
+
+- Notify user on incompatible member version. [#465]
+- TLS mutual authentication. [#457]
+- Promote lite members to data members. [#456]
+- Add cache browser. [#373]
+- Authentication SPI & JAAS Authentication. [#363]
+- Socket Interceptor Support: Now it is possible to manage your cluster from the Management Center if you have enabled socket interceptor on it. Please refer to [Administering Management Center](http://docs.hazelcast.org/docs/management-center/3.9/manual/html/index.html) for more information.
+- Updated the user interface refresh period as every 5 seconds (it was every second). [#531]
+- Input on the "Change Cluster Version" dialog is now validated. [#535]
+- Introduced warning when value not found in Cache Browser. [#525]
+- Script, user and alert names now accept only alpha-numeric characters. [#511], [#514], [#515]
+
+
+3. Fixes
+
+- Fix security providers listed twice in the security provider dialog. [#382]
+- Incorrect High-Density Memory Store values at the Map monitoring screen. [#374]
+- Fixed cross site scripting vulnerabilities.
+
+--------------------------------------------------------------------------------------------------------------------
+***Hazelcast Management Center 3.8.4***
+
+1. New Features
+
+- Monitoring of Reliable Topic: Now it is possible to monitor your Reliable Topic data structures through Hazelcast Management Center.
+
+2. Enhancements
+
+- JMX host name is now configurable.
+
+3. Fixes
+
+- WAN sync looks for incorrect map when there is more than one map in the dropdown list. [#494],[#495]
+- Inconsistent list of data structures: When there are more than two Hazelcast members, Management Center cannot show the full data structure lists every time since the members' states are updated but instance objects are not. [#488]
+
+--------------------------------------------------------------------------------------------------------------------
+***Hazelcast Management Center 3.8.3***
+
+
+1. New Features
+
+- TLS Protocol Exclusions: Added an option to exclude specific TLS protocols.
+
+
+2. Enhancements
+
+- Eliminated a security bug on the initial authentication configuration. [#459]
+- Prevented multiple notifications when changing cluster states. [#452]
+- Moved the cluster state controls to its own tab. [#451]
+
+3. Fixes
+
+- Version display is fixed so that it shows the full Management Center version including the patch release number. [#454]
+- The label of the button "Shutdown Node" in Management Center should be changed to "Shutdown Members" due to naming conventions. [#450]
+
