@@ -9,10 +9,13 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.daniels.spring.resttemplate.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -29,6 +34,7 @@ import java.util.Map;
 public class CarComplexController {
 
     private static final Map<String, Car> simpleMap = Maps.newHashMap();
+    private static final Map<String, Map<String, Car>> complexMap = Maps.newHashMap();
 
     @Autowired
     RestTemplate restTemplate;
@@ -36,7 +42,7 @@ public class CarComplexController {
     private final String baseUrl = "http://localhost:8093";
 
     @PostMapping(path = "/{key}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Car put(@PathVariable String key, @RequestBody Car car) {
+    public Car post(@PathVariable String key, @RequestBody Car car) {
         log.info("put key: {}, car: {}", key, car);
         logJson(car);
         return simpleMap.put(key, car);
@@ -53,20 +59,84 @@ public class CarComplexController {
         log.info("putViaRestTemplate key: {}, car: {}", key, car);
         logJson(car);
 
-        String pathUrl = baseUrl  + "/complex/" + key;
+        String pathUrl = baseUrl  + "/{suffix}/{key}";
         log.info("putViaRestTemplate - put with path: {}", pathUrl);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Car> request = new HttpEntity<Car>(car, headers);
 
-        Object result = restTemplate.postForEntity(pathUrl, car, Car.class);
+        Object result = restTemplate.postForEntity(pathUrl,
+                car,
+                Car.class,
+                "complex",
+                key);
 
+
+        HttpEntity<Car> request2 = new HttpEntity<>(car);
+        ResponseEntity<Car> response = restTemplate
+                .exchange(pathUrl, HttpMethod.POST, request, Car.class,
+                        "complex",
+                        key);
 
         //Object result = restTemplate.postForEntity(pathUrl, request, Car.class);
 
 
         return "Added Car via REST Template";
+    }
+
+    @PostMapping(path = "/map/{key}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public String postMap(@PathVariable String key, @RequestBody Map<String, Car> mapCar) {
+        log.info("postMap key: {}, car: {}", key, mapCar);
+        logJson(mapCar);
+        return "added map";
+    }
+
+    @GetMapping(value = "/map/{key}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String, Car> getMap(@PathVariable String key) {
+        Car car = Car.create(10, "simpleCar");
+        Map<String, Car>  mapCar = Collections.singletonMap("12345", car);
+        logJson(mapCar);
+        log.info("get key: {}, mapCar: {}", key, mapCar);
+        return mapCar;
+    }
+
+    @PostMapping(path = "/map/template/{key}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public String postMapTemplate(@PathVariable String key) {
+        Car car = Car.create(10, "simpleCar");
+        Map<String, Car>  mapCar = Collections.singletonMap(key, car);
+        logJson(mapCar);
+        log.info("postMapTemplate key: {}, car: {}", key, mapCar);
+        logJson(mapCar);
+        complexMap.put(key, mapCar);
+
+        String pathUrl = baseUrl  + "/{suffix}/map/template/{key}";
+        HttpEntity<Car> request = new HttpEntity<Car>(car);
+
+        ParameterizedTypeReference<HashMap<String, Car>> responseType =
+                new ParameterizedTypeReference<HashMap<String, Car>>() {};
+
+
+        Object response1 = restTemplate
+                .exchange(pathUrl, HttpMethod.GET, request, responseType,
+                        "complex", key);
+
+
+        /*
+        ResponseEntity response2 = restTemplate
+                .getForEntity(pathUrl, Object.class,
+                        "complex", key);
+        */
+        
+        return "postMapTemplate";
+    }
+
+    @GetMapping(value = "/map/template/{key}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String, Car> getMapTemplate(@PathVariable String key) {
+
+        log.info("getMapTemplate key: {}, mapCar: {}", key, complexMap.get(key));
+
+        return complexMap.get(key);
     }
 
     private void logJson(Object obj) {
