@@ -25,7 +25,7 @@ POST http://localhost:8093/complex/map/1
     }
 }
 
-POST http://localhost:8093/complex/map/template/1
+GET via RestTemplate http://localhost:8093/complex/map/template/123456
 -- no body
 
 complex String -> String,Map

@@ -101,38 +101,33 @@ public class CarComplexController {
         return mapCar;
     }
 
-    @PostMapping(path = "/map/template/{key}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public String postMapTemplate(@PathVariable String key) {
-        Car car = Car.create(10, "simpleCar");
-        Map<String, Car>  mapCar = Collections.singletonMap(key, car);
-        logJson(mapCar);
-        log.info("postMapTemplate key: {}, car: {}", key, mapCar);
-        logJson(mapCar);
-        complexMap.put(key, mapCar);
-
-        String pathUrl = baseUrl  + "/{suffix}/map/template/{key}";
-        HttpEntity<Car> request = new HttpEntity<Car>(car);
+    @GetMapping(path = "/map/template/{key}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public String getMapComplexTemplate(@PathVariable String key) {
+        // call to getMapComplex
+        String pathUrl = baseUrl  + "/{suffix}/map/complex/{key}";
 
         ParameterizedTypeReference<HashMap<String, Car>> responseType =
                 new ParameterizedTypeReference<HashMap<String, Car>>() {};
-
-
-        Object response1 = restTemplate
-                .exchange(pathUrl, HttpMethod.GET, request, responseType,
+        ResponseEntity<HashMap<String, Car>> response1 = restTemplate
+                .exchange(pathUrl, HttpMethod.GET, HttpEntity.EMPTY, responseType,
                         "complex", key);
-
-
+        log.info("getMapComplexTemplate - key:{}, result: {} ", key, response1.getBody().get(key));
         /*
         ResponseEntity response2 = restTemplate
                 .getForEntity(pathUrl, Object.class,
                         "complex", key);
         */
-        
-        return "postMapTemplate";
+
+        return "getMapComplexTemplate";
     }
 
-    @GetMapping(value = "/map/template/{key}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Map<String, Car> getMapTemplate(@PathVariable String key) {
+    @GetMapping(value = "/map/complex/{key}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String, Car> getMapComplex(@PathVariable String key) {
+        Car car = Car.create(10, "simpleCar");
+        Map<String, Car>  mapCar = Collections.singletonMap(key, car);
+        complexMap.put(key, mapCar);
+
+        logJson(complexMap);
 
         log.info("getMapTemplate key: {}, mapCar: {}", key, complexMap.get(key));
 
