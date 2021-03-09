@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.daniels.spring.resttemplate.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -30,16 +31,16 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(path = "/complex")
+@AllArgsConstructor
 @Slf4j
 public class CarComplexController {
 
     private static final Map<String, Car> simpleMap = Maps.newHashMap();
     private static final Map<String, Map<String, Car>> complexMap = Maps.newHashMap();
+    private static final String baseUrl = "http://localhost:8093";
 
-    @Autowired
-    RestTemplate restTemplate;
-
-    private final String baseUrl = "http://localhost:8093";
+    @Qualifier("default-rest-template")
+    private final RestTemplate restTemplate;
 
     @PostMapping(path = "/{key}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Car post(@PathVariable String key, @RequestBody Car car) {
@@ -108,6 +109,7 @@ public class CarComplexController {
 
         ParameterizedTypeReference<HashMap<String, Car>> responseType =
                 new ParameterizedTypeReference<HashMap<String, Car>>() {};
+
         ResponseEntity<HashMap<String, Car>> response1 = restTemplate
                 .exchange(pathUrl, HttpMethod.GET, HttpEntity.EMPTY, responseType,
                         "complex", key);
@@ -127,7 +129,7 @@ public class CarComplexController {
         Map<String, Car>  mapCar = Collections.singletonMap(key, car);
         complexMap.put(key, mapCar);
 
-        logJson(complexMap);
+        logJson(mapCar);
 
         log.info("getMapTemplate key: {}, mapCar: {}", key, complexMap.get(key));
 
