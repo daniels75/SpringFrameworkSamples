@@ -39,9 +39,11 @@ public class CarComplexController {
     private static final Map<String, Map<String, Car>> complexMap = Maps.newHashMap();
     private static final String baseUrl = "http://localhost:8093";
 
-    @Qualifier("default-rest-template")
-    @Autowired
-    private  RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
+
+    public CarComplexController(@Qualifier("default-rest-template") RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @PostMapping(path = "/{key}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Car post(@PathVariable String key, @RequestBody Car car) {

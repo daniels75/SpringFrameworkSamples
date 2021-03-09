@@ -26,13 +26,14 @@ import java.util.Map;
 public class ExceptionRest {
     private static final String baseUrl = "http://localhost:8093";
 
-    @Qualifier("default-rest-template")
-    @Autowired
-    private RestTemplate defaultRestTemplate;
+    private final RestTemplate defaultRestTemplate;
+    private final RestTemplate exceptionRestTemplate;
 
-    @Qualifier("exception-rest-template")
-    @Autowired
-    private RestTemplate exceptionRestTemplate;
+    public ExceptionRest(@Qualifier("default-rest-template") RestTemplate defaultRestTemplate,
+                         @Qualifier("exception-rest-template") RestTemplate exceptionRestTemplate) {
+        this.defaultRestTemplate = defaultRestTemplate;
+        this.exceptionRestTemplate = exceptionRestTemplate;
+    }
 
     @GetMapping(path = "/{key}", produces= MediaType.APPLICATION_JSON_VALUE)
     public String key(@PathVariable Integer key) {
