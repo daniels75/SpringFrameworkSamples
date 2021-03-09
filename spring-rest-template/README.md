@@ -35,3 +35,8 @@ complex String -> String,Map
         "name": "simpleCar"
     }
 }
+
+### with exception handler
+1. http://localhost:8093/exception/1 -> http://localhost:8093/exception/another/1
+2. 503 handler - http://localhost:8093/exception/ex/1 -> http://localhost:8093/exception/ex/another/1
+

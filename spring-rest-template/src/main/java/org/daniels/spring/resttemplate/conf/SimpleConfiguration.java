@@ -10,7 +10,13 @@ public class SimpleConfiguration {
 
     @Bean
     @Qualifier("default-rest-template")
-    public RestTemplate createRestTemplate() {
+    public RestTemplate createDefaultRestTemplate() {
+        return new RestTemplate();
+    }
+
+    @Bean
+    @Qualifier("exception-rest-template")
+    public RestTemplate createRestTemplateWithExceptionHandler() {
         return new RestTemplate();
     }
 }

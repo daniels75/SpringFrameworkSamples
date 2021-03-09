@@ -31,7 +31,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(path = "/complex")
-@AllArgsConstructor
+//@AllArgsConstructor
 @Slf4j
 public class CarComplexController {
 
@@ -40,7 +40,8 @@ public class CarComplexController {
     private static final String baseUrl = "http://localhost:8093";
 
     @Qualifier("default-rest-template")
-    private final RestTemplate restTemplate;
+    @Autowired
+    private  RestTemplate restTemplate;
 
     @PostMapping(path = "/{key}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Car post(@PathVariable String key, @RequestBody Car car) {
