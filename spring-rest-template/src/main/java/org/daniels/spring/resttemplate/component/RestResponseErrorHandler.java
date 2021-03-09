@@ -10,7 +10,7 @@ import java.io.IOException;
 
 @Component
 @Slf4j
-public class RestTemplateResponseErrorHandler implements ResponseErrorHandler {
+public class RestResponseErrorHandler implements ResponseErrorHandler {
 
     @Override
     public boolean hasError(ClientHttpResponse httpResponse) throws IOException {
